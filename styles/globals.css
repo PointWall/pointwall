@@ -21,6 +21,8 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(var(--background-end-rgb));
+
+  font-family: 'Montserrat', monospace;
 }
 
 /* ::selection {
@@ -28,20 +30,35 @@ body {
   background: var(--selection-background);
 } */
 
+/* ::-webkit-scrollbar{
+  width: 1.25em;
+  border: inherit solid 5px;
+  background-color: var(--gris);
+}
+::-webkit-scrollbar-track{
+  background-color: var(--gris);
+}
+::-webkit-scrollbar-thumb{
+  background-image: linear-gradient(200deg, var(--gris) calc(12.5%*1), var(--rojo) calc(12.5%*1), var(--rojo) calc(12.5%*2), var(--naranja) calc(12.5%*2), var(--naranja) calc(12.5%*3), var(--amarillo) calc(12.5%*3), var(--amarillo) calc(12.5%*4), var(--verde) calc(12.5%*4), var(--verde) calc(12.5%*5), var(--azul) calc(12.5%*5), var(--azul) calc(12.5%*6), var(--rosa) calc(12.5%*6), var(--rosa) calc(12.5%*7), var(--gris) calc(12.5%*7));
+  background-size: cover;
+  
+} */
+
 .nav-link {
   position: relative;
+  z-index: 10;
 }
 
 .nav-link::after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 3px;
   background-color: black;
   bottom: 0;
+  content: '';
+  height: 3px;
   left: 50%;
-  translate: -50%;
+  position: absolute;
   transition: width ease .3s;
+  translate: -50%;
+  width: 0%;
   z-index: -1;
 }
 
@@ -50,8 +67,44 @@ body {
   animation-duration: 1s;
   animation-fill-mode: both;
   width: 100%;
+} 
+
+.nav-link__text {
+  display: block;
+  padding: .25em .5em;
 }
 
+.nav-link:hover .nav-link__text {
+  animation-name: linkTextColorAnimation;
+  animation-delay: .5s;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  color: inherit;
+}
+
+.form-link {
+  transition: color .3s;
+}
+
+.form-link:hover {
+  color: black; 
+}
+
+.form-link::after {
+  content: '';
+  height: 100%;
+  right: 0;
+  position: absolute;
+  top: 0;
+  transition: width ease .3s;
+  width: 0%;
+  z-index: -1;
+}
+
+.form-link:hover::after {
+  width: 100%;
+  left: 0 ;
+}
 
 @keyframes linkAnimation {
   0% {
@@ -65,5 +118,14 @@ body {
 
   100% {
     height: 100%;
+  }
+}
+
+@keyframes linkTextColorAnimation {
+  0% {
+    color: inherit;
+  }
+  100% {
+      color: black;
   }
 }

@@ -49,12 +49,12 @@ export default function Header (): JSX.Element {
 
   return (
     <header>
-      <h1 className='text-8xl'>PointWall</h1>
+      <h1 className='text-8xl font-light px-[.5em] py-[.25em]'>PointWall</h1>
       <nav>
-        <ul className='flex justify-around w-full'>
+        <ul className='bg-black text-white flex justify-around w-full'>
           {LINKS.map((link) => (
-            <li key={link.name}>
-              <Link href={link.url} className={`nav-link ${colorVariants[link.color]} transition`}>
+            <li key={link.name} className={`nav-link text-xl ${colorVariants[link.color]} transition`}>
+              <Link href={link.url} className='nav-link__text'>
                 {link.name}
               </Link>
             </li>
