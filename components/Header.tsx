@@ -31,8 +31,8 @@ const LINKS = [
     color: 'sky'
   },
   {
-    name: 'Contribución',
-    url: '/contribucion',
+    name: 'Colaboración',
+    url: '/colaboracion',
     color: 'pink'
   }
 ]

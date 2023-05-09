@@ -1,5 +1,6 @@
 // import Image from 'next/image'
 import Layout from '@/components/Layout'
+import Link from 'next/link'
 import React from 'react'
 
 export default function Home (): JSX.Element {
@@ -20,7 +21,7 @@ export default function Home (): JSX.Element {
       <section className='text-center my-16'>
         <h2 className='text-4xl font-semibold'>Formulario colaborativo</h2>
         <p className='text-2xl my-4'>Formulario para subir un mural o graffiti.</p>
-        <button className='form-link text-2xl relative border-2 border-blue-200 px-[2em] py-[.5em] text-blue-200 after:bg-blue-200'>Formulario</button>
+        <Link href='/colaboracion' className='form-link text-2xl relative inline-block my-4 border-2 border-blue-200 px-[2em] py-[.5em] text-blue-200 after:bg-blue-200'>Formulario</Link>
       </section>
     </Layout>
   )

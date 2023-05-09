@@ -1,4 +1,5 @@
 import Layout from '@/components/Layout'
+import Link from 'next/link'
 import { FormEvent } from 'react'
 
 export default function Page (): JSX.Element {
@@ -11,15 +12,15 @@ export default function Page (): JSX.Element {
       <section className='text-center'>
         <h1 className='text-8xl mt-16'>Artistas</h1>
         <p className='text-2xl max-w-prose mx-auto my-[1.25em]'>
-          Busca el arte de tus artistas favoritos! Podes buscarlo con etiquetas, por lugar o por autor.
-          Si sos un artista que busca pubicar su arte, te invitamos a que te comuniques con nosotros.
+          ¡Buscá el arte de tus artistas favoritos! Podés buscarlo con etiquetas, por lugar o por autor.
+          Si sos un artista que busca pubicar su arte, te invitamos a que a que lo hagas a través del <Link href='/contirbucion' className='text-red-300 hover:underline'>formulario de contriubción</Link>.
           O entra acá para más información.
         </p>
       </section>
       <section>
-        <form onSubmit={handleFormSubmit} className='flex w-full justify-center gap-4 flex-wrap'>
-          <input type='text' className='border-2 p-2 text-xl' />
-          <button type='submit' className='text-xl border-2 hover:bg-yellow-100'>Buscar</button>
+        <form onSubmit={handleFormSubmit} className='flex w-full my-8 justify-center flex-wrap'>
+          <input type='text' placeholder='Buscar...' className='bg-slate-50 p-2 text-xl outline-none focus:border-l-2 focus:bg-slate-100' />
+          <button type='submit' className='text-xl px-[1em] bg-slate-200 hover:opacity-90'>Buscar</button>
         </form>
       </section>
     </Layout>
