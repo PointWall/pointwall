@@ -18,9 +18,10 @@ export default function Page (): JSX.Element {
         </p>
       </section>
       <section>
-        <form onSubmit={handleFormSubmit} className='flex w-full my-8 justify-center flex-wrap'>
-          <input type='text' placeholder='Buscar...' className='bg-slate-50 p-2 text-xl outline-none focus:border-l-2 focus:bg-slate-100' />
-          <button type='submit' className='text-xl px-[1em] bg-slate-200 hover:opacity-90'>Buscar</button>
+        <form onSubmit={handleFormSubmit} className='artist-searcher relative flex justify-center flex-wrap w-fit mx-auto my-8'>
+          <input type='text' placeholder='Buscar...' className='bg-slate-50 p-2 text-xl outline-none focus:bg-slate-100' />
+          <button type='submit' className='text-xl px-[1em] bg-slate-200 hover:brightness-95 active:brightness-90'>Buscar</button>
+          <span className='artist-searcher-separator' />
         </form>
       </section>
     </Layout>

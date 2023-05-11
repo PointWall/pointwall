@@ -21,7 +21,6 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(var(--background-end-rgb));
-
   font-family: 'Montserrat', monospace;
 }
 
@@ -67,7 +66,7 @@ body {
   animation-duration: 1s;
   animation-fill-mode: both;
   width: 100%;
-} 
+}
 
 .nav-link__text {
   display: block;
@@ -87,7 +86,7 @@ body {
 }
 
 .form-link:hover {
-  color: black; 
+  color: black;
 }
 
 .form-link::after {
@@ -103,7 +102,7 @@ body {
 
 .form-link:hover::after {
   width: 100%;
-  left: 0 ;
+  left: 0;
 }
 
 @keyframes linkAnimation {
@@ -125,7 +124,36 @@ body {
   0% {
     color: inherit;
   }
+
   100% {
-      color: black;
+    color: black;
+  }
+}
+
+.artist-searcher input:focus~.artist-searcher-separator {
+  animation-name: fullWidth;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  background: rgb(226, 232, 240);
+  bottom: 0;
+  content: '';
+  height: 2.5px;
+  left: 0;
+  position: absolute;
+  width: 0%;
+  transition: width ease .3s;
+}
+
+.artist-searcher button[type="submit"]:hover+.artist-searcher-separator {
+  filter: brightness(95%)
+}
+
+@keyframes fullWidth {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
   }
 }
