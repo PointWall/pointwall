@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Usuario {
+  id           Int         @id @default(autoincrement())
+  createdAt    DateTime    @default(now())
+  name         String
+  isAdimin     Boolean     @default(false)
+  publications Ubication[]
+  
+  //Auth?
+}
+
+model Ubication {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  description Boolean  @default(false)
+  title       String
+  authorId    Int
+  author Usuario @relation(fields: [authorId], references: [id])
+
+  @@index([authorId])
+}
