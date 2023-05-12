@@ -8,6 +8,12 @@
   --background-end-rgb: 255, 255, 255;
   --selection-background: 255, 255, 255;
   --selection-foreground: 0, 0, 0;
+  --color-logo-red: 245 148 159;
+  --color-logo-orange: 249 183 131;
+  --color-logo-yellow: 242 241 149;
+  --color-logo-green: 210 230 176;
+  --color-logo-blue: 189 205 234;
+  --color-logo-pink: 231 183 213;
 }
 
 /* @media (prefers-color-scheme: dark) {

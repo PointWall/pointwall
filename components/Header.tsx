@@ -39,12 +39,12 @@ const LINKS = [
 
 export default function Header (): JSX.Element {
   const colorVariants: ColorVariant = {
-    red: 'hover:text-red-500 after:bg-red-500',
-    orange: 'hover:text-orange-500 after:bg-orange-500',
-    yellow: 'hover:text-yellow-500 after:bg-yellow-500',
-    green: 'hover:text-green-500 after:bg-green-500',
-    sky: 'hover:text-sky-500 after:bg-sky-500',
-    pink: 'hover:text-pink-500 after:bg-pink-500'
+    red: 'hover:text-logoRed after:bg-logoRed',
+    orange: 'hover:text-logoOrange after:bg-logoOrange',
+    yellow: 'hover:text-logoYellow after:bg-logoYellow',
+    green: 'hover:text-logoGreen after:bg-logoGreen',
+    sky: 'hover:text-logoBlue after:bg-logoBlue',
+    pink: 'hover:text-logoPink after:bg-logoPink'
   }
 
   return (
