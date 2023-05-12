@@ -13,7 +13,7 @@ export default function Page (): JSX.Element {
         <h1 className='text-8xl mt-16'>Artistas</h1>
         <p className='text-2xl max-w-prose mx-auto my-[1.25em]'>
           ¡Buscá el arte de tus artistas favoritos! Podés buscarlo con etiquetas, por lugar o por autor.
-          Si sos un artista que busca pubicar su arte, te invitamos a que a que lo hagas a través del <Link href='/contirbucion' className='text-red-300 hover:underline'>formulario de contriubción</Link>.
+          Si sos un artista que busca pubicar su arte, te invitamos a que a que lo hagas a través del <Link href='/contribucion' className='text-red-300 hover:underline'>formulario de contriubción</Link>.
           O entra acá para más información.
         </p>
       </section>
