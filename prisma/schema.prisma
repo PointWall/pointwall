@@ -8,24 +8,23 @@ datasource db {
   relationMode = "prisma"
 }
 
-model Usuario {
-  id           Int         @id @default(autoincrement())
-  createdAt    DateTime    @default(now())
-  name         String
-  isAdimin     Boolean     @default(false)
-  publications Ubication[]
-  
+model User {
+  id      Int     @id @default(autoincrement())
+  name    String
+  isAdmin Boolean @default(false)
+  posts   Post[]
   //Auth?
 }
 
-model Ubication {
+model Post {
   id          Int      @id @default(autoincrement())
+  title       String
+  image       String
+  description Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  description Boolean  @default(false)
-  title       String
   authorId    Int
-  author Usuario @relation(fields: [authorId], references: [id])
+  author      User     @relation(fields: [authorId], references: [id])
 
   @@index([authorId])
 }
