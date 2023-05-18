@@ -76,7 +76,7 @@ body {
 
 .nav-link__text {
   display: block;
-  padding: .25em .5em;
+  padding: .5em;
 }
 
 .nav-link:hover .nav-link__text {

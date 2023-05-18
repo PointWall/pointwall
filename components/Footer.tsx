@@ -2,6 +2,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+type Color = 'red' | 'orange' | 'yellow' | 'green' | 'pink' | 'white'
+
 const LINKS = [
   {
     name: 'Artistas',
@@ -24,8 +26,8 @@ const LINKS = [
     footerBg: 'green'
   },
   {
-    name: 'Contribución',
-    url: '/contribucion',
+    name: 'Donaciones',
+    url: '/donaciones',
     footerBg: 'pink'
   },
   {
@@ -35,9 +37,9 @@ const LINKS = [
   }
 ]
 
-export default function Footer (): JSX.Element {
+export default function Footer ({ color = undefined }: { color?: Color }): JSX.Element {
   return (
-    <footer className='bg-red-300 py-4 px-24'>
+    <footer className={`${color === undefined ? 'bg-slate-300' : 'bg-red-300'} py-4 px-24`}>
       <div className='flex'>
         <div className='flex flex-col items-center'>
           <Image src='/images/PointWall.png' alt='logo' width={75} height={75} className='border-x border-y border-black p-2 rounded-full' />
