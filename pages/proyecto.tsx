@@ -1,11 +1,14 @@
 import Layout from '@/components/Layout'
+import YoutubeEmbed from '@/components/YoutubeEmbed'
 
 export default function Page (): JSX.Element {
   return (
     <Layout>
       <section className='text-center'>
         <h1 className='text-8xl mt-16'>Acerca del proyecto</h1>
-        <h2 className='mt-8'> aca va el video </h2>
+        <div className='w-screen grid place-content-center my-16'>
+          <YoutubeEmbed embedId='AV4P9MBkaY8' />
+        </div>
       </section>
       <section className='px-[15%]'>
         <div className='border-red-300 border-l-4 pl-4 my-10'>
