@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import LoginButton from './LoginButton'
 
 interface ColorVariant {
   [key: string]: string
@@ -50,6 +51,7 @@ export default function Header (): JSX.Element {
   return (
     <header>
       <h1 className='text-8xl font-light px-[.5em] py-[.25em]'>PointWall</h1>
+      <LoginButton />
       <nav>
         <ul className='bg-black text-white flex justify-around w-full'>
           {LINKS.map((link) => (
