@@ -4,64 +4,89 @@ import Layout from '@/components/Layout'
 interface Member {
   img: string | null
   name: string
-  role: string
   description: string
 }
 
-const team: Member[] = [
+interface Team {
+  name: string
+  members: Member[]
+}
+
+const team: Team[] = [
   {
-    img: '/images/PointWall.png',
-    name: 'Diego',
-    role: 'Project Manager',
-    description: 'Estudiante técnico, poliglota, artista, encargado de organizar el proyecto.'
+    name: 'Project Managers',
+    members: [
+      {
+        img: '/images/foto_diego.jpeg',
+        name: 'Diego',
+        description: 'Estudiante técnico, poliglota, artista, encargado de organizar el proyecto.'
+      },
+      {
+        img: '/images/foto_mateo.jpg',
+        name: 'Mateo',
+        description: 'Estudiante técnico, poliglota, artista, encargado de organizar el proyecto.'
+      }
+    ]
   },
   {
-    img: '/images/PointWall.png',
-    name: 'Mateo',
-    role: 'Project Manager',
-    description: 'Estudiante técnico, poliglota, artista, encargado de organizar el proyecto.'
+    name: 'Functional Managers',
+    members: [
+      {
+        img: '/images/foto_guadalupe.jpeg',
+        name: 'Guadalupe',
+        description: 'Docente, Licenciada en Historia, gestora cultural, encargada del acompañamiento pedagógico.'
+      }
+    ]
   },
   {
-    img: '/images/PointWall.png',
-    name: 'Guadalupe',
-    role: 'Functional Manager',
-    description: 'Docente, Licenciada en Historia, gestora cultural, encargada del acompañamiento pedagógico.'
+    name: 'Resource Managers',
+    members: [
+      {
+        img: '/images/foto_alejo.jfif',
+        name: 'Alejo',
+        description: 'Estudiante técnico y programador, encargado de organizar el desarollo de programación.'
+      }
+    ]
   },
   {
-    img: '/images/PointWall.png',
-    name: 'Alejo',
-    role: 'Resource Manager',
-    description: 'Estudiante técnico y programador, encargado de organizar el desarollo de programación.'
+    name: 'Program Managers',
+    members: [
+      {
+        img: '/images/foto_gaston.png',
+        name: 'Gastón',
+        description: 'Estudiante técnico, desarollador web, encargado de asignar los trabajos a los Team Managers'
+      }
+    ]
   },
   {
-    img: '/images/PointWall.png',
-    name: 'Gastón',
-    role: 'Program Manager',
-    description: 'Estudiante técnico, desarollador web, encargado de asignar los trabajos a los Team Managers'
+    name: 'Team Managers',
+    members: [
+      {
+        img: '/images/foto_gabriel.jfif',
+        name: 'Gabriel',
+        description: 'Estudiante técnico, desarollador de javascript, encargado del javascript.'
+      },
+      {
+        img: '/images/foto_teo.jfif',
+        name: 'Teo',
+        description: 'Estudiante técnico, desarollador de html, encargado de las estructuras html y del css.'
+      }
+    ]
   },
   {
-    img: '/images/PointWall.png',
-    name: 'Gabriel',
-    role: 'Team Manager',
-    description: 'Estudiante técnico, desarollador de javascript, encargado del javascript.'
-  },
-  {
-    img: '/images/PointWall.png',
-    name: 'Teo',
-    role: 'Team Manager',
-    description: 'Estudiante técnico, desarollador de html, encargado de las estructuras html y del css.'
-  },
-  {
-    img: null,
-    name: 'Nicolás Pérez',
-    role: 'Colaborador',
-    description: 'Técnico, desarollador web, programador, colaboró siendo mentor de ideas.'
-  },
-  {
-    img: null,
-    name: 'Mateo Ricci',
-    role: 'Colaborador',
-    description: 'Técnico, desarollador web, analista funcional, colaboró enseñando a subir una página web y ubicarla en la red.'
+    name: 'Colaboradores',
+    members: [
+      {
+        img: null,
+        name: 'Nicolás Pérez',
+        description: 'Técnico, desarollador web, programador, colaboró siendo mentor de ideas.'
+      },
+      {
+        img: null,
+        name: 'Mateo Ricci',
+        description: 'Técnico, desarollador web, analista funcional, colaboró enseñando a subir una página web y ubicarla en la red.'
+      }
+    ]
   }
 ]
 
@@ -72,18 +97,24 @@ export default function Page (): JSX.Element {
       <section className='text-center'>
         <h1 className='text-8xl mt-16'>Nosotros</h1>
       </section>
-      <section className='flex flex-wrap'>
-        {team.map((member) => (
-          <div key={member.name} className='flex border-2'>
-            <Image
-              src={member.img ?? '/images/PointWall.png'}
-              alt={`Imagen de ${member.name}`} width={50} height={50}
-              className='w-fit'
-            />
-            <div>
-              <h3 className='text-2xl font-bold'>{member.name}</h3>
-              <h4 className='font-bold'>{member.role}</h4>
-              <p className='max-w-sm'>{member.description}</p>
+      <section className='mx-16 my-16'>
+        {team.map((team) => (
+          <div key={team.name} className='my-20'>
+            <h3 className='text-3xl font-bold text-center'>{team.name}</h3>
+            <div className='flex justify-center gap-4 my-8'>
+              {team.members.map((member) => (
+                <div key={member.name} className='flex items-center gap-4 p-4 border rounded-lg border-gray-400'>
+                  <Image
+                    src={member.img ?? '/images/foto_default.png'}
+                    alt={`Imagen de ${member.name}`} width={50} height={50}
+                    className='w-36 h-36 border-4 border-black shadow-lg shadow-zinc-400 rounded-full'
+                  />
+                  <div>
+                    <h4 className='text-xl font-bold'>{member.name}</h4>
+                    <p className='max-w-sm'>{member.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         ))}
