@@ -12,7 +12,7 @@ export const authOptions = {
     // ...add more providers here
   ],
   callbacks: {
-    session: async ({ session, token, user }) => {
+    session: async ({ session, token, user }: { session:any, token:any, user:any }) => {
       if (session?.user) {
         session.user.id = user.id;
       }
