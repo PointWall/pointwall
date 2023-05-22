@@ -6,7 +6,7 @@ const location = {
   lng: -122.08427,
 }
 
-const TestComponent = ({ text }: {text: string}) => <div>{text}</div>;
+const TestComponent = ({ text, lat,lng }: {lat:number,lng:number,text: string}) => <div>{text}</div>;
 const Map = () => (
 
   <div className="" > 
