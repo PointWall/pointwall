@@ -18,9 +18,9 @@ const Map = () => (
       >
         
         <TestComponent
-          lat={location.lat}
-          lng={location.lng}
-          text="Test"
+           lat={59.955413}
+          lng={30.337844}
+          text="My Marker"
         />        
         
       </GoogleMapReact>
