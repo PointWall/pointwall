@@ -4,7 +4,7 @@ export default function Component (): JSX.Element {
   const { data: session } = useSession()
 
   function handleLogin (): void {
-    signIn().catch(console.error)
+   signIn('google').catch(console.error)
   }
 
   function handleLogout (): void {
