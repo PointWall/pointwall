@@ -8,7 +8,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
   if (req.method == "POST") {
   //if(!session) return res.status(401).json({ error: 'Not Authorized'  })
 
-    const { title, images, authorId, location, artType, userType } = req.body;
+    const { title, images, authorId, location, artType, userType }: { title:any, images:any, authorId:any, location:any, artType:any, userType:any } = req.body;
     console.log(req.body);
     const newPost = await prisma.post.create({
       data: {
