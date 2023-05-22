@@ -1,13 +1,16 @@
 import Layout from '@/components/Layout'
+import { useSession } from 'next-auth/react'
 import { useState, FormEvent, ChangeEvent } from 'react'
 
 const FORM_INITIAL_STATE = {
   email: '',
+  title: '',
+  description: '',
   userType: '',
   artType: '',
   location: '',
   images: [],
-  getInContact: false
+  getInContact: false,
 }
 
 const USER_TYPE_OPTIONS = [
@@ -29,16 +32,26 @@ const USER_TYPE_OPTIONS = [
 ]
 
 export default function Page (): JSX.Element {
+  const { data: session } = useSession()
   /*
   ARREGLAR PROBLEMA CON EL artType TEXT INPUT AL SELECCIONAR UNA OPCION PERO ESCRIBIR EN EL INPUT
   */
   const [formData, setFormData] = useState(FORM_INITIAL_STATE)
   // const [isOtherChecked, setIsOtherChecked] = useState(false)
 
-  function handleSubmit (ev: FormEvent): void {
+  async  function  handleSubmit (ev: FormEvent) {
     ev.preventDefault()
     console.log(formData)
+    await fetch("http://localhost:3000/api/post", {
+      method: "POST",
+      body: JSON.stringify( {...formData} ),
+      headers: {  
+        "content-type": "application/json",
+      },
+    }).catch((e) => console.log(e));
+
     setFormData(FORM_INITIAL_STATE)
+
   }
 
   // function handleInputChange (ev: ChangeEvent & { target: HTMLInputElement }): void {
@@ -131,6 +144,30 @@ export default function Page (): JSX.Element {
           <div className='pl-4 border-l-4 border-slate-700'>
             <p className='text-xl'>¿Dónde queda? Agregá el link a ubicación en Google Maps</p>
             <input type='text' className='w-1/3 min-w-[220px] px-[.5em] py-[.25em] bg-slate-50 border-b-2 outline-none focus:bg-slate-100 focus:border-slate-400' />
+          </div>
+          <div className='pl-4 border-l-4 border-slate-700'>
+            <p className='text-xl'>¿Como nombrarias a la localidad? (Intenta usar un nombre descriptivo y claro)</p>
+            <input
+              type='text' onChange={function (ev: ChangeEvent & { target: HTMLInputElement }) {
+                setFormData((prevData) => ({
+                  ...prevData,
+                  title: ev.target.value
+                }))
+              }}
+              className='min-w-[220px] w-1/3 px-[.5em] py-[.25em] bg-slate-50 border-b-2 outline-none focus:bg-slate-100 focus:border-slate-400'
+            />
+          </div>
+          <div className='pl-4 border-l-4 border-slate-700'>
+            <p className='text-xl'>¿Quieres agregarle algun comentario/descripcion? (Cuanto mas clara sea mas posibilidades existen de que la publicacion sea tomada en cuenta!)</p>
+            <input
+              type='text' onChange={function (ev: ChangeEvent & { target: HTMLInputElement }) {
+                setFormData((prevData) => ({
+                  ...prevData,
+                  description: ev.target.value
+                }))
+              }}
+              className='min-w-[220px] w-1/3 px-[.5em] py-[.25em] bg-slate-50 border-b-2 outline-none focus:bg-slate-100 focus:border-slate-400'
+            />
           </div>
           <div className='pl-4 border-l-4 border-slate-700'>
             <p className='text-xl'>¿Tenés fotos que querés que incluyamos en la página?</p>
