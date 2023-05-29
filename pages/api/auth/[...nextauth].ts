@@ -17,7 +17,7 @@ export const authOptions = {
       },
     }),
   ],
-  secret:process.env.NEXT_PUBLIC_SECRET !,
+  secret:process.env.NEXT_PUBLIC_SECRET!,
   callbacks: {
     session: async ({
       session,
@@ -27,12 +27,14 @@ export const authOptions = {
     }) => {
       if (session?.user) {
         //Check if exist, if not create user
+        console.log({session})
         let user = await prisma.user.findUnique({
           where: {
-            email: session?.user?.name || "",
-          },
+            email: session?.user?.email || " "
+          }, 
         });
-        if (!user?.id) {
+        console.log({user})
+        if (user === null) {
           user = await prisma.user.create({
             data: {
               firstName: session?.user?.name?.split(" ")[0] || "",
