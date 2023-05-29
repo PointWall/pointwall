@@ -24,7 +24,6 @@ export const authOptions = {
       session: DefaultSession;
 
     }) => {
-      console.log(session);
       if (session?.user) {
         //Check if exist, if not create user
         let user = await prisma.user.findUnique({
@@ -32,7 +31,7 @@ export const authOptions = {
             email: session?.user?.name || "",
           },
         });
-        if (!user) {
+        if (!user?.id) {
           user = await prisma.user.create({
             data: {
               firstName: session?.user?.name?.split(" ")[0] || "",
