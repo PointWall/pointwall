@@ -4,7 +4,7 @@ import AutoComplete from '@/components/map/AutoComplete'
 import FocusedPost from '@/components/map/FocusedPost'
 import GoogleMap from 'google-maps-react-markers'
 import Marker from '@/components/map/Marker'
-export default function Page () {
+export default function Page (): JSX.Element {
   const [mapState, setMapState] = useState<{
     mapReady: boolean
     mapInstance: google.maps.Map<Element> | null
@@ -22,7 +22,7 @@ export default function Page () {
   }: {
     map: google.maps.Map<Element>
     maps: any
-  }) {
+  }): void {
     setMapState({
       mapInstance: map,
       mapApi: maps,
@@ -35,9 +35,9 @@ export default function Page () {
   }
   function onMapChange (map: any): void {
     // Render only markers in the current view
-    if (!map) return
+    if (map == null) return
     const bounds = map.bounds
-    if (!bounds) return
+    if (bounds == null) return
     const ne = bounds.getNorthEast() // LatLng of the north-east corner
     const sw = bounds.getSouthWest() // LatLng of the south-west corder
     setMarkers(

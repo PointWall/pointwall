@@ -2,7 +2,7 @@
 import Layout from '@/components/Layout'
 import Link from 'next/link'
 import React from 'react'
-import  Map  from '../components/Map'
+import Map from '../components/Map'
 
 export default function Home (): JSX.Element {
   return (
@@ -16,7 +16,7 @@ export default function Home (): JSX.Element {
       </section>
       <section>
         <div className='text-center my-8'>
-          <Map/>
+          <Map />
         </div>
       </section>
       <section className='text-center my-16'>

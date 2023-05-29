@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
-const Wrapper = (props: any) => (
+const Wrapper = (props: any): JSX.Element => (
   <div
     style={
       {}
-      /*{
+      /* {
       position: "absolute",
       top: "10px",
       left: "15%",
@@ -16,60 +16,60 @@ const Wrapper = (props: any) => (
     }
     {...props}
   />
-);
+)
 
 class AutoComplete extends Component {
-  this: any;
-  autoComplete: any;
-  searchInput: any;
-  props: any;
+  this: any
+  autoComplete: any
+  searchInput: any
+  props: any
 
-  constructor(props: any) {
-    super(props);
-    this.clearSearchBox = this.clearSearchBox.bind(this);
+  constructor (props: any) {
+    super(props)
+    this.handleClearSearchBox = this.handleClearSearchBox.bind(this)
   }
 
-  componentDidMount({ map, mapApi } = this.props) {
-    this.autoComplete = new mapApi.places.Autocomplete(this.searchInput);
-    this.autoComplete.addListener("place_changed", this.onPlaceChanged);
-    this.autoComplete.bindTo("bounds", map);
+  componentDidMount ({ map, mapApi } = this.props): void {
+    this.autoComplete = new mapApi.places.Autocomplete(this.searchInput)
+    this.autoComplete.addListener('place_changed', this.onPlaceChanged)
+    this.autoComplete.bindTo('bounds', map)
   }
 
-  componentWillUnmount({ mapApi } = this.props) {
-    mapApi.event.clearInstanceListeners(this.searchInput);
+  componentWillUnmount ({ mapApi } = this.props): void {
+    mapApi.event.clearInstanceListeners(this.searchInput)
   }
 
-  onPlaceChanged = ({ map } = this.props) => {
-    const place = this.autoComplete.getPlace();
-    if (!place || !place?.geometry) return;
-    if (place?.geometry?.viewport) {
-      map.fitBounds(place.geometry.viewport);
+  onPlaceChanged = ({ map } = this.props): void => {
+    const place = this.autoComplete.getPlace()
+    if (place?.geometry == null) return
+    if (place?.geometry?.viewport != null) {
+      map.fitBounds(place.geometry.viewport)
     } else {
-      map.setCenter(place.geometry.location);
-      map.setZoom(17);
+      map.setCenter(place.geometry.location)
+      map.setZoom(17)
     }
-    this.searchInput.blur();
-  };
-
-  clearSearchBox() {
-    this.searchInput.value = "";
+    this.searchInput.blur()
   }
 
-  render() {
+  handleClearSearchBox (): void {
+    this.searchInput.value = ''
+  }
+
+  render (): JSX.Element {
     return (
       <Wrapper>
         <input
           ref={(ref) => {
-            this.searchInput = ref;
+            this.searchInput = ref
           }}
-          type="text"
-          className="bg-gray-100 outline-none"
-          onFocus={this.clearSearchBox}
-          placeholder="Busca una ubicacion"
+          type='text'
+          className='bg-gray-100 outline-none'
+          onFocus={this.handleClearSearchBox}
+          placeholder='Busca una ubicacion'
         />
       </Wrapper>
-    );
+    )
   }
 }
 
-export default AutoComplete;
+export default AutoComplete
