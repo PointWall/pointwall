@@ -6,8 +6,11 @@ export default function Page (): JSX.Element {
     <Layout>
       <section className='text-center'>
         <h1 className='text-8xl mt-16'>Acerca del proyecto</h1>
-        <div className='w-screen grid place-content-center my-16'>
+        <div className='w-screen flex align-items justify-conent gap-10 place-content-center my-16'>
+          <YoutubeEmbed embedId='ESqBYAVbcCM' />
+          <div>
           <YoutubeEmbed embedId='AV4P9MBkaY8' />
+          </div>
         </div>
       </section>
       <section className='px-[15%]'>
