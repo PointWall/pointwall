@@ -5,11 +5,68 @@ export const data = [
     lat: -34.63023954414557,
     images: 'https://i.imgur.com/PyCLKic.jpg',
     title: 'El Diego',
+    tags: ['Futbol'],
     author: {
       id: 112,
       firstName: 'Corenda',
       lastName: 'Richichi',
       email: 'crichichi33@dailymail.co.uk'
+    }
+  },
+  {
+    id: 617,
+    lng: -58.36435933632627,
+    lat: -34.635178323978856,
+    images: 'https://i.imgur.com/0GQh5m9.jpg',
+    title: 'Diego Bostero',
+    tags: ['Futbol'],
+    author: {
+      id: 148,
+      firstName: 'Sanson',
+      lastName: 'Albisser',
+      email: 'salbisser43@fema.gov'
+    }
+  },
+  {
+    id: 618,
+    lng: -58.506158263,
+    lat: -34.61134530,
+    images: 'https://i.imgur.com/qAGhLQz.jpg',
+    title: 'Mural Diego',
+    tags: ['Futbol'],
+    author: {
+      id: 92,
+      firstName: 'Pointwall',
+      lastName: '',
+      email: 'pointwall@pointwall.com'
+    }
+  },
+  {
+    id: 619,
+    lng: -58.47311703024019,
+    lat: -34.60645134032268,
+    images: 'https://i.imgur.com/PyCLKic.jpg',
+    title: 'Maradona Mural',
+    tags: ['Futbol'],
+    author: {
+      id: 128,
+      firstName: 'Nikki',
+      lastName: 'McKissack',
+      email: 'nmckissack3j@alexa.com'
+    }
+  },
+  {
+    id: 620,
+    lng: -58.493842408809584,
+    lat: -34.60108618224274,
+    images: 'https://i.imgur.com/uhBzgY9.jpg',
+    title: 'Messi Idolo',
+    tags: ['Futbol'],
+    author: {
+      id: 8,
+      firstName: 'Ula',
+      lastName: 'Gisborne',
+      email: 'ugisborne7@state.tx.us'
     }
   },
   {
@@ -8005,62 +8062,6 @@ export const data = [
       firstName: 'Devina',
       lastName: 'Tinner',
       email: 'dtinner2t@devhub.com'
-    }
-  },
-  {
-    id: 617,
-    lng: -58.36435933632627,
-    lat: -34.635178323978856,
-    images: 'https://i.imgur.com/0GQh5m9.jpg',
-    title: 'Diego Bostero',
-    tags: ['Futbol'],
-    author: {
-      id: 148,
-      firstName: 'Sanson',
-      lastName: 'Albisser',
-      email: 'salbisser43@fema.gov'
-    }
-  },
-  {
-    id: 618,
-    lng: -58.506158263,
-    lat: -34.61134530,
-    images: 'https://i.imgur.com/qAGhLQz.jpg',
-    title: 'Mural Diego',
-    tags: ['Futbol'],
-    author: {
-      id: 92,
-      firstName: 'Pointwall',
-      lastName: '',
-      email: 'pointwall@pointwall.com'
-    }
-  },
-  {
-    id: 619,
-    lng: -58.47311703024019,
-    lat: -34.60645134032268,
-    images: 'https://i.imgur.com/PyCLKic.jpg',
-    title: 'Maradona Mural',
-    tags: ['Futbol'],
-    author: {
-      id: 128,
-      firstName: 'Nikki',
-      lastName: 'McKissack',
-      email: 'nmckissack3j@alexa.com'
-    }
-  },
-  {
-    id: 620,
-    lng: -58.493842408809584,
-    lat: -34.60108618224274,
-    images: 'https://i.imgur.com/uhBzgY9.jpg',
-    title: 'Messi Idolo',
-    tags: ['Futbol'],
-    author: {
-      id: 8,
-      firstName: 'Ula',
-      lastName: 'Gisborne',
-      email: 'ugisborne7@state.tx.us'
     }
   },
   {
