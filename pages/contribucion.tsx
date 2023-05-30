@@ -8,20 +8,19 @@ interface InputOp {
   value: inputValue
   text: string
 }
+
 const FORM_INITIAL_STATE = {
-  email: '',
-  title: '',
-  description: '',
-  userType: '',
-  artType: '',
-  location: '',
+  title: "",
+  description: "",
+  userType: "",
+  artType: "",
+  location: "",
   images: [],
   getInContact: false,
   author: {
     id: -1,
-    email: ''
-  }
-}
+  },
+};
 
 const USER_TYPE_OPTIONS = [
   {
@@ -43,18 +42,18 @@ const USER_TYPE_OPTIONS = [
 
 const TEXT_INPUTS: InputOp[] = [
   {
-    value: 'location',
-    text: '¿Dónde queda? Agregá el link a ubicación en Google Maps'
+    value: "location",
+    text: "¿Dónde queda? Agrega la longitud y la latitud (Ej: 12.123123, 11.15123)",
   },
   {
-    value: 'title',
-    text: 'Que nombre le pondrias a la ubicacion? (cuanto mas claro sea mas posibilidades existen de que la publicacion sea tomada en cuenta!)'
+    value: "title",
+    text: "Que nombre le pondrias a la ubicacion? (cuanto mas claro sea mas posibilidades existen de que la publicacion sea tomada en cuenta!)",
   },
   {
-    value: 'description',
-    text: 'Quieres agregarle algun comentario/descripcion? (Cuanto mas clara sea mas posibilidades existen de que la publicacion sea tomada en cuenta!)'
-  }
-]
+    value: "description",
+    text: "Queres agregarle algun comentario/descripcion? ",
+  },
+];
 
 export default function Page (): JSX.Element {
   const { data: session } = useSession()
@@ -71,8 +70,7 @@ export default function Page (): JSX.Element {
     if (pointwallSession?.user == null) return
     console.log(formData)
     formData.author = {
-      id: pointwallSession?.user?.id,
-      email: pointwallSession?.user?.email
+      id: pointwallSession?.user?.id
     }
     await fetch('http://localhost:3000/api/post', {
       method: 'POST',

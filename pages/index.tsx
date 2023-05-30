@@ -15,9 +15,9 @@ export default function Home (): JSX.Element {
         <p className='text-4xl'>¿Estás listo para colaborar con un <span>mural</span><span>graffiti</span> de tu barrio?</p>
       </section>
       <section>
-        <div className='text-center my-8'>
+        <Link href={"/mapa"} className='text-center my-8'>
           <Map />
-        </div>
+        </Link>
       </section>
       <section className='text-center my-16'>
         <h2 className='text-4xl font-semibold'>Formulario colaborativo</h2>
