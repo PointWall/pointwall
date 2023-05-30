@@ -49,12 +49,12 @@ body {
   
 } */
 
-.nav-link {
+.css-nav-link {
   position: relative;
   z-index: 10;
 }
 
-.nav-link::after {
+.css-nav-link::after {
   background-color: black;
   bottom: 0;
   content: '';
@@ -67,19 +67,19 @@ body {
   z-index: -1;
 }
 
-.nav-link:hover::after {
+.css-nav-link:hover::after {
   animation-name: linkAnimation;
   animation-duration: 1s;
   animation-fill-mode: both;
   width: 100%;
 }
 
-.nav-link__text {
+.css-nav-link__text {
   display: block;
   padding: .5em;
 }
 
-.nav-link:hover .nav-link__text {
+.css-nav-link:hover .css-nav-link__text {
   animation-name: linkTextColorAnimation;
   animation-delay: .5s;
   animation-duration: 1s;
@@ -87,15 +87,15 @@ body {
   color: inherit;
 }
 
-.form-link {
+.css-form-link {
   transition: color .3s;
 }
 
-.form-link:hover {
+.css-form-link:hover {
   color: black;
 }
 
-.form-link::after {
+.css-form-link::after {
   content: '';
   height: 100%;
   right: 0;
@@ -106,7 +106,7 @@ body {
   z-index: -1;
 }
 
-.form-link:hover::after {
+.css-form-link:hover::after {
   width: 100%;
   left: 0;
 }
@@ -136,7 +136,7 @@ body {
   }
 }
 
-.artist-searcher input:focus~.artist-searcher-separator {
+.css-searcher input:focus~.css-searcher-separator {
   animation-name: fullWidth;
   animation-duration: 1s;
   animation-fill-mode: both;
@@ -150,7 +150,7 @@ body {
   transition: width ease .3s;
 }
 
-.artist-searcher button[type="submit"]:hover+.artist-searcher-separator {
+.css-searcher button[type="submit"]:hover+.css-searcher-separator {
   filter: brightness(95%)
 }
 

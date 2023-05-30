@@ -50,15 +50,15 @@ export default function Header (): JSX.Element {
 
   return (
     <header>
-      <div className='flex '>
-        <h1 className='text-8xl font-light px-[.5em] py-[.25em]'>PointWall</h1>
+      <div className='flex'>
+        <h1 className='text-8xl font-light mx-12 my-6'>PointWall</h1>
         <LoginButton />
       </div>
       <nav>
         <ul className='bg-black text-white flex justify-around w-full'>
           {LINKS.map((link) => (
-            <li key={link.name} className={`nav-link text-xl ${colorVariants[link.color]} transition`}>
-              <Link href={link.url} className='nav-link__text'>
+            <li key={link.name} className={`css-nav-link text-xl ${colorVariants[link.color]} transition`}>
+              <Link href={link.url} className='css-nav-link__text'>
                 {link.name}
               </Link>
             </li>

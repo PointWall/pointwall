@@ -22,7 +22,7 @@ export default function Component (): JSX.Element {
     )
   }
   return (
-    <button className='text-lg' onClick={handleLogin}>
+    <button className='text-lg self-start justify-self-start ml-auto mt-6 mr-12 transition p-2 bg-black text-white hover:underline' onClick={handleLogin}>
       Iniciar sesión
     </button>
   )
