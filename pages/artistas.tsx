@@ -18,10 +18,10 @@ export default function Page (): JSX.Element {
         </p>
       </section>
       <section>
-        <form onSubmit={handleFormSubmit} className='artist-searcher relative flex justify-center flex-wrap w-fit mx-auto my-8'>
+        <form onSubmit={handleFormSubmit} className='css-searcher relative flex justify-center flex-wrap w-fit mx-auto my-8'>
           <input type='text' placeholder='Buscar...' className='bg-slate-50 p-2 text-xl outline-none focus:bg-slate-100' />
           <button type='submit' className='text-xl px-[1em] bg-slate-200 hover:brightness-95 active:brightness-90'>Buscar</button>
-          <span className='artist-searcher-separator' />
+          <span className='css-searcher-separator' />
         </form>
       </section>
     </Layout>

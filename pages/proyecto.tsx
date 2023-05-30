@@ -5,12 +5,9 @@ export default function Page (): JSX.Element {
   return (
     <Layout>
       <section className='text-center'>
-        <h1 className='text-8xl mt-16'>Acerca del proyecto</h1>
-        <div className='w-screen flex align-items justify-conent gap-10 place-content-center my-16'>
+        <h1 className='text-8xl my-16'>Acerca del proyecto</h1>
+        <div className='w-fit mx-auto'>
           <YoutubeEmbed embedId='ESqBYAVbcCM' />
-          <div>
-          <YoutubeEmbed embedId='AV4P9MBkaY8' />
-          </div>
         </div>
       </section>
       <section className='px-[15%]'>
@@ -59,6 +56,9 @@ export default function Page (): JSX.Element {
             Encontra una forma fácil, sencilla y ágil de los mapas, es lo que busca ser PointWall.<br />
             Ser un servicio que busca colaboradores todo el tiempo, para poder expandir la cantidad de murales en los que hay PointWall.
           </p>
+        </div>
+        <div className='w-fit mx-auto mb-16'>
+          <YoutubeEmbed embedId='AV4P9MBkaY8' />
         </div>
       </section>
     </Layout>
