@@ -47,7 +47,7 @@ export default function Page (): JSX.Element {
         <h2 className='text-4xl font-semibold my-4'>Resultados <span className='text-gray-500 text-sm'>(Futbol)</span></h2>
         <div className='flex flex-wrap justify-center gap-5'>
           {data.slice(1, 5).map((post, i) => (
-                      <div className='h-[50vh] align-center sm:w-1/6 md:w-1/6  flex-col justify-center align-items flex m-5 gap-10'>
+                      <div key={i} className='h-[50vh] align-center sm:w-1/6 md:w-1/6  flex-col justify-center align-items flex m-5 gap-10'>
                         <img  src={post.images} alt='imagen' className='h-full  rounded-md' />
                         <div className='flex flex-col gap-2 '>
                           <h2 className='text-3xl '>{post.title}</h2>
