@@ -67,7 +67,10 @@ export default function Page (): JSX.Element {
 
   async function handleSubmit (ev: FormEvent): Promise<void> {
     ev.preventDefault()
-    if (pointwallSession?.user == null) return
+    if (pointwallSession?.user == null) {
+      alert("Debes iniciar sesión para poder enviar el formulario")
+      return
+    }
     console.log(formData)
     formData.author = {
       id: pointwallSession?.user?.id
