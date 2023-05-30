@@ -74,6 +74,26 @@ const team: Team[] = [
     ]
   },
   {
+    name: 'Product Developers',
+    members: [
+      {
+        img: '/images/foto_lucas.jpeg',
+        name: 'Lucas ', 
+        description: 'Estudiante técnico, desarollador y diseñador web'
+      },
+      {
+        img: '/images/foto_ramiro.png',
+        name: 'Ramiro',
+        description: 'Estudiante técnico, desarollador y diseñador web'
+      },
+      {
+        img: '/images/foto_gino.png',
+        name: 'Gino',
+        description: 'Estudiante técnico, desarollador y diseñador web'
+      }
+    ]
+  },
+  {
     name: 'Colaboradores',
     members: [
       {
