@@ -3,10 +3,11 @@ import { PointwallSession } from '@/types/pointwallSession'
 import { useSession } from 'next-auth/react'
 import { useState, FormEvent, ChangeEvent } from 'react'
 
-type inputValue = 'title' | 'description' | 'location'
+type inputValue = 'title' | 'description' | 'location' | 'tags'
 interface InputOp {
   value: inputValue
   text: string
+  placeholder: string
 }
 
 const FORM_INITIAL_STATE = {
@@ -20,6 +21,7 @@ const FORM_INITIAL_STATE = {
   author: {
     id: -1,
   },
+  tags:""
 };
 
 const USER_TYPE_OPTIONS = [
@@ -44,21 +46,28 @@ const TEXT_INPUTS: InputOp[] = [
   {
     value: "location",
     text: "¿Dónde queda? Agrega la longitud y la latitud (Ej: 12.123123, 11.15123)",
+    placeholder: "12.123123, 11.15123",
   },
   {
     value: "title",
     text: "Que nombre le pondrias a la ubicacion? (cuanto mas claro sea mas posibilidades existen de que la publicacion sea tomada en cuenta!)",
+    placeholder: "Mural Benito",
   },
   {
     value: "description",
     text: "Queres agregarle algun comentario/descripcion? ",
+    placeholder: "Obra recientemente renovada, de gran importancia barrial, ...",
   },
+  {
+    value: "tags",
+    text: "¿Le agregarias alguna etiqueta descriptiva (artista, lugar, estilo,  etc...)?",
+    placeholder: "futbol, di angelo, moderno, palermo..."
+  }
 ];
 
 export default function Page (): JSX.Element {
   const { data: session } = useSession()
   const pointwallSession = session as PointwallSession
-  console.log(pointwallSession?.user)
   /*
   ARREGLAR PROBLEMA CON EL artType TEXT INPUT AL SELECCIONAR UNA OPCION PERO ESCRIBIR EN EL INPUT
   */
@@ -71,7 +80,6 @@ export default function Page (): JSX.Element {
       alert("Debes iniciar sesión para poder enviar el formulario")
       return
     }
-    console.log(formData)
     formData.author = {
       id: pointwallSession?.user?.id
     }
@@ -178,10 +186,11 @@ export default function Page (): JSX.Element {
                 type='text'
                 className='min-w-[220px] w-1/3 px-[.5em] py-[.25em] bg-slate-50 border-b-2 outline-none focus:bg-slate-100 focus:border-slate-400'
                 onChange={function (ev) {
-                  const newData = formData
-                  newData[input.value] = ev.target.value
-                  setFormData(newData)
+                      const newData = formData
+                      newData[input.value] = ev.target.value
+                      setFormData(newData)
                 }}
+                placeholder={`ej: ${input.placeholder}`}
               />
             </div>
           ))}
