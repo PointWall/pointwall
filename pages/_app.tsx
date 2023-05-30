@@ -5,7 +5,6 @@ import { SessionProvider } from 'next-auth/react'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
-  display: 'swap',
   variable: '--font-montserrat'
 })
 
