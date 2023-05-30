@@ -12,8 +12,8 @@ const LINKS = [
     color: 'red'
   },
   {
-    name: 'Artistas',
-    url: '/artistas',
+    name: 'Buscador',
+    url: '/buscador',
     color: 'orange'
   },
   {
