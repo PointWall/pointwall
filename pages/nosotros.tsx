@@ -78,7 +78,7 @@ const team: Team[] = [
     members: [
       {
         img: '/images/foto_lucas.jpeg',
-        name: 'Lucas ', 
+        name: 'Lucas ',
         description: 'Estudiante técnico, desarollador y diseñador web'
       },
       {
@@ -113,7 +113,7 @@ const team: Team[] = [
 export default function Page (): JSX.Element {
   console.log(team)
   return (
-    <Layout>
+    <Layout color='pink'>
       <section className='text-center'>
         <h1 className='text-8xl mt-16'>Nosotros</h1>
       </section>

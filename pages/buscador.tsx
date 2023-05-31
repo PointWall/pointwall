@@ -22,8 +22,9 @@ export default function Page (): JSX.Element {
     //    fetchPost()
   }
   , [])
+
   return (
-    <Layout>
+    <Layout color='orange'>
       <section className='text-center'>
         <h1 className='text-8xl mt-16'>¡Encontrá!</h1>
         <p className='text-2xl max-w-prose mx-auto my-[1.25em]'>

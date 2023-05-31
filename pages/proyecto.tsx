@@ -3,7 +3,7 @@ import YoutubeEmbed from '@/components/YoutubeEmbed'
 
 export default function Page (): JSX.Element {
   return (
-    <Layout>
+    <Layout color='green'>
       <section className='text-center'>
         <h1 className='text-8xl my-16'>Acerca del proyecto</h1>
         <div className='w-fit mx-auto'>

@@ -11,18 +11,18 @@ interface InputOp {
 }
 
 const FORM_INITIAL_STATE = {
-  title: "",
-  description: "",
-  userType: "",
-  artType: "",
-  location: "",
+  title: '',
+  description: '',
+  userType: '',
+  artType: '',
+  location: '',
   images: [],
   getInContact: false,
   author: {
-    id: -1,
+    id: -1
   },
-  tags:""
-};
+  tags: ''
+}
 
 const USER_TYPE_OPTIONS = [
   {
@@ -44,26 +44,26 @@ const USER_TYPE_OPTIONS = [
 
 const TEXT_INPUTS: InputOp[] = [
   {
-    value: "location",
-    text: "¿Dónde queda? Agrega la longitud y la latitud (Ej: 12.123123, 11.15123)",
-    placeholder: "12.123123, 11.15123",
+    value: 'location',
+    text: '¿Dónde queda? Agrega la longitud y la latitud (Ej: 12.123123, 11.15123)',
+    placeholder: '12.123123, 11.15123'
   },
   {
-    value: "title",
-    text: "Que nombre le pondrias a la ubicacion? (cuanto mas claro sea mas posibilidades existen de que la publicacion sea tomada en cuenta!)",
-    placeholder: "Mural Benito",
+    value: 'title',
+    text: 'Que nombre le pondrias a la ubicacion? (cuanto mas claro sea mas posibilidades existen de que la publicacion sea tomada en cuenta!)',
+    placeholder: 'Mural Benito'
   },
   {
-    value: "description",
-    text: "Queres agregarle algun comentario/descripcion? ",
-    placeholder: "Obra recientemente renovada, de gran importancia barrial, ...",
+    value: 'description',
+    text: 'Queres agregarle algun comentario/descripcion? ',
+    placeholder: 'Obra recientemente renovada, de gran importancia barrial, ...'
   },
   {
-    value: "tags",
-    text: "¿Le agregarias alguna etiqueta descriptiva (artista, lugar, estilo,  etc...)?",
-    placeholder: "futbol, di angelo, moderno, palermo..."
+    value: 'tags',
+    text: '¿Le agregarias alguna etiqueta descriptiva (artista, lugar, estilo,  etc...)?',
+    placeholder: 'futbol, di angelo, moderno, palermo...'
   }
-];
+]
 
 export default function Page (): JSX.Element {
   const { data: session } = useSession()
@@ -74,10 +74,9 @@ export default function Page (): JSX.Element {
   const [formData, setFormData] = useState(FORM_INITIAL_STATE)
   // const [isOtherChecked, setIsOtherChecked] = useState(false)
 
-  async function handleSubmit (ev: FormEvent): Promise<void> {
-    ev.preventDefault()
+  async function postContribution (): Promise<void> {
     if (pointwallSession?.user == null) {
-      alert("Debes iniciar sesión para poder enviar el formulario")
+      alert('Debes iniciar sesión para poder enviar el formulario')
       return
     }
     formData.author = {
@@ -94,17 +93,23 @@ export default function Page (): JSX.Element {
     setFormData(FORM_INITIAL_STATE)
   }
 
+  function handleSubmit (ev: FormEvent): void {
+    ev.preventDefault()
+    postContribution()
+      .catch((error) => console.error(error))
+  }
+
   // function handleInputChange (ev: ChangeEvent & { target: HTMLInputElement }): void {
 
   // }
 
   return (
-    <Layout>
+    <Layout color='blue'>
       <section className='text-center'>
         <h1 className='text-8xl mt-16'>Formulario de contribución</h1>
       </section>
       <section className='px-[15%] my-16 mb-8 accent-slate-700'>
-        <form onSubmit={handleSubmit} className='flex flex-col gap-6'>
+        <form onSubmit={(ev) => { handleSubmit(ev); return false }} className='flex flex-col gap-6'>
           <div className='pl-4 border-l-4 border-slate-700'>
             <p className='text-xl'>¿Qué tipo de usuario sos?</p>
             <div className='ml-4 my-2'>
@@ -186,9 +191,9 @@ export default function Page (): JSX.Element {
                 type='text'
                 className='min-w-[220px] w-1/3 px-[.5em] py-[.25em] bg-slate-50 border-b-2 outline-none focus:bg-slate-100 focus:border-slate-400'
                 onChange={function (ev) {
-                      const newData = formData
-                      newData[input.value] = ev.target.value
-                      setFormData(newData)
+                  const newData = formData
+                  newData[input.value] = ev.target.value
+                  setFormData(newData)
                 }}
                 placeholder={`ej: ${input.placeholder}`}
               />

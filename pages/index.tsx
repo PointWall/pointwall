@@ -6,9 +6,9 @@ import Map from '../components/Map'
 
 export default function Home (): JSX.Element {
   return (
-    <Layout>
+    <Layout color='red'>
       <section className='text-center'>
-        <h1 className='text-8xl mt-16'>¿Qué es PointWall?</h1>
+        <h1 className='text-4xl md:text-8xl mt-16'>¿Qué es PointWall?</h1>
         <p className='text-2xl max-w-prose mx-auto my-[1.25em]'>
           PointWall es una galería colaborativa digital de arte urbano. Liga la ubicación con la obra, permite ver los cambios con el paso del tiempo y los artistas que intervinieron. Cualquier persona desde cualquier parte del mundo puede subir sus fotos...
         </p>
