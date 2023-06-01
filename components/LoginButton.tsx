@@ -1,5 +1,6 @@
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { PointwallSession } from '@/types/pointwallSession'
+import Image from 'next/image'
 
 export default function Component (): JSX.Element {
   const { data: session } = useSession()
@@ -16,14 +17,16 @@ export default function Component (): JSX.Element {
   if (session != null) {
     return (
       <section className='text-lg flex center items-center flex-center gap-2'>
-        <p className='font-mediumt'>{pointwallSession?.user?.email}</p>
+        <p className='font-medium'>{pointwallSession?.user?.email}</p>
         <button onClick={handleLogout}>Salir</button>
       </section>
     )
   }
+
   return (
-    <button className='text-lg self-start justify-self-start ml-auto mt-6 mr-12 transition p-2 bg-black text-white hover:underline' onClick={handleLogin}>
-      Iniciar sesión
+    <button className='text-sm md:text-lg md:self-start ml-auto' onClick={handleLogin}>
+      <Image src='/icons/login-icon.svg' alt='login icon' width={25} height={25} className='md:hidden' />
+      <span className='bg-black text-white hover:underline hidden transition md:block p-2'>Iniciar sesión</span>
     </button>
   )
 }

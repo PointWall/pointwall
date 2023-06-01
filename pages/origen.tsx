@@ -1,5 +1,8 @@
+// components
+import Head from 'next/head'
 import Layout from '@/components/Layout'
 import Image from 'next/image'
+import { Title } from '@/components/utils'
 
 const EXAMPLES = [
   {
@@ -24,29 +27,36 @@ const EXAMPLES = [
 
 export default function Page (): JSX.Element {
   return (
-    <Layout color='yellow'>
-      <div className='text-center'>
-        <h1 className='text-8xl mt-16'>Orígenes Históricos</h1>
-      </div>
+    <>
+      <Head>
+        <title>Orígen Histórico</title>
+      </Head>
+      <Layout color='yellow'>
+        <div className='text-center'>
+          <Title>Orígenes Históricos</Title>
+        </div>
 
-      <section className='flex align-items justify-center gap-2 p-3 m-5'>
-        {EXAMPLES.map((example) => (
-          <div key={example.name} className='border-black rounded-md'>
-            <div className=''>
-              <h3 className='text-center blonde font-bold'>{example.name}</h3>
-              <div className='flex align-items justify-center items-center gap-5 p-5 flex-center flex-col '>
-                <p>{example.description}</p>
-                <Image
-                  style={{ width: '75%', height: '100%' }}
-                  src={example.img ?? '/images/foto_default.png'}
-                  alt={`Imagen de ${example.name}`} width={100} height={100}
-                  className='w-36 h-36 border-4 border-black shadow-lg shadow-zinc-400 rounded-sm'
-                />
+        <section className='flex flex-col md:flex-row align-items justify-center gap-2 p-3 m-5'>
+          {EXAMPLES.map((example) => (
+            <div key={example.name} className='border-black rounded-md'>
+              <div className=''>
+                <h3 className='text-center blonde font-bold'>{example.name}</h3>
+                <div className='flex align-items justify-center items-center gap-5 p-5 flex-center flex-col '>
+                  <p>{example.description}</p>
+                  <div className='relative max-w-xs w-full aspect-square'>
+                    <Image
+                      src={example.img ?? '/images/foto_default.png'}
+                      alt={`Imagen de ${example.name}`}
+                      fill
+                      className='border-4 border-black shadow-lg shadow-zinc-400 rounded-sm'
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </section>
-    </Layout>
+          ))}
+        </section>
+      </Layout>
+    </>
   )
 }

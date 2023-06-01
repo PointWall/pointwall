@@ -49,6 +49,24 @@ body {
   
 } */
 
+@media (width >= 768px) {
+  .css-mobile-header {
+    display: none;
+  }
+  .css-desktop-header {
+    display: flex;
+  }
+}
+
+@media (width < 768px) {
+  .css-mobile-header {
+    display: block;
+  }
+  .css-desktop-header {
+    display: none;    
+  }
+}
+
 .css-nav-link {
   position: relative;
   z-index: 10;

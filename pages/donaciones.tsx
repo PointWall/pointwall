@@ -1,11 +1,19 @@
+// components
+import Head from 'next/head'
 import Layout from '@/components/Layout'
+import { Title } from '@/components/utils'
 
 export default function Page (): JSX.Element {
   return (
-    <Layout>
-      <section className='text-center'>
-        <h1 className='text-8xl mt-16'>Donaciones</h1>
-      </section>
-    </Layout>
+    <>
+      <Head>
+        <title>Donaciones</title>
+      </Head>
+      <Layout>
+        <section className='text-center'>
+          <Title>Donaciones</Title>
+        </section>
+      </Layout>
+    </>
   )
 }

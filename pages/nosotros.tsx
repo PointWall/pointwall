@@ -1,5 +1,8 @@
+// components
+import Head from 'next/head'
 import Image from 'next/image'
 import Layout from '@/components/Layout'
+import { Title } from '@/components/utils'
 
 interface Member {
   img: string | null
@@ -113,32 +116,37 @@ const team: Team[] = [
 export default function Page (): JSX.Element {
   console.log(team)
   return (
-    <Layout color='pink'>
-      <section className='text-center'>
-        <h1 className='text-8xl mt-16'>Nosotros</h1>
-      </section>
-      <section className='mx-16 my-16'>
-        {team.map((team) => (
-          <div key={team.name} className='my-20'>
-            <h3 className='text-3xl font-bold text-center'>{team.name}</h3>
-            <div className='flex justify-center gap-4 my-8'>
-              {team.members.map((member) => (
-                <div key={member.name} className='flex items-center gap-4 p-4 border rounded-lg border-gray-400'>
-                  <Image
-                    src={member.img ?? '/images/foto_default.png'}
-                    alt={`Imagen de ${member.name}`} width={50} height={50}
-                    className='w-36 h-36 border-4 border-black shadow-lg shadow-zinc-400 rounded-full'
-                  />
-                  <div>
-                    <h4 className='text-xl font-bold'>{member.name}</h4>
-                    <p className='max-w-sm'>{member.description}</p>
+    <>
+      <Head>
+        <title>Nosotros</title>
+      </Head>
+      <Layout color='pink'>
+        <section className='text-center'>
+          <Title>Nosotros</Title>
+        </section>
+        <section className='mx-16 my-16'>
+          {team.map((team) => (
+            <div key={team.name} className='my-20'>
+              <h3 className='text-3xl font-bold text-center'>{team.name}</h3>
+              <div className='flex flex-wrap justify-center gap-4 my-8'>
+                {team.members.map((member) => (
+                  <div key={member.name} className='flex flex-col md:flex-row items-center gap-4 p-4 border rounded-lg border-gray-400'>
+                    <Image
+                      src={member.img ?? '/images/foto_default.png'}
+                      alt={`Imagen de ${member.name}`} width={50} height={50}
+                      className='w-36 h-36 border-4 border-black shadow-lg shadow-zinc-400 rounded-full'
+                    />
+                    <div>
+                      <h4 className='text-xl text-center md:text-left font-bold'>{member.name}</h4>
+                      <p className='max-w-sm'>{member.description}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </section>
-    </Layout>
+          ))}
+        </section>
+      </Layout>
+    </>
   )
 }
