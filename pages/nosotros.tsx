@@ -25,14 +25,14 @@ const team: Team[] = [
         description: 'Estudiante técnico, poliglota, artista, encargado de organizar el proyecto.'
       },
       {
-        img: '/images/foto_mateo.jpg',
-        name: 'Mateo',
-        description: 'Estudiante técnico, poliglota, artista, encargado de organizar el proyecto.'
+        img: '/images/foto_gaston.png',
+        name: 'Gastón',
+        description: 'Estudiante técnico, desarollador web, encargado de asignar los trabajos.'
       }
     ]
   },
   {
-    name: 'Functional Managers',
+    name: 'Functional Manager',
     members: [
       {
         img: '/images/foto_guadalupe.jpeg',
@@ -42,63 +42,48 @@ const team: Team[] = [
     ]
   },
   {
-    name: 'Resource Managers',
-    members: [
-      {
-        img: '/images/foto_alejo.jfif',
-        name: 'Alejo',
-        description: 'Estudiante técnico y programador, encargado de organizar el desarollo de programación.'
-      }
-    ]
-  },
-  {
-    name: 'Program Managers',
-    members: [
-      {
-        img: '/images/foto_gaston.png',
-        name: 'Gastón',
-        description: 'Estudiante técnico, desarollador web, encargado de asignar los trabajos a los Team Managers'
-      }
-    ]
-  },
-  {
-    name: 'Team Managers',
-    members: [
-      {
-        img: '/images/foto_gabriel.jfif',
-        name: 'Gabriel',
-        description: 'Estudiante técnico, desarollador de javascript, encargado del javascript.'
-      },
-      {
-        img: '/images/foto_teo.jfif',
-        name: 'Teo',
-        description: 'Estudiante técnico, desarollador de html, encargado de las estructuras html y del css.'
-      }
-    ]
-  },
-  {
-    name: 'Product Developers',
+    name: 'Desarrolladores',
     members: [
       {
         img: '/images/foto_lucas.jpeg',
         name: 'Lucas ',
-        description: 'Estudiante técnico, desarollador y diseñador web'
+        description: 'Estudiante técnico, encargado de adaptar el diseño y desarrollar el frontend.'
       },
       {
         img: '/images/foto_ramiro.png',
         name: 'Ramiro',
-        description: 'Estudiante técnico, desarollador y diseñador web'
+        description: 'Estudiante técnico, encargado del backend y desarrollo del mapa interactivo.'
       },
       {
         img: '/images/foto_gino.png',
         name: 'Gino',
-        description: 'Estudiante técnico, desarollador y diseñador web'
+        description: 'Estudiante técnico, encargado del backend y desarrollo del mapa interactivo.'
       }
     ]
   },
   {
     name: 'Colaboradores',
     members: [
+      {
+        img: '/images/foto_mateo.jpg',
+        name: 'Mateo',
+        description: 'Estudiante técnico, colaboró en la organización del proyecto.'
+      },
+      {
+        img: '/images/foto_gabriel.jfif',
+        name: 'Gabriel',
+        description: 'Estudiante técnico y programador, colaboró en el diseño.'
+      },
+      {
+        img: '/images/foto_teo.jfif',
+        name: 'Teo',
+        description: 'Estudiante técnico y programador, colaboró en el diseño.'
+      },
+      {
+        img: '/images/foto_alejo.jfif',
+        name: 'Alejo',
+        description: 'Estudiante técnico y programador, colaboró en la organización del desarollo.'
+      },
       {
         img: null,
         name: 'Nicolás Pérez',
@@ -124,7 +109,7 @@ export default function Page (): JSX.Element {
         <section className='text-center'>
           <Title>Nosotros</Title>
         </section>
-        <section className='mx-16 my-16'>
+        <section className='mx-4 my-16'>
           {team.map((team) => (
             <div key={team.name} className='my-20'>
               <h3 className='text-3xl font-bold text-center'>{team.name}</h3>
