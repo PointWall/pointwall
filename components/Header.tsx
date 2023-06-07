@@ -64,10 +64,14 @@ export default function Header (): JSX.Element {
   return (
     <header>
       <div className='relative flex items-center p-4 gap-4 bg-white z-20'>
-        <h1 className='text-2xl md:text-8xl font-light'>PointWall</h1>
+        <h1 className='text-2xl md:text-8xl font-light select-none'>
+          <Link href='/'>
+            PointWall
+          </Link>
+        </h1>
         <LoginButton />
         <span onClick={handleHambMenuClick} className='md:hidden'>
-          <HambMenu />
+          <HambMenu isOpen={isMenuVisible} />
         </span>
       </div>
       <nav>
@@ -80,7 +84,7 @@ export default function Header (): JSX.Element {
             </li>
           ))}
         </ul>
-        <ul className={`css-mobile-header ${isMenuVisible ? '' : '-translate-y-full'} absolute w-full shadow-lg bg-black text-white flex flex-col px-4 py-2 z-10`}>
+        <ul className={`css-mobile-header ${isMenuVisible ? '' : '-translate-y-full'} absolute w-full shadow-lg bg-black text-white flex flex-col px-4 py-2 z-10 transition-transform`}>
           {LINKS.map((link) => (
             <li key={link.name} className='css-nav-link transition'>
               <Link href={link.url} className='css-nav-link__text'>
