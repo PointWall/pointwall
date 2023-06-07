@@ -17,20 +17,42 @@ export default function Component (): JSX.Element {
   if (session != null) {
     console.log(pointwallSession)
     return (
-      <section className='text-lg flex center items-center flex-center gap-2 ml-auto'>
-        <div className='relative aspect-square w-8 rounded-full overflow-hidden'>
-          <Image src={pointwallSession?.user?.image ?? '/images/PointWall.png'} alt='Imagen de perfil' fill />
+      <section className='ml-auto flex items-center gap-2 text-lg'>
+        <div className='relative aspect-square w-8 overflow-hidden rounded-full'>
+          <Image
+            src={pointwallSession?.user?.image ?? '/images/PointWall.png'}
+            alt='Imagen de perfil'
+            fill
+          />
         </div>
-        <p className='text-sm hidden md:block'>{pointwallSession?.user?.email}</p>
-        <button onClick={handleLogout} className='bg-black text-white py-1 px-2 rounded-md'>Salir</button>
+        <p className='hidden text-sm md:block'>
+          {pointwallSession?.user?.email}
+        </p>
+        <button
+          onClick={handleLogout}
+          className='rounded-md bg-black px-2 py-1 text-white'
+        >
+          Salir
+        </button>
       </section>
     )
   }
 
   return (
-    <button className='text-sm md:text-lg md:self-start ml-auto' onClick={handleLogin}>
-      <Image src='/icons/login-icon.svg' alt='login icon' width={30} height={30} className='md:hidden' />
-      <span className='bg-black text-white hover:underline hidden transition md:block p-2 rounded-md'>Iniciar sesión</span>
+    <button
+      className='ml-auto text-sm md:self-start md:text-lg'
+      onClick={handleLogin}
+    >
+      <Image
+        src='/icons/login-icon.svg'
+        alt='login icon'
+        width={30}
+        height={30}
+        className='md:hidden'
+      />
+      <span className='hidden rounded-md bg-black p-2 text-white transition hover:underline md:block'>
+        Iniciar sesión
+      </span>
     </button>
   )
 }

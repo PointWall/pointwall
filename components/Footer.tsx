@@ -31,7 +31,11 @@ const LINKS = [
   }
 ]
 
-export default function Footer ({ color = undefined }: { color?: Color }): JSX.Element {
+export default function Footer ({
+  color = undefined
+}: {
+  color?: Color
+}): JSX.Element {
   const colorVariants: ColorVariant = {
     red: 'bg-logoRed',
     orange: 'bg-logoOrange',
@@ -42,14 +46,20 @@ export default function Footer ({ color = undefined }: { color?: Color }): JSX.E
   }
 
   return (
-    <footer className={`${color === undefined ? 'bg-slate-300' : colorVariants[color]} py-4 px-12 md:px-24`}>
+    <footer className={`${color === undefined ? 'bg-slate-300' : colorVariants[color]} px-12 py-4 md:px-24`}>
       <div className='flex flex-col md:flex-row'>
-        <div className='flex flex-col items-center my-4'>
-          <Image src='/images/PointWall.png' alt='logo' width={75} height={75} className='border-x border-y border-black p-2 rounded-full' />
+        <div className='my-4 flex flex-col items-center'>
+          <Image
+            src='/images/PointWall.png'
+            alt='logo'
+            width={75}
+            height={75}
+            className='rounded-full border-x border-y border-black p-2'
+          />
           <p className='w-max'>PointWall © 2023</p>
         </div>
-        <div className='w-full my-4 flex justify-center'>
-          <ul className='flex flex-col items-center md:flex-row md:flex-wrap md:items-center gap-4 md:gap-8 justify-evenly w-full'>
+        <div className='my-4 flex w-full justify-center'>
+          <ul className='flex w-full flex-col items-center justify-evenly gap-4 md:flex-row md:flex-wrap md:items-center md:gap-8'>
             {LINKS.map((link) => (
               <li key={link.url} className='hover:underline'>
                 <Link href={link.url}>{link.name}</Link>
@@ -58,11 +68,14 @@ export default function Footer ({ color = undefined }: { color?: Color }): JSX.E
           </ul>
         </div>
       </div>
-      <p className='text-xs text-center my-2'>
-        Realizado por Alejo Ballesteros, Gastón Fariña, Diego Merlo, Mateo Sanzone,
-        Teo Forneron, Gabriel Lombardi
+      {/* <p className='my-2 text-center text-xs'>
+        Realizado por Alejo Ballesteros, Gastón Fariña, Diego Merlo, Mateo
+        Sanzone, Teo Forneron, Gabriel Lombardi
+      </p> */}
+      <p className='text-center text-xs'>
+        Sitio web desarrollado por Lucas Piputto, Ramiro Reinaldo, Gino
+        Somigliana.
       </p>
-      <p className='text-xs text-center'>Sitio web desarrollado por Lucas Piputto, Ramiro Reinaldo, Gino Somigliana</p>
     </footer>
   )
 }

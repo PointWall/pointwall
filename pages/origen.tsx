@@ -36,19 +36,19 @@ export default function Page (): JSX.Element {
           <Title>Orígenes Históricos</Title>
         </div>
 
-        <section className='flex flex-col md:flex-row align-items justify-center gap-2 p-3 m-5'>
+        <section className='align-items m-5 flex flex-col justify-center gap-2 p-3 md:flex-row'>
           {EXAMPLES.map((example) => (
-            <div key={example.name} className='border-black rounded-md'>
+            <div key={example.name} className='rounded-md border-black'>
               <div className=''>
-                <h3 className='text-center blonde font-bold'>{example.name}</h3>
-                <div className='flex align-items justify-center items-center gap-5 p-5 flex-center flex-col '>
+                <h3 className='blonde text-center font-bold'>{example.name}</h3>
+                <div className='align-items flex-center flex flex-col items-center justify-center gap-5 p-5 '>
                   <p>{example.description}</p>
-                  <div className='relative max-w-xs w-full aspect-square'>
+                  <div className='relative aspect-square w-full max-w-xs'>
                     <Image
                       src={example.img ?? '/images/foto_default.png'}
                       alt={`Imagen de ${example.name}`}
                       fill
-                      className='border-4 border-black shadow-lg shadow-zinc-400 rounded-sm'
+                      className='rounded-sm border-4 border-black shadow-lg shadow-zinc-400'
                     />
                   </div>
                 </div>

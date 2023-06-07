@@ -3,11 +3,7 @@ interface TitleProps {
 }
 
 export function Title ({ children }: TitleProps): JSX.Element {
-  return (
-    <h1 className='text-4xl md:text-8xl mt-16'>
-      {children}
-    </h1>
-  )
+  return <h1 className='mt-16 text-4xl md:text-8xl'>{children}</h1>
 }
 
 interface WrapperProps {
@@ -15,9 +11,5 @@ interface WrapperProps {
 }
 
 export function Wrapper ({ children }: WrapperProps): JSX.Element {
-  return (
-    <div className='mx-[min(10%,40ch)]'>
-      {children}
-    </div>
-  )
+  return <div className='mx-[min(10%,40ch)]'>{children}</div>
 }

@@ -76,8 +76,8 @@ interface InputSectionProps {
 
 function InputSection ({ children, title }: InputSectionProps): JSX.Element {
   return (
-    <div className='pb-4 md:pb-0 md:pl-4 md:border-l-4 border-b-2 last:border-b-0 md:border-b-0 border-slate-700'>
-      <h3 className='text-xl mb-2'>{title}</h3>
+    <div className='border-b-2 border-slate-700 pb-4 last:border-b-0 md:border-b-0 md:border-l-4 md:pb-0 md:pl-4'>
+      <h3 className='mb-2 text-xl'>{title}</h3>
       {children}
     </div>
   )
@@ -113,8 +113,7 @@ export default function Page (): JSX.Element {
 
   function handleSubmit (ev: FormEvent): void {
     ev.preventDefault()
-    postContribution()
-      .catch((error) => console.error(error))
+    postContribution().catch((error) => console.error(error))
   }
 
   // function handleInputChange (ev: ChangeEvent & { target: HTMLInputElement }): void {
@@ -132,7 +131,12 @@ export default function Page (): JSX.Element {
         </section>
         <section className='my-16 mb-8 accent-slate-700'>
           <Wrapper>
-            <form onSubmit={(ev) => { handleSubmit(ev); return false }}>
+            <form
+              onSubmit={(ev) => {
+                handleSubmit(ev)
+                return false
+              }}
+            >
               <div className='flex flex-col gap-6'>
                 <InputSection title='¿Qué tipo de usuario sos?'>
                   <div className='ml-4'>
@@ -143,14 +147,18 @@ export default function Page (): JSX.Element {
                           type='radio'
                           name='userType'
                           value={userType.value}
-                          onChange={function (ev: ChangeEvent & { target: HTMLInputElement }) {
+                          onChange={function (
+                            ev: ChangeEvent & { target: HTMLInputElement }
+                          ) {
                             setFormData((prevData) => ({
                               ...prevData,
                               userType: ev.target.value
                             }))
                           }}
                         />
-                        <label htmlFor={userType.id}>{userType.labelText}</label>
+                        <label htmlFor={userType.id}>
+                          {userType.labelText}
+                        </label>
                       </div>
                     ))}
                   </div>
@@ -163,7 +171,9 @@ export default function Page (): JSX.Element {
                         type='radio'
                         name='artType'
                         value='Mural'
-                        onChange={function (ev: ChangeEvent & { target: HTMLInputElement }) {
+                        onChange={function (
+                          ev: ChangeEvent & { target: HTMLInputElement }
+                        ) {
                           setFormData((prevData) => ({
                             ...prevData,
                             artType: ev.target.value
@@ -178,7 +188,9 @@ export default function Page (): JSX.Element {
                         type='radio'
                         name='artType'
                         value='Graffiti'
-                        onChange={function (ev: ChangeEvent & { target: HTMLInputElement }) {
+                        onChange={function (
+                          ev: ChangeEvent & { target: HTMLInputElement }
+                        ) {
                           setFormData((prevData) => ({
                             ...prevData,
                             artType: ev.target.value
@@ -188,12 +200,19 @@ export default function Page (): JSX.Element {
                       <label htmlFor='graffiti'>Graffiti</label>
                     </div>
                     <div className='flex gap-2'>
-                      <input id='other' type='radio' name='artType' value='Otro' />
+                      <input
+                        id='other'
+                        type='radio'
+                        name='artType'
+                        value='Otro'
+                      />
                       <label htmlFor='other'>Otro: </label>
                       <input
                         type='text'
                         name='otherArtType'
-                        onChange={function (ev: ChangeEvent & { target: HTMLInputElement }) {
+                        onChange={function (
+                          ev: ChangeEvent & { target: HTMLInputElement }
+                        ) {
                           setFormData((prevData) => {
                             return {
                               ...prevData,
@@ -201,7 +220,7 @@ export default function Page (): JSX.Element {
                             }
                           })
                         }}
-                        className='w-full max-w-xs border-b-2 px-[.5em] bg-slate-50 outline-none focus:bg-slate-100 focus:border-slate-400'
+                        className='w-full max-w-xs border-b-2 bg-slate-50 px-[.5em] outline-none focus:border-slate-400 focus:bg-slate-100'
                       />
                     </div>
                   </div>
@@ -210,7 +229,7 @@ export default function Page (): JSX.Element {
                   <InputSection key={input.value} title={input.text}>
                     <input
                       type='text'
-                      className='w-full max-w-lg px-[.5em] py-[.25em] bg-slate-50 border-b-2 outline-none focus:bg-slate-100 focus:border-slate-400'
+                      className='w-full max-w-lg border-b-2 bg-slate-50 px-[.5em] py-[.25em] outline-none focus:border-slate-400 focus:bg-slate-100'
                       onChange={function (ev) {
                         const newData = formData
                         newData[input.value] = ev.target.value
@@ -224,7 +243,7 @@ export default function Page (): JSX.Element {
                   <input type='file' className='my-2 w-full' />
                 </InputSection>
                 <InputSection title='¿Te interesaría que el equipo de PointWall guarde tu mail para ponerse en contacto con vos?'>
-                  <div className='flex align-middle gap-1 ml-4 my-2'>
+                  <div className='my-2 ml-4 flex gap-1 align-middle'>
                     <input
                       id='contactCheckbox'
                       type='checkbox'
@@ -235,13 +254,15 @@ export default function Page (): JSX.Element {
                         }))
                       }}
                     />
-                    <label htmlFor='contactCheckbox'>Sí, me interesa que se pongan en contacto conmigo</label>
+                    <label htmlFor='contactCheckbox'>
+                      Sí, me interesa que se pongan en contacto conmigo
+                    </label>
                   </div>
                 </InputSection>
               </div>
               <button
                 type='submit'
-                className='text-white bg-slate-700 w-fit px-[1em] py-[.5em] my-4 border rounded-md hover:brightness-90 active:brightness-75'
+                className='my-4 w-fit rounded-md border bg-slate-700 px-[1em] py-[.5em] text-white hover:brightness-90 active:brightness-75'
               >
                 Enviar
               </button>

@@ -65,14 +65,14 @@ export default function Page (): JSX.Element {
         <section>
           <Link
             href='/'
-            className='p-3 text-xs flex justify-center z-20 align-center mt-2.5 ml-2.5 -rotate-90 border-black bg-gray-100 hover:bg-white cursor-pointer absolute items-center rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300'
+            className='align-center absolute z-20 ml-2.5 mt-2.5 flex -rotate-90 transform cursor-pointer items-center justify-center rounded-xl border-black bg-gray-100 p-3 text-xs shadow-lg transition duration-300 hover:scale-105 hover:bg-white hover:shadow-xl'
           >
             <FontAwesomeIcon icon={faLevelUpAlt} />
           </Link>
-          <div className='absolute top-3 left-3 z-10'>
+          <div className='absolute left-3 top-3 z-10'>
             <div className='space-y-10'>
-              <div className='flex flex-wrap gap-2 md:gap-4 items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500'>
-                <div className='text-sm items-center md:text-base flex bg-gray-100 p-3 md:p-4 rounded-lg w-full md:w-fit'>
+              <div className='flex transform flex-wrap items-center gap-2 rounded-xl bg-white p-6 shadow-lg transition duration-500 hover:scale-105 hover:shadow-xl md:gap-4'>
+                <div className='flex w-full items-center rounded-lg bg-gray-100 p-3 text-sm md:w-fit md:p-4 md:text-base'>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     className='h-6 w-6 opacity-30'
@@ -92,7 +92,7 @@ export default function Page (): JSX.Element {
                     mapApi={mapState.mapApi}
                   />
                 </div>
-                <div className='bg-red-600 text-sm md:text-base text-center py-3 px-5 w-full md:w-fit text-white font-semibold rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer'>
+                <div className='duration-3000 w-full cursor-pointer rounded-lg bg-red-600 px-5 py-3 text-center text-sm font-semibold text-white transition hover:shadow-lg md:w-fit md:text-base'>
                   <span>Buscar</span>
                 </div>
               </div>
