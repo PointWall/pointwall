@@ -1,21 +1,7 @@
 import React, { Component } from 'react'
 
 const Wrapper = (props: any): JSX.Element => (
-  <div
-    style={
-      {}
-      /* {
-      position: "absolute",
-      top: "10px",
-      left: "15%",
-      borderColor: "black",
-      transform: "translate(-50%, 0)",
-      zIndex: 10,
-      width: "400px",
-    } */
-    }
-    {...props}
-  />
+  <div {...props} />
 )
 
 class AutoComplete extends Component {
@@ -63,9 +49,9 @@ class AutoComplete extends Component {
             this.searchInput = ref
           }}
           type='text'
-          className='bg-gray-100 outline-none'
+          className='bg-gray-100 outline-none w-full ml-2'
           onFocus={this.handleClearSearchBox}
-          placeholder='Busca una ubicacion'
+          placeholder='Buscá una ubicación'
         />
       </Wrapper>
     )

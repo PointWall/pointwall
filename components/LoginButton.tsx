@@ -1,10 +1,10 @@
 import { useSession, signIn, signOut } from 'next-auth/react'
-import { PointwallSession } from '@/types/pointwallSession'
+// import { PointwallSession } from '@/types/pointwallSession'
 import Image from 'next/image'
 
 export default function Component (): JSX.Element {
   const { data: session } = useSession()
-  const pointwallSession = session as PointwallSession
+  const pointwallSession = session
 
   function handleLogin (): void {
     signIn('google').catch(console.error)
@@ -15,9 +15,11 @@ export default function Component (): JSX.Element {
   }
 
   if (session != null) {
+    console.log(pointwallSession)
     return (
-      <section className='text-lg flex center items-center flex-center gap-2'>
-        <p className='font-medium'>{pointwallSession?.user?.email}</p>
+      <section className='text-lg flex center items-center flex-center gap-2 ml-auto'>
+        <Image src={pointwallSession?.user?.image ?? '/images/PointWall.png'} alt='Imagen de perfil' height={25} width={25} />
+        {/* <p className='font-medium'>{pointwallSession?.user?.email}</p> */}
         <button onClick={handleLogout}>Salir</button>
       </section>
     )
