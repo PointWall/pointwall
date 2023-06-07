@@ -40,7 +40,8 @@ export const authOptions = {
               lastName: session?.user?.name?.split(' ')[1] ?? '',
               posts: {},
               email: session?.user?.email ?? '',
-              isAdmin: false
+              isAdmin: false,
+              image: session?.user?.image ?? ''
             }
           })
           console.log('User Created!')
