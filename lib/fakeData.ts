@@ -1,5 +1,875 @@
 export const data = [
   {
+      "id": 1000,
+      "lng": -58.4743143,
+      "lat": -34.6021788,
+      "images": "https://doc-0k-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/av08storkaaibkss19kpod5mpc/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-FrmCQUx8YsM5uVhpwtTO66VHMQvNiMZlZfXlmyUshYLS4WsGrbu5LGGqqrdRBQb5KkVrFyA-b5xYykVWUTs4veg8FElHsovSnkB-CIOnp4eYBWcXQ843mCGMIIapmIv2sBooQ4RIrVYI8_740yK51quszBmgyHOERzvlcRaXlT1dK4_h-luFwllghJb5pBmIqt?fife",
+      "description": "<br><br>Mural entre Terrero y Biarritz",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1001,
+      "lng": -58.4675283,
+      "lat": -34.6030995,
+      "images": "https://doc-0g-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/2l2k96ifmpdnt0hd47m99dsp98/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-FLG0Sw5E852FjiAbqqnYYgpiUj3PT4LsE_fsCzNgXxxtuA9OezNkdQf-dA-VH5aJYgYNMNP-U0ya2exnqlkFR7IyWs2Rknz-RQ178yZfDAjcsMujPFjlsuibAl9Nu8qNJuFnugj4wrvmHNckfQcBUxQww2-JvKNr-8vpN5AMFNp5fiWrvrmQPYUPaR_OhsF71g?fife",
+      "description": "<br><br>Grafiti, ubicado en el portón de una casa. en Juan Agustín García 1750",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1002,
+      "lng": -58.4742526,
+      "lat": -34.6021661,
+      "images": "https://doc-00-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/92srl1g9gq4eqqa13amgo2ddf0/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-EP8eeMTI88r3ThHYh8LOeycduQ20LBziOntpa-tkarhe-qQ-XuqdLFkjDo0ihvsuFXx4sUSembv-OzEDcKnXXi4buP3jN-pacEdHhCEOsofOmRqN1wRFirvg_8ByQy1QQaKZRWd35HR76wn3uY51PXIpxnm5X9aPZcnWken-aVeclcU0YNd6LX7kdHzHgvA7Cy?fife",
+      "description": "<br><br>Frase que se emplea en los partidos de A.A.A.J. Ubicado en Terrero a la vuelta del mural de la intersección. ",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1003,
+      "lng": -58.4736693,
+      "lat": -34.6022829,
+      "images": "https://doc-0k-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/6pdfs6o3t6e5cu8nr9ctd475bo/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-Gu1k41PnvNemJq328WYQdyxgzGDX6UKaVffPm3Y6qoPZgfzsjnIe00Svrfn6W-twbPBThlPZRdbJs63Yb9BOTcyXUbJ8KdXuxbLNzH1JrEAwc9w9iQOJyxVKMCIZE6zfhHpnRKozUl8aPFqIqgEAclNXAdjPv6BTVeYSXVm0Mbyi_NhuNr9Pt9f3uE_wgL4Fyp?fife",
+      "description": "<br><br>Mural realizado en una casa. Ubicado en Terrero 2630.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1004,
+      "lng": -58.4735875,
+      "lat": -34.6023039,
+      "images": "https://doc-14-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/ne0cicv18h7fam65lqtc41q30g/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-HxdzrOGgd3ranrcvstsZxjDZKo5Pq-rdua6vewJPtwSbHes5NvUKybk2339Fbtf5NdittbuE4OlXCqohQt4mOW072Lp00iKnvb_9uZk_JRSYTJ7hTixVX5av0jWQptX2DFHCQD2eL7bGmb0woUBkuH01E343_Dxlcgoh4pBd7xpcIfO9JHslnz09OVuPLNm8fC?fife",
+      "description": "<br><br>Mural & Collage ubicado en la entrada de un garaje en una casa. Se encuentra en Terrero 2626.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1005,
+      "lng": -58.4734534,
+      "lat": -34.6023348,
+      "images": "https://doc-14-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/8enetr2q25dl04hk4b2ope59os/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-FA-bpOEn3kpwTweSo88Ih8ykvJ1Q0bAQYxjozr1yWYUT7mmQhXNlKQ7ka-Z3rfelMjvD9UCYOtrp0pFxPjjpsV6lowHQJPFEniea_7J2wLlUE8oLsblnNCYUzFruGFGjSesczoHpWkr5MMMPlOszrEZI68ShSpiApTjf1ujr9DOenVCXo_mgRmNCS02GcrTwcA?fife",
+      "description": "<br><br>Mural ubicado entre Terrero y Linneo",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1006,
+      "lng": -58.4734615,
+      "lat": -34.6023878,
+      "images": "https://doc-0o-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/9pmn2rhtf8qbdhoq3h1a4vhfpg/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-HlinHl1rUrwBZi1324HYSeeNwnPLZ8fgrq5D0qKhVqfBX8xlCBbNqQcNBk4_64oZG7rdJS_Fnp90cXIf0DlzmnINGu0zO8IJTrEs8EDMHaLwG2gaGAmGSchUCBu0tqolqOmj90J4HvEA1hBoWVxiOuDnQTMyynhty3EmFQbu5S1CHiN2VMSxK5qxoaY4aLFVVY?fife",
+      "description": "<br><br>Mural ubicado en Linneo, continuando con el mural entre Terrero y Linneo.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1007,
+      "lng": -58.4743152,
+      "lat": -34.6033292,
+      "images": "https://doc-0s-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/4beelnpt878n53eit246qhhpp4/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-H3l-iOnOH4NJjcd1tfJ_JkoZGD0Eqme27EJbu2yNxLQ8STFjaoM2lHnaecKFg1HOjifzy73F5sbLECLX8CeZoR8Co5tsAicGzgxpMSir7WngqNPHpJVq0ru1DEtO1m4gEHhly5xawuAy3ySigYavtk2pVn-2V_8uhU_UZsfnr2cdsbqbPEbZzvBhEFrqyPhxCA?fife",
+      "description": "<br><br>Pintura en la entrada de una casa. Ubicado en Andrés Lamas 2561",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1008,
+      "lng": -58.4680657,
+      "lat": -34.6032778,
+      "images": "https://doc-0k-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/bij87ai90h2qst04ja7kfs84g0/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-G2k1DFj_NjDXd3SbyuUAQ5htvrb5ZZtQwk5by_zcYWuDAMWR4UnCOVkWG6LU96Yoe3Y7JXF_UHpZaTYXFCILJ2CFHnbBEqt3emY473uoTS9BdreVGPwKsyzxHV-V1SItIEVW3XT9VGtfbbCZbUjc3_W8qrMAmIwOEkhc5sDSY7RhJ8zk_NEr8RGNlQXQqZqg7i?fife",
+      "description": "<br><br>Grafiti en una empresa abandonada. Ubicada en Juan Agustín García 1795.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1009,
+      "lng": -58.4716387,
+      "lat": -34.6050174,
+      "images": "https://doc-10-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/gmj0jdrp7ejv11kl9nvqkti7m4/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-Eoi5q9tht4z67Oj-t74nbOE7MBQWUSbpwBdgipO8gJENHtA1cPJjA1cfhaUcgbL3OyqTJxCFnpqgXXFOU9J9VezzT7w_izb9DlHV6RgrYCx2xUVXWgXkohlKtvI7n0vo3eIsVkJ3ZGI8xRQoHGwvwBfrQp8mvQhmJsMirE5py9RtdtCVKsk8wC3uov1w5ZMhFa?fife",
+      "description": "<br><br>Mural de manos, de una escuela primaria.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1010,
+      "lng": -58.471329,
+      "lat": -34.6076313,
+      "images": "https://doc-0c-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/pmobmig6v5cktu2mdmuvn6k3ss/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-Enr0Jk60pv71CJRiBj52fT1FQRJHO-_Rw5kdouuu5y8SHmpfA7La2WxTyjNJ1p4Vx2T6j-mPbgkD4OwnIbxp5LSlNhMbR_K4Rrt-xkCm0FOsfkh3jooJuagkY-BkQnv6Ke6jnV30h41H9OWd39Ucx7m5yvpOoFwLq_zmT5ta21FFsfEE3fqd_rmVqJr1D4tquX?fife",
+      "description": "<br><br>Cartel ubicado en la pared de una casa. Ubicado en Camarones 2150.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1011,
+      "lng": -58.4741191,
+      "lat": -34.6093568,
+      "images": "https://doc-14-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/c33taku8782ggpq5t9elooh9lo/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-EHOKdSsu1O9VwC0TymOImMSVBr5VwuiUh_zMptM06_G0XlEr5MBPOBqxk7Na5_Rh031zfI1zZLtOzZ1U8v_9xilT7A1gkZ5yU1tgOSnhysohovfd5Y9hskCZ9Uj-j8XgbcsK3j3pXWP1u6I63ui9EqTySX5svwIkramS-XO68-3QbaqRaP9QkOkKZSH-1iRoIN?fife",
+      "description": "<br><br>Grafiti ubicado en Alfredo R. Bufano 1966.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1012,
+      "lng": -58.4740869,
+      "lat": -34.6094716,
+      "images": "https://doc-0o-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/9r6jpk8vtb1funometlppiobgk/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-GDzLexsgws4TN4gUq2s1YLifrfJQHW300VxzS4NnqF1gA0PBHPqEdxbC8-hmoXvVhSMd-GLZ7PQEaHfDITUYId628lPDvx4HAoS1lJ5fmn8QIcMrPY4cWJugr_D71LjrVbQMTM6ZyfLG5tq6O10h2fruQhJo1DPQQhoEXgbJiU0P6FpirL4nCmS3Xl91gBM9s2?fife",
+      "description": "<br><br>Continuación del Grafiti 13. Ubicado en Alfredo R. Bufano 1960.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1013,
+      "lng": -58.4733895,
+      "lat": -34.610178,
+      "images": "https://doc-0o-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/uq91bkitorut0mrpssmajapmm8/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-GEQH3zUQFdRa64lOYmSUAJdw_-vhmm0zY6fiFh5_c9HjXgATQ6px7Vfe1kpGLr8c-MhvqHAyGTEh_IP4ZbZ21Q6UiowtnG_ajXYAAT4Ky4eBp1l_vNsH_0eKcM0PX5QaWKLW1nOkSPFzaPNicVKawDfEyZIBPdI78-VUdSU7b2clZLyI5w_u1P_qxxhCCC4jTI?fife",
+      "description": "<br><br>Mural de Gardel ubicado en Alfredo R. Bufano 1899.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1014,
+      "lng": -58.4733037,
+      "lat": -34.6102486,
+      "images": "https://doc-08-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/ja89fco2aquhsqhnfs9buk2r4g/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-Fn7iyOJguNtRAgtzFHEQs7_c8aqXbYepoAZ80maskKEPUR4jNG6FeBastitLvg_QlRD4hvcD42ixYRpf3N4MnUip4YpsKTVmzR4Yz5KGjh4GKt1tHJMbLFx9w0fj13Vb3ydfCNZrnMD0P6HpN2-LFWNfhWq-iMNufp2O79vxzxGpYvBoz3mRAkKGbuQ7gDD0-C?fife",
+      "description": "<br><br>Mural que continua el mural de Gardel. Ubicado en Alfredo R. Bufano 1895. ",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1015,
+      "lng": -58.4733627,
+      "lat": -34.6100213,
+      "images": "https://doc-0c-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/gg2vbq26k3894j0t0mn47ifaf8/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-GVI_Myr9rRG8zETlBLu8G8cgxhrVUpz_6NheVYSwglXDfDBD71JWn1XEnVdPOBus9-kArw6ddqIfj2Fbi_0T5QhnMMg4FF7nlW27qskQkU1f_PIqDu7eo6_DQf5mQJ2icgoqH24ipT8zboG_-RHeiF_UyoQzkRLNcCh3Se2jwgRvyQVLoDdqqz6bbuTmLIXNlx?fife",
+      "description": "<br><br>Mural de Pappo, musico que vivió en La Paternal. Ubicado en Alejandro Magariños Cervantes 2392.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1016,
+      "lng": -58.4758596,
+      "lat": -34.6098298,
+      "images": "https://doc-0k-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/bv02flmjmgqr16fgmfivi5ujg0/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-GyHfSWDDIChVylg7BQqsVEmTmc0iiVjXQbRsJTrmJPIAtdXwfqGb0Z3BPV2xRT8wgQvyBD4kSyugk3CUlwDOUJZRb6pn5JV-I50a_SnUyXwMOG6dqu7y5fs1cys7QehCkVYFYqz47P4_AA2m2EEfV7MjrALAUWwA1M2OPPmzoY_vSrecV_BS-gyWelTxcley3n?fife",
+      "description": "<br><br>Mural en la persiana de un local del A.A.A.J. Ubicado en Camarones 2524.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1017,
+      "lng": -58.4757362,
+      "lat": -34.6098938,
+      "images": "https://doc-0c-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/dgio5617kl3jd2tm2gdqndurcs/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-FJZiljcDFbMiRthzfnjgtw0bJZW2qgZB8eTZ6ntotGciTowdvzgVw2h2s6_6-UVUOJB3D7mybruj09wHrS8CJh66oCGR83eGSjqwSBwL18ZA-aCwIJoXxxk8Z5mNGVC0fa2AjFi-QihtZlCRIX7X0UYERv0oUTaXEtn54Li-dLGZ0dHfP0e08BiZPSOHsge7uc?fife",
+      "description": "<br><br>Grafiti de Maradona en una persiana de un local. Ubicado en Camarones 2510.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1018,
+      "lng": -58.4773884,
+      "lat": -34.6077414,
+      "images": "https://doc-0o-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/ap2uiat44fk8bumkfq01snnaqk/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-GZB4BDiIuBbEhCOtcxEs1gap5AV8BRSinIaC7ZOlXqoyuJA80BYFXIhYn5tu5_14l0FblhXI_dY5wprXnWHt_1GMzrqmVlBZ70uRK9zdY6Qp_mqvzXxwMpaPWz2gV9jPJU4Hp8P4zkO4_J31SCxRxA8_1Zze332DbAie69GepQEGWBPR5hb8N5-X9tRbcMnNrz?fife",
+      "description": "<br><br>Mural de caras ubicado en General José Gervasio Artigas y Juan Agustín García.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1019,
+      "lng": -58.4771462,
+      "lat": -34.607812,
+      "images": "https://doc-0c-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/05vjereh22q0834364gonp2hko/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-FpBxAIeBpbjI90aTM2FQtdF0Hz8bCk5cL1uPcfv6uZ7p5vxcEOwzMzv9XuADDBwgkSutlMO7g8s-Rla4YgSBkQAtKDdHZUDPOAZMbiedRleRirYzNPhn3Qsxd7hFiqzxw2uya6ORrFfzMB4_TXK4CqNcJyeTi6ukmjghCXLK0wcgDBdpYCdjkhWqW1wtzbWVPG?fife",
+      "description": "<br><br>Mural de Maradona con las descripción de que Paternal es su tierra. Ubicado en el estacionamiento de propiedad \"Coto\" entre las calles Juan Agustín García y General José Gervasio Artigas.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1020,
+      "lng": -58.4744526,
+      "lat": -34.6053687,
+      "images": "https://doc-14-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/nbt1g5d0dplps07e048r6kj168/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-GjcxofPkSM75lhTM5tg9OyUP0XrzbwAvDAQAzFlyV_ycOzyBA8d6aSp6F3Dvkj3OhFLqMeH_aqF-gwuJzBHaHhkjb7LIrDoYJ04Qrgd-jtYuUVzTa6vdZPsD0KcWTmuAw_idF-ZZT_YOUjeuEnRxW5IsfeNRuIkTetHFk0gFYMBtm2x3VxvVdODLCEve5-JmjE?fife",
+      "description": "<br><br>Mural artístico en la parte frontal de una casa. Ubicado en Bernardo de León 2307.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1021,
+      "lng": -58.474423,
+      "lat": -34.6054945,
+      "images": "https://doc-0g-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/jqb03vu59nn1tjm671tvf5io1s/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-E-KwHvSlITiAmqtTPBp-eyFp8F2qpq9a74Lnn7Da4Hswc-FVCu2PKSyCfNptBO-mG4RR80BtBQhTYGfrj9VtGgWIWthsQpyROYXDWYZudZ6uKuCnr-r8xQKsMOhBmkn26s3PU-wt2E90vo0XaH4fSGESnEjV_RspNnIKOFEMu9dRNDeLCAXBteEUEw3Vd4wmKo?fife",
+      "description": "<br><br>Mural de Maradona en la esquina de un Kiosco en homenaje a Maradona.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1022,
+      "lng": -58.4742191,
+      "lat": -34.6053709,
+      "description": "Mural en homenaje a Maradona en un supermercado Día. Ubicado en la Avenida Jonte y Gavilán.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1023,
+      "lng": -58.4741199,
+      "lat": -34.6053024,
+      "images": "https://doc-0g-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/i4vqhn3vpobrd49efr7hht5rhk/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-E-336SlfeJTPI7-KK8GlUY4bChfKJ04wNJ8fOylWvybQ-cfoj4VEGEwDt2rko1aH_2W01GqpMGfsfLmHFRGAsH59Qr4Qjy4hyPPS0D_11PDwptELJ8bSHehLaCY6_TsTJtZFh6hwrH_W7WO_6AEenMlM6Y4QmIBLDpb2D3RKp8uhGiL4p6RVmfme_fXC89dMB8?fife",
+      "description": "<br><br>Continuación del mural en el supermercado \"Día\"",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1024,
+      "lng": -58.4739732,
+      "lat": -34.6059779,
+      "images": "https://doc-0k-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/v8e7a8i9ff3vtujofief4s6524/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-EIfSt5Hx_CDNy8zL4IY9eSFVOKFL3mE2cF-4arKUw97cXNoHr5-DeMczbFhPQEfNio8Tti-VPnTqmgkny4jayRv3qoLu-FtGgn4boLahXec9mrBwJ5N32nfyM1pxoKaTkTSFexgwnbhwAneWsZDjyQSXUs3qRrFWHWf96IzPrk4lf-7kcvRkfRENdqG471mK-g?fife",
+      "description": "<br><br>Arte de una peluquería, haciendo ilusión a una barbería. Ubicado en Juan Agustín García 2221.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1025,
+      "lng": -58.4734126,
+      "lat": -34.6059713,
+      "images": "https://doc-0k-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/2kjknnf0vrav7g1kcv15q2hsuo/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-HFTSqJxwk801CdIRqJbR2SVFtMkyYbGUzVNnLm0cY7xsWQXW3GFHBEbw9kqhcqNX9RbhszyZBFFcFYbha438dDrotHmYQiuzkjR1ShhjjH74cC5g8_1DOVBbV2QLAKhtv0M_WkUESO6H8NPNMdc4Ucwgye8mLLFu1qj2Wsbnmn18RBqIgg0EckkzzVLz4fraqk?fife",
+      "description": "<br><br>Mural que homenajea a los seguidores del club de A.A.A.J. Ubicado en Gavilán y Juan Agustín García. La numerología no se encuentra disponible ya que son murales ubicados en el Estadio Diego Armando Maradona. Gavilán 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1026,
+      "lng": -58.4733402,
+      "lat": -34.6060706,
+      "images": "https://doc-0g-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/10u5e3ugd862n41u87bssap5s8/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-HABliMx1MsyqC0orGL23LD-mqQEM4l6gLeffbLk3CwFf3Y-u-5mF3y8DsK7DGuwoaYmGDsUKccZZeC3iFcshNkKJfHsqW-NX8JmdA7ULgLsQIK371t-aCeJNeYpMrp72zao1i1-PFK8H8ZyPvcVK8B2bhCHXnnmZFMN9_8skflVXiSHtZCLgfK37w2sit50ocB?fife",
+      "description": "<br><br>Mural que hace homenaje a un ex-jugador de fútbol del club. Ubicado en Gavilán 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1027,
+      "lng": -58.4733134,
+      "lat": -34.6061148,
+      "images": "https://doc-0o-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/5q8qsilqb0926gj5flr1o4c23g/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-FzfcOCCki2a4n357Ax3ErPBk8KN2tXhYCigFVho978FSkIEfj9jdNjcqDvnxNxq1nc44biNOVzHA87GLFlcCd49yvFbV4UPUkrIySMLI8rvb9_Ui5ilJNzb9ORslwdA9mRZZ3RfviEgkRhwOhgSQwzOm1sDLbBjcLAkCjWsFl1BELlU40O5th8q9bS6Aud7zPM?fife",
+      "description": "<br><br>Mural que hace alusión a la murga que se celebra en las cercanías en Carnaval. Gavilán 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1028,
+      "lng": -58.4732812,
+      "lat": -34.6061678,
+      "images": "https://doc-00-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/h4q6dlsaa7ddheei83aibadjo0/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-HK6n-rPGnAyvxRZCzRQWAYxMddI2d-4IPjfsLPpxqku2lE69ctN3QDtn4T--zl92z6YUjjrTZvmo1ABeRlG30hELVCExsaFIuGbj_cpEqhXu24GOF_IDsDW_GFRk9iiLPZKMIDFqIEat9jMOmPOdXv8AysF6LtI0xGZzXbFdb7n3t2TWaY0WYyN7y1rs_pzazW?fife",
+      "description": "<br><br>Mural que hace homenaje a los seguidores del bicho. Gavilán 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1029,
+      "lng": -58.4732195,
+      "lat": -34.6062495,
+      "images": "https://doc-0k-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/30lll55ur1v478h8umhshsgt2g/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-E3txD0CVrcaCCzdTesP_UK4Sjvftu_0QLgkTJcUtHCRZrxNE4KahooBflY2W_b6O1bpIIVrcoVFevc2r6_bF7JzrG6VCm1GqUGitLE2SA54RWHwXTtFQYvS_--7XSuyAnKYWL_aHHNQ7s73sU5soBAX38pYr1nPeM75vn74PJQbOZe0XszEh-bYG5yXwxojSbV?fife",
+      "description": "<br><br>Mural hecho en aerosol, hace homenaje a Maradona. Ubicado en Gavilán 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1030,
+      "lng": -58.4732463,
+      "lat": -34.6062053,
+      "images": "https://doc-10-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/1dgi9utkdidesa75abaci2tumg/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-Eugsu-ZFQLUNVcd0s3m4BYDG-TyL4OZH1x-PoUyFR-DWItsfcFFJ0cyv-H3b4w7jX3qIxDfQb90GwQFTmZqimsDr9nZdUSXk9ML3zSOwc97Dm9-5fg8UQLcawPDgDchMIM743iIMRX_sZGDF01BsDS5PHTX-7g7fkZw6CSj1epVgihUXVU64Dlm5hL9Ac3YQ6V?fife",
+      "description": "<br><br>Grafiti de las \"Islas Malvinas\", representando la soberanía de Argentina. Ubicado al lado de la ubicación \"31\", en Gavilán 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1031,
+      "lng": -58.4731981,
+      "lat": -34.6062893,
+      "images": "https://doc-00-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/dbqqn0ol9aed90523gt5kmri28/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-HO5_obOq-yKXGGDhFhRbvBpoLRFbEvP-btn8OV3n1FlgXUqIbmRbB_pbxsn3I0Oo-N-coGJhhTCVCRPszEKsR9gPrGYO3tmA5GDlBSKltr9rfZztzMGYSfIeEihowwknT7CgeJ_--PxiVe1cov6OX962Lmwi5sXCsmx9O8x88JNWWZHnYzou0JQVKhwSbKB6xg?fife",
+      "description": "<br><br>Mural de Mosaicos, en honor al jugador Maradona. Ubicado en Gavilán 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1032,
+      "lng": -58.4731149,
+      "lat": -34.6063886,
+      "images": "https://doc-0c-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/iijclne8hkhv8r8qlg0ik8nokk/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-GADEMueh0NgTeELrWIo_eJjarGi5We7djaMoEuwgsI71ARCgGJOlLKOIXZRpPM1nC9JJIQxCPouSw2IedUms0rjXTuIlYUuubclEC2aTIedueSmQ19U_o6-6EYLlMNaL2XwxJeVUOIlnfp53_BbXQYDuap1dmxVrHR70e4jS1k4G2NWlLii1PrfQsBPyAlfKJd?fife",
+      "description": "<br><br>Mural en homenaje a Carlos Carella. Ubicado en Gavilán 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1033,
+      "lng": -58.4730759,
+      "lat": -34.6064393,
+      "images": "https://doc-0g-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/rjmt8fhjh3hnigooo174a2vh8s/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-Hu9DZzpBclHxPOPZ8ylnfAHvJA554LlHVJiEHYuzwH8FeW82CHainuQHAVLtMeeXbTWZ4r6jLMO7KFKYD9gi8imjEiw4es2EvYzNXkPRavWAtTiClQ7BRL7qmOxdXaz-cgh_mlpmX1hN2iAo9v0Pp0n37YYWo8sd4pRY_Obz3JAcCIhgALfeKNwZoYjqAk8xY9?fife",
+      "description": "<br><br>Mural que hace homenaje a Ricardo Trigili, ex jugador de A.A.A.J. Ubicado en Gavilán 2200-2100. ",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1034,
+      "lng": -58.4730544,
+      "lat": -34.6064724,
+      "images": "https://doc-0s-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/o7v6uc6v8b4qg53sl2fgsikaao/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-Foc9gfGly_iPvVbiHOQJHrJORICzoWqZf9I64FjlVjcUjhU1Tecf2RRToRsve_yEvfEPiLL1eb_otG1bu28qf8sVqq4kFFGY_lOi9pbjrhi2mBgd2mR1z-eWrNUzPBN4_sa_R6VSi5GJzWHeKECmOwcwPbZBsATtTWHDwKywrgNS5YcXbecS8QyoSmVME8mO9V?fife",
+      "description": "<br><br>Mural en homenaje a la copa del mundo ganada por el quipo de Maradona. Ubicado en Gavilán 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1035,
+      "lng": -58.4730249,
+      "lat": -34.6065034,
+      "images": "https://doc-0s-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/1gelij19qimjg6qmissol6lifg/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-GCe48M-tOepaOskyWSVbsGojDtZsMXcEFYcmMxB9pWPpAGg511cd4Qn_R-UnJVx0B28dt2ucf6h0HRsloz6877unONIgljSBYL-YRGfdUHqnVdTyTUoispY8LgJlnLg7W7A6VMPXdY46T-DMdb-N2vGqFwS6iX8vz9vWFknfNO91WujynzbsU3Qvt7WcBEoNEJ?fife",
+      "description": "<br><br>Mural que hace homenaje a la transmisión AM, de radio, del club A.A.A.J. Ubicado en Gavilán 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1036,
+      "lng": -58.472998,
+      "lat": -34.6065321,
+      "images": "https://doc-04-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/akr7cc7f0fiqib7kjjkon9vlms/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-Fbl4QalXhBwvvjKqFHeYNK5n5qLXEdZXdoAI1MxGNieAbFcKZsFz2khqz5yVSkhIsWBhoqCsL2HfXe2elsRNg0ffLqeGnqzRDxUhpDtszLTm0RShfU3m62JQw5Lv-d7XJ6KjiMq5f7K8no9L5T76e0KEvuM0c49abuFMzwtII_eNgoUlXTV_z3bu7hwJPPw5H-?fife",
+      "description": "<br><br>Mural que hace homenaje a La Rodríguez. Ubicado en Gavilán 2200-2100. ",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1037,
+      "lng": -58.4729659,
+      "lat": -34.6065719,
+      "images": "https://doc-0g-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/rq7l32i6ejplcthnku2fhfcpqk/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-E-E6PDI_DQ3V8J8-zS9wjkkAXpbOY36e7H7MRyUP8xKne0pXJShC-R4Kka9z1Ohdr8pRxPbm83TI3KDNh41znBSjtmN-3zfzZX_L0dDhsv3AXQQLwXm4q8oHyUiS-PUFZ_vax1pMZfEb7HwXWiHEYLa-qVFU9LVsJljeRPJGp0b-5x5QIlhZYhQ2INzZa9UXIy?fife",
+      "description": "<br><br>Mural que hace homenaje a la murga del club A.A.A.J. Ubicado en Gavilán 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1038,
+      "lng": -58.4729381,
+      "lat": -34.606616,
+      "images": "https://doc-00-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/c9gjds18qa4gl6k8sf48ga30n4/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-FawR70kyDialyibO8PGll7M1xgLy0UdTGPqNf_DZ_5ztlyyUnHmWIznV-5lBR2-Yci0h9B2QXU9swGO8tSFe680UTSVbvu3w05AdfCu6kDDNZRiJLIJtYm1GIunVNnHqZwK-3_LtmAt_7hkBG9reraSxinYKmapwYIbbOesTa966ulv-zgT7fb3tqaM44v3u1K?fife",
+      "description": "<br><br>Mural que hace homenaje a los seguidores del club A.A.A.J. y la pasión que conlleva. Ubicado en Gavilán 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1039,
+      "lng": -58.472914,
+      "lat": -34.6066646,
+      "images": "https://doc-0k-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/ponbk6b1dg6inu9tqqq9euitoo/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-HklKfc2cgSSgQl_FwG18KGXc_gPJRZmd-0wuad0QkCdpjMAHEcEpQs14TH_t-Pet7u7zXPqJM2WcV04mH7hng8srePSYuBhx-Cly62VPsga3lQ2nKe2O9ceo5qmlPeGxf1k8LCDVEytThq-oA9gISQIny7GuozKBeMY7zZD4nnEa6Ffeeh-5pAOeTjZaZO9XXN?fife",
+      "description": "<br><br>Mural de un \"bicho\" en forma de monstruo, que hace referencia a la ferocidad del club. Ubicado en Gavilán 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1040,
+      "lng": -58.4728817,
+      "lat": -34.6067043,
+      "images": "https://doc-08-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/co1aj4t3ska54umcvq2igip0nk/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-GXGuFEYESwPiXjj6DIfEERmgou3HRow-UB9PZ4PYObNSUILiKnIcJWp6yLPEhuL1hL2vTl4N9EHkByMmxBatD_LkI_RDHNF1cfRYoamoBc-kxyYYyL2opF85cUnhUaSKcHpQpTs8Vhe1rm2tSkgrkFTsgVQn9mbap6Rq5vrrm5n_VhXmHxUovp1YELWlgzZKMK?fife",
+      "description": "<br><br>Mural que hace homenaje a las transmisiones nocturnas de los programas de radio. Ubicado en Gavilán 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1041,
+      "lng": -58.4728361,
+      "lat": -34.6067551,
+      "images": "https://doc-04-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/v955eessbuhrotk3e6cgrrtp9k/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-EViLc7qDXzxr8PMIO6ZNOB9SK2lOjSxCPwHLs3ndn7k34DKVgTYDU8D5WMfS0KhvcY2zv0rSveh4Bhqh9JCl9gErcs2heLu-AkjDFdzN4Zw67p5uiESWdKlathCkuKSmEjlgya4zRIdu9osNdEyeQ1Mxtq9bXf78cAaAwbX0nlZ_4PV2Yk-hRp6UkNy59yfuR1?fife",
+      "description": "<br><br>Mural que hace homenaje al decimo aniversario del programa de radio que acompaña al club A.A.A.J. Ubicado en Gavilán 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1042,
+      "lng": -58.4729612,
+      "lat": -34.6068655,
+      "images": "https://doc-04-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/igi9c42qsg8q8j1tqel1jiumu4/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-Fne4i3auRyRDwWwLyuslLHCV3PTzHnwBJIP_SGyuX--RADREfs_sD0hNWMLWYNZLcEMCgdk0ne0NXopAzv2qHeyJZAMQzVald4M1CudOzAKIi0gYTC66WQ372gUpV1_64TJgL8NEX-uh759BPa-A9OnthQuW-fyleLNPFOSROF1eFxzFJ4kstr8ZD5mp1O6CN1?fife",
+      "description": "<br><br>Mural ubicado en una esquina abandonada, que hace homenaje a los trofeos ganados por el club A.A.A.J. Ubicado en San Blas y Gavilán.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1043,
+      "lng": -58.4725804,
+      "lat": -34.6067022,
+      "images": "https://doc-00-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/jnoopmqkt72odtje885ub9i6i8/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-H3tiirpdZiCshTfRn4ZT7r_xNWWPKbt0YvChqhMnoKjhRaBqe54IqNJE2B500gMac6ptyC57zq1r-vOozHTTSUm8t7SEuITpZJMlX3PSf_vdyRNMvRzEB7mjQlnnb22Hu5OyjCBB7comrFPHugDZK7Xq7QgmrJR-HFkCATrIiM6iteSb3UgTwCtQCJaTZe24HY?fife",
+      "description": "<br><br>Mural que hace homenaje al futuro de la educación. Realizado por niños de una escuela. Ubicado en San Blas 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1044,
+      "lng": -58.4724865,
+      "lat": -34.6066624,
+      "images": "https://doc-00-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/54q91vi1pak6ica8tnk2iuevjc/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-HLjqaqkX_A2U0_OTxc_T0uwei803ZyXCVzQuRD-0AlALcLeCmi8BgxvB3h0KapFIlJHbhqaBODRSQgklCOJwRZ7dEw_XkRjv8TkAcvsWhOmFDKjZN1C5JoEcP-myXkoycTyu6yvVS1hkzNY5ay4iuVjYGKlL2Ta4ZGJ2PrS-hIEnX9hHwqg8jRTuAoQXudu8m7?fife",
+      "description": "<br><br>Mural realizado en homenaje al \"Día Internacional de la Eliminación de la Violencia Contra la Mujer\", acompañado por un hashtag \"#NiUnaMenos\". Ubicado en San Blas 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1045,
+      "lng": -58.4720278,
+      "lat": -34.6064174,
+      "images": "https://doc-04-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/tlpahlf6u87ere6vm3e9eshja0/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-Ebwb0ja1ADvk9PLniMdgSjccE0-5FtQ6V8OZ38jYUgiX54By16e-32hif4c2442x-TpIQ9hL4baPmaPb0mb5RYhXR_RfCI1beABo4_R78rZwS6xlc0sv9kR9gPEZ6V795rNNTw-uAOwgY1bofFmHeBv-phiBAeZV5Z8jyhivIykucdRImBkMCN-nA_jSirJKQt?fife https://doc-14-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/lhkr8bta7sqp553kpjjjqlu7ms/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-EO9dtMptbTFKzHFHd4yOIQ7laLebGVJoEAtA_nuHjWBLxRrsvzRhCrSGHd0ey-YnUCE91XJ7HmH8pziZvs0VKPt6_pC6T-QYOlFuJHXLO6aUdXv5oCy_7ldhk1XSLYF2Ai3r8KX-_v2eWxZel1bJrRTi8KnI2DaX9Xzpoj2MEBlvQ--hYCroZoJR1AYkzljnWe?fife https://doc-04-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/q28ktagnnq3saeocmc8ldo8ff8/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-H-Jn-a7-abKvYjhkyxADeVKcRyoUTSRWmDZyrvDV0rafg4_wp8l0f7EBh88qio1lBN5Kxum_zvq96RWckkMMtbtMX8PAjt0j-xZlzJbVPpy7_scnXAc1ZlZJnaQhyBhQk2vehIgR0yGAy1s0LaAOqj3mlQngXYYjvNkPdtpJU7BSfnlEBoLi-Afb0ydrthte3b?fife",
+      "description": "",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1046,
+      "lng": -58.4717167,
+      "lat": -34.6063843,
+      "images": "https://doc-10-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/5rllrhu33q5b15stkuvj8u5or4/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-HrQQMAG4j6qlA7DJI2M9kf_0hVGjSqxm9fmN_YkvCPwJ3ZzI6013N6vN58k8w8oF0Gx9nQmCzsWXf7MgUWBX0bt7480TdaVpaaxfsQHcIr5ogBTvy85Dsni4cVO1_UuYyE3xESlsBbt_wIk_psvtsiOXfX_1LzSzwtR15CfvGxHlRaGdlM-_ncheKsSBkCqLFs?fife",
+      "description": "<br><br>Mural en honor a Maradona, acompañado de la frase: \"Orgullo de un Barrio\". Ubicado en San Blas y la Avenida Boyacá.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1047,
+      "lng": -58.4718238,
+      "lat": -34.6061921,
+      "images": "https://doc-14-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/kbjp4ogdgmoh8o9ug6rdonj20k/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-EN_rpdMrkp7J187M0cfQUHsjDLgtcgFdVp8jO5ndCImo7yIulicq0_Bw37o6CzSnMYVaOwam_uNw5REragxCOYnmqcOg1AWg5le5Uc2O6sJvFkSuDCmueU6YqsS3fDbP7anUOEykW2bv56MQZo-gSgX0yjNAOYhXJBLw-oBehE7Nk9dpiD5WMyd5G_xVBG3HtZ?fife https://doc-0s-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/bcp4a4nbqektfvhhmiqjeoac7s/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-GLF7CMZBXOeNAhzvp9FqBzsKtvf6SVRwl_9YZW1mPdA6qY-DKzqcYL6V6VlfjiTPTP_MbmH_gKLlmJNBdbn0EymA-Hb9nEfnIACIoOXZdqPIq7CTme51uE1WSq_mnzGRl3rq_9UCwzuoA-Y0bHGI2iulyXpg2mYAJTa3dwOWNdOr6peM7HMJFWKdHDf-VAPYrS?fife",
+      "description": "",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1048,
+      "lng": -58.4719391,
+      "lat": -34.606073,
+      "images": "https://doc-0s-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/v4tmu18ic0eiu1ppbtrn27sp18/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-G_7kzlI0AxBx8R2hjMIihMOXmWPb2M5jLMPKmOy6OPShNGT1_X178JLJqrvdTvyVqDnS4u3yNU3qHSoX9sIcFysrDZMKWXPWvcD1WKYHY0otnNvRCQf-NTcEit-zCeYIhR9KlqBtCDopDlH6TZw6DkcdrTPA_xxg8oh2WetSdvBzSg4xSzEgXbCWM9TdXlR5dV?fife",
+      "description": "<br><br>Mural en conmemoración a la dictadura cívico militar, reclamando los derechos humanos vulnerados. Ubicado en la Avenida Boyacá 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1049,
+      "lng": -58.4720733,
+      "lat": -34.6058743,
+      "images": "https://doc-00-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/b74pehitsiafbu4mclvombg37c/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-GFOBQOK3CK-E3Qqwp9tPaYvpjd4oAJV8kHslAg9mKpvILxc17hWi0rGeZgDgxng5TnBPNfgwRaFQbz_AiTkLJJXxULt7dRHP5WTemhw4P79WEga6WsbcYSJ_HVpnaZDUH0HSJmmqyqbR9Ad1vdL694tE4uMsub46XeQ48VF05tlsvzBu2OSqaIqnfBtyULHk8T?fife",
+      "description": "<br><br>Mural de Maradona junto a sus familiares. Ubicado en la Avenida Boyacá 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1050,
+      "lng": -58.472379,
+      "lat": -34.6055056,
+      "images": "https://doc-0s-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/of0s8am4sj5n36jrcofa9je8cs/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-H1D8oFUFbyv7Xejyd4ZTvvwbnmM5avicXjqzaHa5FAbbZm2R23YOLlKQ0wiLneZj4mrkZv4_eaBhmXSzGOqKqNyajZIpDyend03UBLJfZcGLnxIzi2WHL4NcbYh7iK1LBES7hV9yBjTzV6bKXoafSwCIel_c0BO7OBwtnO_oBN3lL8Rye4xNJrU82ZnL-9Gq_M?fife",
+      "description": "<br><br>Mural en conmemoración de los fallecidos del club A.A.A.J. Ubicado en la Avenida Boyacá 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1051,
+      "lng": -58.4726741,
+      "lat": -34.6054615,
+      "images": "https://doc-0k-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/g19lnpcgv95cefmkqv5015ebkg/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-FwvXEaTsx753o1Q1XzfwZpvv3fuWmU0uDlCNaEVBnbUrCpV3Yxn8GTfPi_30YiNTeE4xnIWd-ETpkHGAYLNi3-oUpha5IvqwhLJ25XwjV6-2h3TqReNA_lHrgnw-19sCS3FHdjj5dQ6bw1jzs7PHIWigH9D44B_JhKx1JU9Zdgxmzgxo5CKS9V6bhMjwKUkkc_?fife",
+      "description": "<br><br>Mural hecho en grafiti, en homenaje a la foto icónica, del ex jugador Maradona. Ubicado en Juan Agustín García.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1052,
+      "lng": -58.4727679,
+      "lat": -34.6055034,
+      "images": "https://doc-04-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/vqfkr0p9rbh78nfreefcn4bdg4/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-E3pYP8GVA0D0u43jNTURyITt9KQ57pBG6PyHF_Mt4JdiYIlJd5-vSoOCppuqROe-FnU2k2w2hy2YFm7C2NoK9haztjcPhKcFbDewbN0790HWbzegHdqEi7NAmpKUZvSqwvc8Nx4Lid8VjZQJT9unkAFV1RLlmVoSTGNnfPbDgE0qieUjX5IqhG47rICN0_IrVI?fife",
+      "description": "<br><br>Mural de las \"Cebollitas\" (Actualmente conocido como \"El Bicho\" jugadores del club A.A.A.J.), en el cual se observa la careta en la que los llevaban a los partidos. Ubicado en Juan Agustín García 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1053,
+      "lng": -58.472835,
+      "lat": -34.6055387,
+      "images": "https://doc-0s-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/i895oelql8ubl9m8t019ep4tas/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-FX7M6KQsU90dcu9iDEF2ieatP_kzhLZhzTb7jE6cdxahb9UiI1iq7DDDVmfpvFCZO0h0nqIGHnBROhHLSSmhjaYWjmVWkUminvjvgZrNI9gkdwP_DCg6pb29XYPJZN-XRcC68XxsKAdgcO4yNYBWY5Acsvo3pBMhMueuVAiAXK5aPJhZtJN0V40pUu7r0xBnxM?fife",
+      "description": "<br><br>Mural de Maradona, basado en una foto de cuando era joven y era parte del equipo de A.A.A.J. Ubicado en Juan Agustín García 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1054,
+      "lng": -58.4729074,
+      "lat": -34.605574,
+      "images": "https://doc-10-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/46d47bmmpfq642ehmijpqpoj6s/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-GOSu-x7qEg32Zn_zZga3wzQapg8sGnfTxyugRBFWlXlCsf4a9A4fwJA_gbJW0SPLqRqz6GIJthMxSKMfz6RNUfqlJQDDdhf_4E-KUyUgcGfATolMZTu1bCEN774BXc-ZnUz36aDVqncE7B763BeL23n_vwZTSgHEhB2VyelhuMv9Y0UTKn9PBZhvj_BNyaagcb?fife",
+      "description": "<br><br>Mural hecho en grafiti, en honor a Maradona. Ubicado en Juan Agustín García 2200-2100.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1055,
+      "lng": -58.4730952,
+      "lat": -34.6055144,
+      "images": "https://doc-0g-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/oevneptt8224lgrfhk682rhrr0/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-Ggx1t9cNcbHDl5ZO5mDthk7TqBfwp_Ji3HLXutiakwCdej-Dl1fHcXi5Rh6v4ijAH7mppzQuHchQBAAVELh3H3MC-nRc2h6HtoWfzKKhsz3GnTOq7LRu-Tvru3plh0Umx2cBV9lbkfRFxQIGk8JU8lHMCmVtDijUxHuAFUc9wDb7YeUmXX67XjdFW_F8bA2DIK?fife",
+      "description": "<br><br>Mural hecho en la fachada de una casa, en homenaje al club A.A.A.J. Ubicado en Juan Agustín García 2153.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1056,
+      "lng": -58.4750003,
+      "lat": -34.6059992,
+      "images": "https://doc-0g-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/4e7choq0fc84o8m6ao9jor3sp4/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-Hyk4EPVFxflAi5_nAKlmB9xjEBGLtcs5_Ugg3wvLuOdR-_uLfMNuqEFiZ-378mRlSQDvoFlHoVLEhQVX3B3oo-OBgwZkaxAGPveXBXfKbqJnlAqg4IKpxWIQor7k0qPtJadMyVHvRbwxT75xuUW9Qk778p5Bmn-De1vlSfgDv7dqSSJpKYOCgfbocvNcSi5lN-?fife",
+      "description": "<br><br>Pintura realizada en un parante de la estructura de un loca, en honor a Maradona.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1057,
+      "lng": -58.4756058,
+      "lat": -34.6052905,
+      "images": "https://doc-0s-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/3g4dg2kjdpd1s853s2lomk6mn0/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-E6migBspTScWaTOdAczojoyWMVX-JH13d1XuFvfHgMl2orXzZqn5CogSnu7llrzeZMyn-fnNTKkb73gAd-DbKT03SfD5OwiX74tJQhhmd62eDs_8H_X0ykmw7rpMq6rB2n-XgupsUYumEKWbqpq1ir2J64AT6EQEoLkqaUOZ8Bw6E_InKgr8WSUZTHBMHiZAfF?fife",
+      "description": "<br><br>Grafiti urbano. Ubicado en Caracas 2458.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1058,
+      "lng": -58.4767833,
+      "lat": -34.6039659,
+      "images": "https://doc-04-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/aghn1p3ett5iegat3jo8v81rfg/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-ErdcJwFnq1BCqdc7b5w8AlIMnW0tLxPBQmWhJmVcjwnGF5nKKxxpSTRkHHYEuaIRV93waRkZRexQ_S6-Fp3nyZlJ9WYuLJK49delB1Cd0Attm0h_XlMEs-xhg1HH4JUoWRNj3JbRSfxjAbpiYzj-CCmp5fLJJN7gFtDkuXMu-LvyG7YW8ObsajM3kM5bBPa-ax?fife",
+      "description": "<br><br>Pintura realizada en una maceta, en conmemoración a las abuelas de plaza de mayo. Ubicado en Caracas 2496 (Aproximadamente), este esta en la vereda.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1059,
+      "lng": -58.4768289,
+      "lat": -34.6038776,
+      "images": "https://doc-10-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/bb7snd78vkhh6kc2gaoeoa5ja4/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-EyAtIxlwDd19xhY6iknShDGiZX0z1wXD-hx5MspamfZTjuvzPDY-GOPev68jO8Zh5Q6Baoz1IUiKcynS7SkBsKfG-qe8PEYWkcePTawKu-ZZHNv-FgFQNHieeWgLzlVxjpCTD4TAmUVPlxcQ0G6kuHQ7yVJZuBMWQnZOghZwIIKSilCXl3ZW0OKHQ8WIV6RGkT?fife https://doc-0s-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/anunejc411rimdgdapcpp8ak48/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-HeLwOjMcjY79z-WmHTh-AgICRjtTyJ9IE_Q-AP2LO3K8FTEeoQK_84G9F9XxnspJdQ4ppRWQ1PoB6L0a7xwnVTRnHwUP8hPczTr78YYSbcjeMDF4MRb6qW-dZ7lYPS8OBAafoBvTe7xEiogJPNyrE4YpeAyoejYnVZAzcbRT0vrvrlgxAZN1Ts5SrDWnABcvJn?fife",
+      "description": "",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1060,
+      "lng": -58.4768879,
+      "lat": -34.6038842,
+      "images": "https://doc-10-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/irctjn58b7lkj1gq7geacdb3c8/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-EHs9RDZuJnWDewfuZO5v7ne_2cO0ZPahKcV8fYqF6G_7-PRhNWTjFxjCTJQP9KPqxGGoq3d_qVfSA6rT2Uhsc9xctmFuKjbLMXO5WHAwz1JZ58oca-Wgovl8WiT4wwEmW_1QtAE7uxqlbphlFJkFF_vFI7-nldUY3jTZBY_EYnb3nFaYb0cRZHF1ThNUX65-Nb?fife",
+      "description": "<br><br>Uno de los primeros murales de Maradona, ubicado en Adolfo P. Carranza al 2300.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1061,
+      "lng": -58.4737535,
+      "lat": -34.6035476,
+      "images": "https://doc-08-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/u0dlbugmpml5vqhlq9l1l5790k/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-FSJCzy5OmvmeNIC5gSbB9hKIbho6cAHL_f90nUkFRqttJ7ImBYfnPFYqITWLxDeiTPUiBPbrbxUu2kjhA54m-xfYw47yUVNiRGZOKtwdu8Vh3OUljj9PPmmire-rBN_9Hd7aZcSSdQOX8M4BATl4x-yMw1W9tfjarFh8ljtjHL9lGcAyW3wMJJCoBmWE5hBpyU?fife",
+      "description": "<br><br>Mural en honor a su calle y su barrio. Con una vaquita de San Antonio o bicho (Depende a que vecino se le pregunte), ya que es el apodo que se le da a los jugadores y seguidores del club de A.A.A.J., donde la cancha del mismo se encuentra a 200 m. Este esta ubicado en la esquina de Andrés Lamas y Linneo.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1062,
+      "lng": -58.4737897,
+      "lat": -34.603509,
+      "images": "https://doc-0k-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/8d8tm1cj8alhppv8cmkc635quc/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-G3HamLtxCTlO7pVu1Job5h1Xqdnpe6h1LPl1njhWLQZ3o8hR4lZbjuhfbA7o_71vQfYygRXBBgR3LIgn3gUacvGRyl2bsvRZkH316I5j-ANDVM7V_RwKHV6i_Km3VyJJnrBcLMc_YWghBHGJGH0KtSoZ_9eaps9BtX8z5Emf_YlxGMs_KvywVhd0kZCmj0LjY-?fife",
+      "description": "<br><br>Continuación del mural 63. Este, muestra el escudo de A.A.A.J., con el nombre de su barrio \"La Paternal\".",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1063,
+      "lng": -58.4738876,
+      "lat": -34.604966,
+      "images": "https://doc-00-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/156rff01ht2n018bgnei0f26eo/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-HCZDDblrYAcQLUj3Wjz5hopXopwh3XxI5kFLYDFo_5u39-Bu6N7CGLu01ln_hhRQpCYOGJ5J7K4SfFHZBNoReCoN8f2HGG8i8d0HypE6Ybd-p3twqHKPLkJUm_mjpZKXY5m1ZIEOZLaDiwRY7H0ukhEbHPW2r0ZmeeEedUk3Hvhm6QjEbAdmxC30Mf_PqX0-jL?fife",
+      "description": "<br><br>Pintura de Maradona. Ubicado en la intersección de Linneo y la Avenida Álvarez Jonte.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1064,
+      "lng": -58.4736972,
+      "lat": -34.6049903,
+      "images": "https://doc-0c-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/stl7ugs4bqn9icr5o2hm1qqe7g/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-GGYfZoevaTesWVHotpkmiSWoJ2yyxSQxkKIS0vbFOQJoV3UMyLU8aPbvG-JQMvb9LuOCm6yKX2yuxNWqTe34VquBZPFa_JyT-jORPPy5qQ2e6mYvbWx0qOXJieKODrnixC6ePUrSB49owzcSrEy6irrGt9XEUOKLfPVn55BEwOysMh6h9RsNn7DnMdhWUM4yLJ?fife",
+      "description": "<br><br>Mural en honor a Maradona (Ya que en la pared donde se realizó, es el café Maradona, actualmente esta cerrado, ya que debido a la pandemia, quebraron), con la frase: \"Paternal Tierra de D10S\". Ubicado en la Avenida Álvarez Jonte y Linneo.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1065,
+      "lng": -58.4738903,
+      "lat": -34.6050742,
+      "images": "https://doc-0c-2s-mymaps.googleusercontent.com/untrusted/hostedimage/o2fbn585vcrt3ao71o6a0j9c34/o483cr5p3vic2hf9cb84v236f4/1685448900000/QDlHPOJgeN00fcEJGLLobR72HNavDmdq/*/6ACtvi-EPqrRYtBHYwBd7wA_MM5wdSkc_ckeUtyGn5PwHUfE-EfTIECl9TFWY8q_bcOsn2yBECFrNN1TNjGnjFAhLFSa_VUTGo8puNYAJFL8pygN2e7HAj79WEx7GD1L3yauK8Jj8SXo351XLp3oev9X6ojpC2hp8mvRFrL34Ffqle6bm5nre0VR2uNzw9zalOXmaH8W1?fife",
+      "description": "<br><br>Mural, a modo de gigantografía, ubicado en la parte superior del café en honor a Maradona. Lo especial que tiene este, es su entorno, y lo que caracteriza al barrio. Un autentico monumento de la Paternal, reflejado en la estatua en honor a Diego Armando Maradona, recreando la misma imagen del mural en bronce. A su vez, en este, se encuentra el carrito donde llevaban a los \"Cebollitas\" (Apodo que se les daba a los jugadores del actual club A.A.A.J.), el original. Este recibe turistas todos los días, donde también, se hace un recorrido especial por todo el barrio, mostrando desde su primer hogar, el hogar de Claudia Villafañe, la cancha y los diferentes sitios en su honor.",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+  },
+  {
+      "id": 1066,
+      "lng": -58.435773,
+      "lat": -34.589776,
+      "images": "https://lh3.googleusercontent.com/umsh/AKnoyZ2dQYVLdG20ZzDTYFYecFo_ECaAEijq4A9e1U36vBEnKc6ifVL7yq4xLpEg8OJ2YQtzVESKg8OezwFlOhMh8vP-IUzXPOoSUT6R_Uu73i40PkGDXK63xJ1kpM3XQtjJNYYT6AocGLkMXLlIkx_sxlfj98bpCmzMzEpdC9FzxTsTqjqWLvKUQtLzp6A99XuqBfHUM_pd-7SzVgEvM_0fBWxptZF2dMmM6zcQWLJAJc8QkPnhUsaKPiSLNfvi0FioLSOCdZhhxng6QYH9EjcED4VptY7Po7LMPnDg-ccurhpJ90OI4kFGu4wMvAFxWU0luF1M4SfmJi9kyHEx7Bot_Q0JJgYFyHQDFlcMNpOeyLgP_Zet3PBIOzluFnvm6K6HRrrFdhfdgDOYkFT-tj2HuzsA7HINHgh2J9wki4LHgi2yfp-sl6HUizOPMec_eHUoobFBPwaAQxRWXfvFJqvYVMQ3h8-Vl-JXWV1HylnT-ke5KtI2olASkQl-DyvR9uGp5-dVq4QNybyQaH4IwLZkFjgtVuiynveBesxHd3wn https://lh3.googleusercontent.com/umsh/AKnoyZ3wo8KuvZZLpdkfxscFy56s93UKaQ83CMqNwi3V8kk8sfHVUhexJ72uGXxY06lCloZpMYIZ0eM5jpJPB0QzQSMjBrfa4OgspEvs8vvPtX3E9tu__5HpPOUkRC15gl4qTZ8y9HpB8H4NBiNh2bbDsE_8B-0os6zaA2VYLhPxxoU-4-XFZeNXm1mXWW8yJyQFLrQwPO1I6c5lBxyuf_xqGuu1uKA-5clenvFTijurnCuW1GRvLxuDkWHBSCI9H4Szph32jXvo7vE5Q1DQkrJVBmUDDdrrz-NVMCNT2pqDqtQffw4-TLw-LqIORTN8UfT9UVVhyHYkeZN78ohq3UHCJeDmzVHpcsZbmcXEytrNmUV9NR3EmXj1szeIydmddNTkilq1RrThddh2nFE68Mu6MsL-_YLsZJGd71zEirsu4g_QOSKmZKb0jvQbyfwiybWjLmmBjk0u8h0T9hTj9P1qkid4P7Yfw3cMQ2kt381bGrcEUgmNuWCLjrH7g79VIJ6fO-IfbvwFzKvLlgLjCpS13NrSEC31gnBvBmbxSwRvwA",
+      "description": "",
+      "author": {
+          "email": "admin@pointwall.com.ar",
+          "firstName": "",
+          "lastName": ""
+      },
+      "title": ""
+    },
+  {
     id: -58.508561522581196,
     lng: -80.6576623,
     lat: -34.63023954414557,
