@@ -12,7 +12,9 @@ import Image from 'next/image'
 export default function Page (): JSX.Element {
   const [mapState, setMapState] = useState<{
     mapReady: boolean
-    mapInstance: google.maps.Map<Element> | null
+    mapInstance: google.maps.Map<Element> & {
+      zoom: number
+    } | null
     mapApi: any
   }>({
     mapReady: false,
@@ -25,7 +27,7 @@ export default function Page (): JSX.Element {
     map,
     maps
   }: {
-    map: google.maps.Map<Element>
+    map: google.maps.Map<Element> & { zoom: number }
     maps: any
   }): void {
     setMapState({
@@ -148,6 +150,7 @@ export default function Page (): JSX.Element {
         {markers.map((post: Post, index: number) => {
           return (
             <Marker
+              size={mapState?.mapInstance?.zoom !== undefined ? mapState?.mapInstance?.zoom >= 15 ? 'sm' : 'md' : 'md'}
               lat={post.lat}
               lng={post.lng}
               key={index}
