@@ -62,7 +62,7 @@ export default function Page (): JSX.Element {
                 <label
                   className={`absolute left-0 -z-10 mt-2 pl-3 text-gray-600 transition-all ${
                     formData.name.length > 0
-                      ? 'bg-red z-30 ml-2 mt-0.5 -translate-y-2/3 bg-white px-1 pl-1 text-xs'
+                      ? 'z-30 ml-2 mt-[2px] -translate-y-2/3 bg-white pl-[3px] pr-1 text-xs'
                       : ''
                   } peer-focus:ml-2 peer-focus:mt-0.5 peer-focus:-translate-y-2/3 peer-focus:bg-white peer-focus:px-1 peer-focus:text-xs`}
                 >
@@ -79,8 +79,8 @@ export default function Page (): JSX.Element {
                 <label
                   className={`absolute left-0 -z-10 mt-2 pl-3 text-gray-600 transition-all ${
                     formData.topic.length > 0
-                      ? 'bg-red z-30 ml-2 mt-0.5 -translate-y-2/3 bg-white px-1 pl-1 text-xs'
-                      : ''
+                    ? 'z-30 ml-2 mt-[2px] -translate-y-2/3 bg-white pl-[3px] pr-1 text-xs'
+                    : ''
                   } peer-focus:ml-2 peer-focus:mt-0.5 peer-focus:-translate-y-2/3 peer-focus:bg-white peer-focus:px-1 peer-focus:text-xs`}
                 >
                   Asunto
@@ -99,8 +99,8 @@ export default function Page (): JSX.Element {
                 <label
                   className={`absolute left-0 -z-10 mt-2 pl-3 text-gray-600 transition-all ${
                     formData.message.length > 0
-                      ? 'bg-red z-30 ml-2 mt-0.5 -translate-y-2/3 bg-white px-1 pl-1 text-xs'
-                      : ''
+                    ? 'z-30 ml-2 mt-[2px] -translate-y-2/3 bg-white pl-[3px] pr-1 text-xs'
+                    : ''
                   } peer-focus:ml-2 peer-focus:mt-0.5 peer-focus:-translate-y-2/3 peer-focus:bg-white peer-focus:px-1 peer-focus:text-xs`}
                 >
                   Mensaje*

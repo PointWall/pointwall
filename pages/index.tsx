@@ -4,7 +4,8 @@ import Layout from '@/components/Layout'
 import { Title, Wrapper } from '@/components/utils'
 import Link from 'next/link'
 import React from 'react'
-import Map from '../components/Map'
+// import Map from '../components/Map'
+import Image from 'next/image'
 
 export default function Home (): JSX.Element {
   return (
@@ -23,18 +24,19 @@ export default function Home (): JSX.Element {
               cualquier parte del mundo puede subir sus fotos...
             </p>
             <p className='mb-8 text-xl md:text-4xl'>
-              ¿Estás listo para colaborar con un <span>mural</span>
-              <span>graffiti</span> de tu barrio?
+              ¿Estás listo para colaborar con
+              un <span className='border-b-4 border-logoPink'>mural</span> o <span className='border-b-4 border-logoBlue'>graffiti</span> de tu barrio?
             </p>
           </Wrapper>
         </section>
-        <section className='group w-full overflow-hidden'>
+        <section className='group w-full overflow-hidden shadow-lg shadow-zinc-200'>
           <Link href='/mapa' className='relative my-8 text-center'>
             <span className='absolute left-1/2 top-1/2 z-[10] hidden -translate-x-1/2 -translate-y-1/2 text-2xl text-white transition group-hover:block'>
               Ir al mapa
             </span>
-            <span className='transition group-hover:brightness-50'>
-              <Map />
+            <span className='relative w-full h-60 block transition group-hover:brightness-50'>
+              <Image src='/images/screenshot-mapa-2.png' alt='screenshot mapa' fill className='object-cover' />
+              {/* <Map /> */}
             </span>
           </Link>
         </section>
