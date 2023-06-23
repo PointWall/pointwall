@@ -9,26 +9,15 @@ export default async function handler(req: NextRequest, res: NextResponse) {
 
     const searchedPosts = await prisma.post.findMany({
       where: {
-        OR: [
-          {
-            tags: {
-              some: {
-                value: {
-                  contains: tags[0],
-                },
+        OR: tags.map((tag) => ({
+          tags: {
+            some: {
+              value: {
+                contains: tag,
               },
             },
           },
-          {
-            tags: {
-              some: {
-                value: {
-                  in: tags,
-                },
-              },
-            },
-          },
-        ],
+        })),
       },
     })
 
