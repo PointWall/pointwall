@@ -2,7 +2,7 @@ import AdminLayout from '@/components/AdminLayout'
 import { prisma } from '@/lib/db'
 import { Post } from '@prisma/client'
 
-export async function getStaticProps () {
+export async function getStaticProps (): Promise<any> {
   try {
     const posts = await prisma.post.findMany()
     return {
