@@ -20,7 +20,6 @@ const FORM_INITIAL_STATE = {
   userType: '',
   artType: '',
   location: '',
-  images: [],
   getInContact: false,
   images: new Array<String>(),
   author: {
