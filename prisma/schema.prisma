@@ -42,7 +42,7 @@ model Image {
   id     Int    @id @default(autoincrement())
   Post   Post?  @relation(fields: [postId], references: [id])
   postId Int?
-  url    String
+  url    String @unique
 
   @@index([postId])
 }

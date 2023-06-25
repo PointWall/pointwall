@@ -22,6 +22,7 @@ const FORM_INITIAL_STATE = {
   location: '',
   images: [],
   getInContact: false,
+  images: new Array<String>(),
   author: {
     id: -1
   },
@@ -74,7 +75,36 @@ interface InputSectionProps {
   title: string
 }
 
-function InputSection ({ children, title }: InputSectionProps): JSX.Element {
+async function saveImages(fileInput: FileList | undefined) {
+  if (!fileInput) return []
+
+  let savedImages: String[] = []
+  let files = Array.from(fileInput)
+
+  const formData = new FormData()
+  formData.append('upload_preset', 'pointwall')
+  formData.append('api_key',process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY ?? '')
+  
+  for (const file of files) {
+    formData.append('file', file)
+    try {
+      const data = await fetch(
+        'https://api.cloudinary.com/v1_1/dsxmh7gww/image/upload',
+        {
+          method: 'POST',
+          body: formData,
+        }
+      )
+      savedImages.push((await data.json()).url)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  return savedImages
+}
+
+function InputSection({ children, title }: InputSectionProps): JSX.Element {
   return (
     <div className='border-b-2 border-slate-700 pb-4 last:border-b-0 md:border-b-0 md:border-l-4 md:pb-0 md:pl-4'>
       <h3 className='mb-2 text-xl'>{title}</h3>
@@ -83,37 +113,36 @@ function InputSection ({ children, title }: InputSectionProps): JSX.Element {
   )
 }
 
-export default function Page (): JSX.Element {
+export default function Page(): JSX.Element {
   const { data: session } = useSession()
   const pointwallSession = session as PointwallSession
+  const [images, setImages] = useState<FileList>()
   /*
   ARREGLAR PROBLEMA CON EL artType TEXT INPUT AL SELECCIONAR UNA OPCION PERO ESCRIBIR EN EL INPUT
   */
   const [formData, setFormData] = useState(FORM_INITIAL_STATE)
   // const [isOtherChecked, setIsOtherChecked] = useState(false)
 
-  async function postContribution (): Promise<void> {
+  async function postContribution(): Promise<void> {
     if (pointwallSession?.user == null) {
-      alert('Debes iniciar sesión para poder enviar el formulario')
-      return
-    }
-    formData.author = {
-      id: pointwallSession?.user?.id
-    }
-    await fetch('http://localhost:3000/api/post', {
+     alert('Debes iniciar sesión para poder enviar el formulario')
+      return 
+    } 
+    formData.author = { id: pointwallSession?.user?.id}
+    formData.images = await saveImages(images)
+
+    await fetch('/api/post', {
       method: 'POST',
       body: JSON.stringify({ ...formData }),
       headers: {
-        'content-type': 'application/json'
-      }
+        'content-type': 'application/json',
+      },
     }).catch((e) => console.log(e))
-
-    setFormData(FORM_INITIAL_STATE)
   }
 
-  function handleSubmit (ev: FormEvent): void {
+  async function handleSubmit(ev: FormEvent) {
     ev.preventDefault()
-    postContribution().catch((error) => console.error(error))
+    postContribution().catch((error) => console.error(error)).then(_ => setFormData(FORM_INITIAL_STATE))
   }
 
   // function handleInputChange (ev: ChangeEvent & { target: HTMLInputElement }): void {
@@ -235,12 +264,20 @@ export default function Page (): JSX.Element {
                         newData[input.value] = ev.target.value
                         setFormData(newData)
                       }}
+                      /* value={formData[input.value]} */
                       placeholder={`ej: ${input.placeholder}`}
                     />
                   </InputSection>
                 ))}
                 <InputSection title='¿Tenés fotos que querés que incluyamos en la página?'>
-                  <input type='file' className='my-2 w-full' />
+                  <input
+                    onChange={(e) =>
+                      setImages(e.currentTarget.files ?? new FileList())
+                    }
+                    type='file'
+                    className='my-2 w-full'
+                    multiple
+                  />
                 </InputSection>
                 <InputSection title='¿Te interesaría que el equipo de PointWall guarde tu mail para ponerse en contacto con vos?'>
                   <div className='my-2 ml-4 flex gap-1 align-middle'>

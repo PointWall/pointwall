@@ -1,11 +1,12 @@
-// @ts-nocheck
 import { prisma } from '@/lib/db'
-import { NextRequest, NextResponse } from 'next/server'
-//import { getServerSession } from "next-auth/next";
-//import { authOptions } from "./auth/[...nextauth]";
+import  authOptions from './auth/[...nextauth]'
+import { getServerSession } from "next-auth/next"
 
-export default async function handler(req: NextRequest, res: NextResponse) {
-  //const session = await getServerSession(req, res, authOptions));
+export default async function handler(req: any, res: any) {
+  const session = await getServerSession(req, res, authOptions)
+  console.log({ session })
+  if(!session) return res.status(401).json({ error: 'Not Authorized'  })
+
   if (req.method == 'POST') {
     //if(!session) return res.status(401).json({ error: 'Not Authorized'  })
     const {
@@ -18,13 +19,13 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       getInContact,
       author,
       tags,
-    } = req.body
+    } = req.body 
 
     console.log(req.body)
 
-    const [lat, long]: Number[] = location
+    const [lat, long]: number[] = location
       .split(',')
-      .map((n) => Number.parseFloat(n))
+      .map((n: string) => Number.parseFloat(n))
 
     const newPost = await prisma.post.create({
       data: {
@@ -43,9 +44,9 @@ export default async function handler(req: NextRequest, res: NextResponse) {
             }
           }),
         },
-        /*         images: {
-          create: images.map((image) => ({ url: formatImage(image) }))
-        }, */
+        images: {
+          create: images.map((image: string) => ({ url: image }))
+        }, 
         artType,
         userType,
         lat,
@@ -57,7 +58,12 @@ export default async function handler(req: NextRequest, res: NextResponse) {
   }
 
   if (req.method == 'GET') {
-    const posts = await prisma.post.findMany()
+    const posts = await prisma.post.findMany({
+      where: {
+        accepted: false
+ //     accepted: session.user.isAdmin ? undefined : true,
+      },
+    })
     return res.status(200).json({ posts })
   }
 
@@ -72,11 +78,13 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       getInContact,
       author,
       tags,
-    } = req.body
+    } = req.body 
 
-    const [lat, long]: Number[] = location
+    console.log(req.body)
+
+    const [lat, long]: number[] = location
       .split(',')
-      .map((n) => Number.parseFloat(n))
+      .map((n: string) => Number.parseFloat(n))
 
     const updatedPost = await prisma.post.create({
       data: {
@@ -95,15 +103,16 @@ export default async function handler(req: NextRequest, res: NextResponse) {
             }
           }),
         },
-        /*         images: {
-          create: images.map((image) => ({ url: formatImage(image) }))
-        }, */
+        images: {
+          create: images.map((image: string) => ({ url: image }))
+        }, 
         artType,
         userType,
         lat,
         long,
       },
     })
+
 
     return res.status(200).json({ updatedPost })
   }
