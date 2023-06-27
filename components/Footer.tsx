@@ -28,6 +28,14 @@ const LINKS = [
   {
     name: 'Contacto',
     url: '/contacto'
+  },
+  {
+    name: 'Terminos y Condiciones / Termns & Conditions',
+    url: '/terms'
+  },
+  {
+    name: 'Politicas de Privacidad / Privacy Policy',
+    url: '/privacy'
   }
 ]
 
