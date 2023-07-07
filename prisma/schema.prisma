@@ -19,39 +19,36 @@ model User {
 }
 
 model Post {
-  id          Int      @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   title       String
   description String?
   artType     String
   userType    String
   images      Image[]
   tags        Tag[]
-  accepted    Boolean  @default(false)
+  accepted    Boolean @default(false)
   long        Float
   lat         Float
 
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  authorId    Int
-  author      User     @relation(fields: [authorId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  authorId  Int
+  author    User     @relation(fields: [authorId], references: [id])
 
   @@index([authorId])
 }
 
 model Image {
-  imageId Int    @id @default(autoincrement())
-  Post    Post?  @relation(fields: [postId], references: [id])
-  postId  Int?
-  url     String
+  id     Int    @id @default(autoincrement())
+  Post   Post?  @relation(fields: [postId], references: [id])
+  postId Int?
+  url    String @unique
 
   @@index([postId])
 }
 
 model Tag {
-  tagId  Int    @id @default(autoincrement())
-  Post   Post?  @relation(fields: [postId], references: [id])
-  postId Int?
-  value  String
-
-  @@index([postId])
+  id    Int    @id @default(autoincrement())
+  value String @unique
+  posts Post[]
 }

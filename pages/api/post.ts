@@ -1,14 +1,13 @@
 // @ts-nocheck
 import { prisma } from '@/lib/db'
 import { NextRequest, NextResponse } from 'next/server'
-// import { getServerSession } from "next-auth/next";
-// import { authOptions } from "./auth/[...nextauth]";
+import { getServerSession } from 'next-auth/next'
+import { authOptions } from './auth/[...nextauth]'
 
 export default async function handler (req: NextRequest, res: NextResponse): Promise<any> {
-  // const session = await getServerSession(req, res, authOptions));
+  const session = await getServerSession(req, res, authOptions)
   if (req.method === 'POST') {
-  // if(!session) return res.status(401).json({ error: 'Not Authorized'  })
-
+    if (session === null) return res.status(401).json({ error: 'Not Authorized' })
     const { title, author, artType, userType, description, location } = req.body
     console.log(req.body)
     const [lat, long] = location.split(',').map(n => Number.parseFloat(n))
@@ -30,7 +29,13 @@ export default async function handler (req: NextRequest, res: NextResponse): Pro
 
     return res.status(200).json({ newPost })
   } else if (req.method === 'GET') {
-    const posts = await prisma.post.findMany()
+    const posts = await prisma.post.findMany({
+      include: {
+        author: true,
+        images: true,
+        tags: true
+      }
+    })
     return res.status(200).json({ posts })
   }
 

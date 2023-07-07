@@ -22,6 +22,12 @@ module.exports = {
         logoGreen: 'rgb(var(--color-logo-green) / <alpha-value>)',
         logoBlue: 'rgb(var(--color-logo-blue) / <alpha-value>)',
         logoPink: 'rgb(var(--color-logo-pink) / <alpha-value>)'
+      },
+      keyframes: {
+        slideUp: {
+          '0%': { transform: 'translateY(15px)' },
+          '100%': { transform: 'translateY(0)' }
+        }
       }
     }
   },

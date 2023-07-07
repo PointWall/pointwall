@@ -5,7 +5,7 @@ const DASHBOARD_SECTIONS = [
   {
     name: 'Inicio',
     path: '/',
-    icon: '/icons/panel-home.svg',
+    icon: '/icons/panel-home.svg'
   },
   {
     name: 'Solicitudes',
@@ -16,7 +16,7 @@ const DASHBOARD_SECTIONS = [
     name: 'Ubicaciones',
     path: '/ubicaciones',
     icon: '/icons/panel-location.svg'
-  },
+  }
 ]
 
 interface AdminLayoutProps {
@@ -24,40 +24,42 @@ interface AdminLayoutProps {
   title: string
 }
 
-export default function AdminLayout(props: AdminLayoutProps): JSX.Element {
+export default function AdminLayout (props: AdminLayoutProps): JSX.Element {
   return (
     <div className='flex'>
-      <section className='min-h-screen w-1/5 bg-slate-800 text-white'>
-        <div className='flex items-center gap-2 bg-slate-900 p-4'>
-          <Image
-            src='/images/PointWall.png'
-            alt='Pointwall Logo'
-            height={50}
-            width={50}
-          />
-          <p className='text-xl font-semibold tracking-wide'>Administrador</p>
-        </div>
-        <div className='p-4'>
-          <h2 className='mb-2 text-xl font-normal'>Menú</h2>
-          <ul className='space-y-2'>
-            {DASHBOARD_SECTIONS.map((section) => (
-              <li key={section.name}>
-                <Link
-                  href={`/admin/dashboard${section.path}`}
-                  replace={false}
-                  className='flex w-fit gap-2 text-lg hover:underline'
-                >
-                  <Image
-                    src={section.icon}
-                    alt={section.icon}
-                    width={25}
-                    height={25}
-                  />
-                  {section.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+      <section className='h-screen w-1/5 relative '>
+        <div className='fixed h-full w-1/5 bg-slate-800 text-white'>
+          <div className='flex relative items-center gap-2 bg-slate-900 p-4'>
+            <Image
+              src='/images/PointWall.png'
+              alt='Pointwall Logo'
+              height={50}
+              width={50}
+            />
+            <p className='text-xl font-semibold tracking-wide'>Administrador</p>
+          </div>
+          <div className='p-4'>
+            <h2 className='mb-2 text-xl font-normal'>Menú</h2>
+            <ul className='space-y-2'>
+              {DASHBOARD_SECTIONS.map((section) => (
+                <li key={section.name}>
+                  <Link
+                    href={`/admin/dashboard${section.path}`}
+                    replace={false}
+                    className='flex w-fit gap-2 text-lg hover:underline'
+                  >
+                    <Image
+                      src={section.icon}
+                      alt={section.icon}
+                      width={25}
+                      height={25}
+                    />
+                    {section.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
       <section className='w-4/5'>
