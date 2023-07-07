@@ -8,32 +8,18 @@ interface PostProps {
   post: Post & { author: User, images: PostImage[] }
 }
 
-// export async function getStaticProps (): Promise<any> {
-//   const posts = await prisma.post.findMany({
-//     include: {
-//       author: true,
-//       images: true,
-//       tags: true
-//     },
-//     take: 10
-//   })
-//   return {
-//     props: {
-//       posts: JSON.parse(JSON.stringify(posts))
-//     }
-//   }
-// }
-
 function PostModal ({ post, setPostModal }: PostProps & { setPostModal: Function }): JSX.Element {
   return (
     <div className='fixed w-screen h-screen bg-black bg-opacity-60 top-0 left-0'>
       <div className='animate-[slideUp_.3s_ease-out] w-full h-full'>
         <div className='fixed w-3/5 top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 p-4 bg-white shadow-lg border rounded-lg'>
-          <button onClick={() => setPostModal(null)} className='absolute top-0 right-0 m-4 px-2 border border-gray-300 rounded-md text-gray-500 hover:shadow-lg transition-shadow'>
+          <button onClick={() => setPostModal(null)} className='absolute top-0 right-0 m-4 px-2 border border-gray-300 rounded-md text-gray-500 hover:shadow-lg active:scale-95 transition-shadow'>
             x
           </button>
           <h2 className='text-4xl mb-4 font-semibold'>{post.title}</h2>
-          <Image src={post.images.length > 0 ? post.images[0].url : '/images/PointWall.png'} alt='Imagen principal' width={100} height={100} />
+          <div className='flex gap-2'>
+            {post.images.length > 0 ? post.images.map((image) => (<Image key={image.url} src={image.url} alt='Imagen subida' width={100} height={100} />)) : <div className='w-[100px] h-[100px] bg-gray-300 after:content-["Sin_imagen"]' />}
+          </div>
           <div className='my-4'>
             <p className='text-sm'>Descripción</p>
             <p className='text-lg'>{post.description ?? 'Sin descripción'}</p>
@@ -41,7 +27,7 @@ function PostModal ({ post, setPostModal }: PostProps & { setPostModal: Function
           <div className='flex gap-8 my-4'>
             <div>
               <p className='text-sm'>Tipo de arte</p>
-              <h3 className='text-xl'>{post.artType}</h3>
+              <h3 className='text-xl'>{post.artType.length > 0 ? post.artType : '-'}</h3>
             </div>
             <div>
               <p className='text-sm'>Tipo de usuario</p>
@@ -67,13 +53,13 @@ function PostModal ({ post, setPostModal }: PostProps & { setPostModal: Function
           </div>
           <div className='space-x-2 w-fit mx-auto'>
             <button className='p-2 text-blue-500 border border-blue-500 rounded-md hover:shadow-[0px_0px_0px_4px] transition-shadow'>
-              Aceptar
+              Aprobar
             </button>
             <button className='p-2 text-yellow-500 border border-yellow-500 rounded-md hover:shadow-[0px_0px_0px_4px] transition-shadow'>
               Modificar
             </button>
             <button className='p-2 text-red-500 border border-red-500 rounded-md hover:shadow-[0px_0px_0px_4px] transition-shadow'>
-              Rechazar
+              Desaprobada
             </button>
           </div>
         </div>
@@ -129,6 +115,8 @@ function PostCardSkeleton (): JSX.Element {
 }
 
 export default function Page (): JSX.Element {
+  const POSTS_LIMIT = 4
+  const [postsSkip, setPostsSkip] = useState(0)
   const [posts, setPosts] = useState<Array<
   Post & {
     author: User
@@ -136,18 +124,35 @@ export default function Page (): JSX.Element {
   }
   >>([])
   const [isLoading, setIsloading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [postModal, setPostModal] = useState(null)
 
-  useEffect(() => {
-    async function fetchPosts (): Promise<void> {
-      setIsloading(true)
-      const response = await fetch('/api/post')
-      const data = await response.json()
-      setPosts(data.posts)
-      setIsloading(false)
+  async function fetchPosts (): Promise<void> {
+    setIsloading(true)
+    const response = await fetch('/api/post?' + new URLSearchParams({
+      skip: postsSkip.toString(),
+      limit: POSTS_LIMIT.toString()
+    }).toString())
+    const data = await response.json()
+    if (data.error !== undefined) {
+      setErrorMessage(data.error)
+    } else {
+      console.log(data.posts)
+      console.log({ postsSkip })
+      setPosts((prevPosts) => [...prevPosts, ...data.posts])
+      setPostsSkip(postsSkip + 4)
     }
+    setIsloading(false)
+  }
+
+  function handleLoadMoreClick (): void {
+    fetchPosts().catch(console.error)
+  }
+
+  useEffect(() => {
     fetchPosts().catch(error => {
       console.error(error)
+      setErrorMessage(error.message)
     })
   }, [])
 
@@ -166,23 +171,35 @@ export default function Page (): JSX.Element {
     <AdminLayout title='Solicitudes'>
       <div className='relative'>
         <p>Acá se muestran las solicitudes generadas por usuarios</p>
-        {isLoading
-          ? <div className='flex flex-wrap gap-4 my-4'>{Array(10).fill(1).map((el, index) => <PostCardSkeleton key={index} />)}</div>
-          : posts.length > 0
-            ? (
-              <div>
-                <div className='flex flex-wrap gap-4 my-4'>
-                  {posts.map((post, i) => (
-                    <PostCard key={post.id} post={post} setPostModal={setPostModal} />
-                  ))}
-                </div>
-                {(postModal != null) && <PostModal post={postModal} setPostModal={setPostModal} />}
-              </div>
-              )
-            : (
-              <p>De momento no hay solicitudes de colaboración... {posts.length} asdf</p>
-              )}
+        {isLoading && posts.length === 0
+          ? (
+            <div className='flex flex-wrap gap-4 my-4'>
+              {Array(POSTS_LIMIT).fill(1).map((el, index) => <PostCardSkeleton key={index} />)}
+            </div>
+            )
+          : (errorMessage !== null)
+              ? <p className='mt-4 font-medium bg-red-100 text-red-600 rounded-lg p-4 w-fit'><span className='font-bold border-2 border-red-600 rounded-full w-6 h-6 inline-grid place-content-center'>!</span> Error: {errorMessage}</p>
+              : posts.length > 0
+                ? (
+                  <div>
+                    <div className='flex flex-wrap gap-4 my-4'>
+                      {posts.map((post, i) => (
+                        <PostCard key={post.id} post={post} setPostModal={setPostModal} />
+                      ))}
+                    </div>
+                    {isLoading && (
+                      <div className='flex flex-wrap gap-4 my-4'>
+                        {Array(POSTS_LIMIT).fill(1).map((el, index) => <PostCardSkeleton key={index} />)}
+                      </div>
+                    )}
+                    {(postModal != null) && <PostModal post={postModal} setPostModal={setPostModal} />}
+                  </div>
+                  )
+                : (
+                  <p>De momento no hay solicitudes de colaboración...</p>
+                  )}
       </div>
+      <button onClick={handleLoadMoreClick} className='w-fit block mx-auto p-2 text-white bg-slate-800 rounded-md hover:brightness-90 transition-all'>Cargar más</button>
     </AdminLayout>
   )
 }

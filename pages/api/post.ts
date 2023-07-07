@@ -5,10 +5,10 @@ import { getServerSession } from 'next-auth/next'
 export default async function handler (req: any, res: any): Promise<void> {
   const session = await getServerSession(req, res, authOptions)
   console.log({ session })
-  if (session === null) return res.status(401).json({ error: 'Not Authorized' })
+  // if (session === null) return res.status(401).json({ error: 'Not Authorized' })
 
   if (req.method === 'POST') {
-    // if(!session) return res.status(401).json({ error: 'Not Authorized'  })
+    if (session == null) return res.status(401).json({ error: 'Not Authorized' })
     const {
       title,
       description,
@@ -58,11 +58,19 @@ export default async function handler (req: any, res: any): Promise<void> {
   }
 
   if (req.method === 'GET') {
+    const { skip, limit } = req.query
+
     const posts = await prisma.post.findMany({
       where: {
         accepted: false
-        //     accepted: session.user.isAdmin ? undefined : true,
-      }
+      },
+      include: {
+        author: true,
+        images: true,
+        tags: true
+      },
+      skip: Number.parseInt(skip),
+      take: Number.parseInt(limit)
     })
     return res.status(200).json({ posts })
   }
