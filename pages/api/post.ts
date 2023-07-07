@@ -1,16 +1,32 @@
-// @ts-nocheck
 import { prisma } from '@/lib/db'
-import { NextRequest, NextResponse } from 'next/server'
+import authOptions from './auth/[...nextauth]'
 import { getServerSession } from 'next-auth/next'
-import { authOptions } from './auth/[...nextauth]'
 
-export default async function handler (req: NextRequest, res: NextResponse): Promise<any> {
+export default async function handler (req: any, res: any): Promise<void> {
   const session = await getServerSession(req, res, authOptions)
+  console.log({ session })
+  if (session === null) return res.status(401).json({ error: 'Not Authorized' })
+
   if (req.method === 'POST') {
-    if (session === null) return res.status(401).json({ error: 'Not Authorized' })
-    const { title, author, artType, userType, description, location } = req.body
+    // if(!session) return res.status(401).json({ error: 'Not Authorized'  })
+    const {
+      title,
+      description,
+      artType,
+      userType,
+      images,
+      location,
+      // getInContact,
+      author,
+      tags
+    } = req.body
+
     console.log(req.body)
-    const [lat, long] = location.split(',').map(n => Number.parseFloat(n))
+
+    const [lat, long]: number[] = location
+      .split(',')
+      .map((n: string) => Number.parseFloat(n))
+
     const newPost = await prisma.post.create({
       data: {
         title,
@@ -20,6 +36,17 @@ export default async function handler (req: NextRequest, res: NextResponse): Pro
             id: author.id
           }
         },
+        tags: {
+          connectOrCreate: tags.split(', ').map((tag: string) => {
+            return {
+              where: { value: tag },
+              create: { value: tag }
+            }
+          })
+        },
+        images: {
+          create: images.map((image: string) => ({ url: image }))
+        },
         artType,
         userType,
         lat,
@@ -28,22 +55,74 @@ export default async function handler (req: NextRequest, res: NextResponse): Pro
     })
 
     return res.status(200).json({ newPost })
-  } else if (req.method === 'GET') {
+  }
+
+  if (req.method === 'GET') {
     const posts = await prisma.post.findMany({
-      include: {
-        author: true,
-        images: true,
-        tags: true
+      where: {
+        accepted: false
+        //     accepted: session.user.isAdmin ? undefined : true,
       }
     })
     return res.status(200).json({ posts })
   }
 
-  //  else if (req.method == "PUT") {
-  //    return res.status(200).json({ message: "ok" });
-  //  }
+  if (req.method === 'PUT') {
+    const {
+      title,
+      description,
+      artType,
+      userType,
+      images,
+      location,
+      // getInContact,
+      author,
+      tags
+    } = req.body
 
-  //  else if (req.method == "DELETE") {
-  //    return res.status(200).json({ message: "ok" });
-  //  }
+    console.log(req.body)
+
+    const [lat, long]: number[] = location
+      .split(',')
+      .map((n: string) => Number.parseFloat(n))
+
+    const updatedPost = await prisma.post.create({
+      data: {
+        title,
+        description,
+        author: {
+          connect: {
+            id: author.id
+          }
+        },
+        tags: {
+          connectOrCreate: tags.split(', ').map((tag: string) => {
+            return {
+              where: { value: tag },
+              create: { value: tag }
+            }
+          })
+        },
+        images: {
+          create: images.map((image: string) => ({ url: image }))
+        },
+        artType,
+        userType,
+        lat,
+        long
+      }
+    })
+
+    return res.status(200).json({ updatedPost })
+  }
+
+  if (req.method === 'DELETE') {
+    const { id } = req.body
+    await prisma.post.delete({
+      where: {
+        id
+      }
+    })
+    return res.status(200).json({ message: 'ok' })
+  }
 }

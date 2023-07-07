@@ -21,9 +21,9 @@ const FORM_INITIAL_STATE = {
   userType: '',
   artType: '',
   location: '',
-  images: [],
   getInContact: false,
   authorId: -1,
+  images: new Array<String>(),
   tags: ''
 }
 
@@ -88,6 +88,35 @@ interface InputSectionProps {
   suggestion?: string
 }
 
+async function saveImages (fileInput: FileList | undefined): Promise<string[]> {
+  if (fileInput == null) return []
+
+  const savedImages: string[] = []
+  const files = Array.from(fileInput)
+
+  const formData = new FormData()
+  formData.append('upload_preset', 'pointwall')
+  formData.append('api_key', process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY ?? '')
+
+  for (const file of files) {
+    formData.append('file', file)
+    try {
+      const data = await fetch(
+        'https://api.cloudinary.com/v1_1/dsxmh7gww/image/upload',
+        {
+          method: 'POST',
+          body: formData
+        }
+      )
+      savedImages.push((await data.json()).url)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  return savedImages
+}
+
 function InputSection ({ children, title, suggestion }: InputSectionProps): JSX.Element {
   const [suggestionVisible, setSuggestionVisible] = useState(false)
   return (
@@ -111,7 +140,7 @@ function InputSection ({ children, title, suggestion }: InputSectionProps): JSX.
 export default function Page (): JSX.Element {
   const { data: session } = useSession()
   const pointwallSession = session as PointwallSession
-
+  const [images, setImages] = useState<FileList>()
   const [formData, setFormData] = useState(FORM_INITIAL_STATE)
   // Input de tipo de arte
   const [isOtherChecked, setIsOtherChecked] = useState(false)
@@ -133,6 +162,7 @@ export default function Page (): JSX.Element {
       return
     }
 
+    formData.images = await saveImages(images)
     formData.authorId = pointwallSession?.user?.id
 
     console.log(formData)
@@ -148,9 +178,9 @@ export default function Page (): JSX.Element {
     // setFormData(FORM_INITIAL_STATE)
   }
 
-  function handleSubmit (ev: FormEvent): void {
+  async function handleSubmit (ev: FormEvent): Promise<void> {
     ev.preventDefault()
-    postContribution().catch((error) => console.error(error))
+    await postContribution().catch((error) => console.error(error)).then(_ => setFormData(FORM_INITIAL_STATE))
   }
 
   // function handleInputChange (ev: ChangeEvent & { target: HTMLInputElement }): void {
@@ -170,7 +200,7 @@ export default function Page (): JSX.Element {
           <Wrapper>
             <form
               onSubmit={(ev) => {
-                handleSubmit(ev)
+                handleSubmit(ev).catch(console.error)
                 return false
               }}
             >
@@ -242,12 +272,19 @@ export default function Page (): JSX.Element {
                         newData[input.value] = ev.target.value
                         setFormData(newData)
                       }}
+                      /* value={formData[input.value]} */
                       placeholder={`ej: ${input.placeholder}`}
                     />
                   </InputSection>
                 ))}
                 <InputSection title='¿Tenés fotos que querés que incluyamos en la página?'>
-                  <input type='file' className='my-2 w-full' />
+                  <input
+                    onChange={(e) =>
+                      setImages(e.currentTarget.files ?? new FileList())}
+                    type='file'
+                    className='my-2 w-full'
+                    multiple
+                  />
                 </InputSection>
                 <InputSection title='¿Te interesaría que el equipo de PointWall guarde tu mail para ponerse en contacto con vos?'>
                   <div className='my-2 ml-4 flex gap-1 align-middle'>
