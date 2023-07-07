@@ -81,7 +81,7 @@ export default function Page (): JSX.Element {
                     className='w-full rounded-t-md'
                   />
                   <div className='flex flex-col gap-2 px-4 pb-4'>
-                    <h2 className='text-xl md:text-2xl '>{post.title}</h2>
+                    <h2 className='text-xl md:text-2xl '>{post.title?.length > 0 ? post.title : 'Sin título'}</h2>
                     {post.tags === undefined
                       ? (
                         <p className='text-xs text-gray-700'>Sin etiqueta</p>

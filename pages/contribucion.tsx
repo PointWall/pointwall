@@ -11,6 +11,7 @@ type inputValue = 'title' | 'description' | 'location' | 'tags'
 interface InputOp {
   value: inputValue
   text: string
+  suggestion?: string
   placeholder: string
 }
 
@@ -22,9 +23,7 @@ const FORM_INITIAL_STATE = {
   location: '',
   images: [],
   getInContact: false,
-  author: {
-    id: -1
-  },
+  authorId: -1,
   tags: ''
 }
 
@@ -46,6 +45,19 @@ const USER_TYPE_OPTIONS = [
   }
 ]
 
+const ART_TYPE_OPTIONS = [
+  {
+    value: 'Mural',
+    id: 'mural',
+    labelText: 'Mural'
+  },
+  {
+    value: 'Graffiti',
+    id: 'graffiti',
+    labelText: 'Graffiti'
+  }
+]
+
 const TEXT_INPUTS: InputOp[] = [
   {
     value: 'location',
@@ -54,7 +66,8 @@ const TEXT_INPUTS: InputOp[] = [
   },
   {
     value: 'title',
-    text: '¿Qué nombre le pondrías a la ubicación? (¡Cuanto más claro sea más posibilidades existen de que la colaboración sea publicada!)',
+    text: '¿Qué título le pondrías a la ubicación?',
+    suggestion: '(¡Cuanto más claro sea más posibilidades existen de que la colaboración sea publicada!)',
     placeholder: 'Mural Benito'
   },
   {
@@ -72,12 +85,24 @@ const TEXT_INPUTS: InputOp[] = [
 interface InputSectionProps {
   children: JSX.Element | JSX.Element[]
   title: string
+  suggestion?: string
 }
 
-function InputSection ({ children, title }: InputSectionProps): JSX.Element {
+function InputSection ({ children, title, suggestion }: InputSectionProps): JSX.Element {
+  const [suggestionVisible, setSuggestionVisible] = useState(false)
   return (
     <div className='border-b-2 border-slate-700 pb-4 last:border-b-0 md:border-b-0 md:border-l-4 md:pb-0 md:pl-4'>
-      <h3 className='mb-2 text-xl'>{title}</h3>
+      <h3 className='mb-2 text-xl'>
+        {title} {suggestion !== undefined &&
+          <button
+            onClick={() => setSuggestionVisible(prev => !prev)}
+            className='text-gray-500'
+            type='button'
+          >
+            ({suggestionVisible ? '-' : '+'})
+          </button>}
+      </h3>
+      {(suggestion !== undefined && suggestionVisible) && <p className='text-xs mb-2 text-gray-500'>{suggestion}</p>}
       {children}
     </div>
   )
@@ -86,29 +111,41 @@ function InputSection ({ children, title }: InputSectionProps): JSX.Element {
 export default function Page (): JSX.Element {
   const { data: session } = useSession()
   const pointwallSession = session as PointwallSession
-  /*
-  ARREGLAR PROBLEMA CON EL artType TEXT INPUT AL SELECCIONAR UNA OPCION PERO ESCRIBIR EN EL INPUT
-  */
+
   const [formData, setFormData] = useState(FORM_INITIAL_STATE)
-  // const [isOtherChecked, setIsOtherChecked] = useState(false)
+  // Input de tipo de arte
+  const [isOtherChecked, setIsOtherChecked] = useState(false)
+
+  function handleArtTypeChange (
+    ev: ChangeEvent & { target: HTMLInputElement }
+  ): any {
+    setFormData((prevData) => {
+      return {
+        ...prevData,
+        artType: ev.target.value
+      }
+    })
+  }
 
   async function postContribution (): Promise<void> {
     if (pointwallSession?.user == null) {
       alert('Debes iniciar sesión para poder enviar el formulario')
       return
     }
-    formData.author = {
-      id: pointwallSession?.user?.id
-    }
-    await fetch('http://localhost:3000/api/post', {
-      method: 'POST',
-      body: JSON.stringify({ ...formData }),
-      headers: {
-        'content-type': 'application/json'
-      }
-    }).catch((e) => console.log(e))
 
-    setFormData(FORM_INITIAL_STATE)
+    formData.authorId = pointwallSession?.user?.id
+
+    console.log(formData)
+
+    // await fetch('http://localhost:3000/api/post', {
+    //   method: 'POST',
+    //   body: JSON.stringify(formData),
+    //   headers: {
+    //     'content-type': 'application/json'
+    //   }
+    // }).catch((error) => console.error(error))
+
+    // setFormData(FORM_INITIAL_STATE)
   }
 
   function handleSubmit (ev: FormEvent): void {
@@ -165,68 +202,38 @@ export default function Page (): JSX.Element {
                 </InputSection>
                 <InputSection title='¿Qué tipo de manifestación artística querés que relevemos para nuestra página?'>
                   <div className='ml-2'>
-                    <div className='flex gap-2'>
-                      <input
-                        id='mural'
-                        type='radio'
-                        name='artType'
-                        value='Mural'
-                        onChange={function (
-                          ev: ChangeEvent & { target: HTMLInputElement }
-                        ) {
-                          setFormData((prevData) => ({
-                            ...prevData,
-                            artType: ev.target.value
-                          }))
-                        }}
-                      />
-                      <label htmlFor='mural'>Mural</label>
-                    </div>
-                    <div className='flex gap-2'>
-                      <input
-                        id='graffiti'
-                        type='radio'
-                        name='artType'
-                        value='Graffiti'
-                        onChange={function (
-                          ev: ChangeEvent & { target: HTMLInputElement }
-                        ) {
-                          setFormData((prevData) => ({
-                            ...prevData,
-                            artType: ev.target.value
-                          }))
-                        }}
-                      />
-                      <label htmlFor='graffiti'>Graffiti</label>
-                    </div>
+                    {ART_TYPE_OPTIONS.map((opt) => (
+                      <div key={opt.id} className='flex gap-2'>
+                        <input
+                          id={opt.id}
+                          type='radio'
+                          name='artType'
+                          value={opt.value}
+                          onChange={(ev) => { setIsOtherChecked(false); handleArtTypeChange(ev) }}
+                        />
+                        <label htmlFor={opt.id}>{opt.labelText}</label>
+                      </div>
+                    ))}
                     <div className='flex gap-2'>
                       <input
                         id='other'
                         type='radio'
                         name='artType'
                         value='Otro'
+                        checked={isOtherChecked}
                       />
                       <label htmlFor='other'>Otro: </label>
                       <input
                         type='text'
                         name='otherArtType'
-                        onChange={function (
-                          ev: ChangeEvent & { target: HTMLInputElement }
-                        ) {
-                          setFormData((prevData) => {
-                            return {
-                              ...prevData,
-                              artType: ev.target.value
-                            }
-                          })
-                        }}
+                        onChange={(ev) => { setIsOtherChecked(true); handleArtTypeChange(ev) }}
                         className='w-full max-w-xs border-b-2 bg-slate-50 px-[.5em] outline-none focus:border-slate-400 focus:bg-slate-100'
                       />
                     </div>
                   </div>
                 </InputSection>
                 {TEXT_INPUTS.map((input) => (
-                  <InputSection key={input.value} title={input.text}>
+                  <InputSection key={input.value} title={input.text} suggestion={input.suggestion}>
                     <input
                       type='text'
                       className='w-full max-w-lg border-b-2 bg-slate-50 px-[.5em] py-[.25em] outline-none focus:border-slate-400 focus:bg-slate-100'

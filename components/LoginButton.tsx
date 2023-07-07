@@ -15,7 +15,6 @@ export default function Component (): JSX.Element {
   }
 
   if (session != null) {
-    console.log(pointwallSession)
     return (
       <section className='ml-auto flex items-center gap-2 text-lg'>
         <div className='relative aspect-square w-8 overflow-hidden rounded-full'>
