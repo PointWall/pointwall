@@ -6,20 +6,8 @@ import { Color, ColorVariant } from '@/lib/types'
 
 const LINKS = [
   {
-    name: 'Buscador',
-    url: '/buscador'
-  },
-  {
     name: 'Orígen Histórico',
     url: '/origen'
-  },
-  {
-    name: 'Proyecto',
-    url: '/proyecto'
-  },
-  {
-    name: 'Nosotros',
-    url: '/nosotros'
   },
   {
     name: 'Donaciones',
@@ -30,12 +18,12 @@ const LINKS = [
     url: '/contacto'
   },
   {
-    name: 'Terminos y Condiciones / Termns & Conditions',
+    name: 'Terminos y Condiciones',
     url: '/terms'
   },
   {
-    name: 'Politicas de Privacidad / Privacy Policy',
-    url: '/privacy'
+    name: 'Politicas de Privacidad',
+    url: '/privacy-policy'
   }
 ]
 
@@ -76,10 +64,6 @@ export default function Footer ({
           </ul>
         </div>
       </div>
-      {/* <p className='my-2 text-center text-xs'>
-        Realizado por Alejo Ballesteros, Gastón Fariña, Diego Merlo, Mateo
-        Sanzone, Teo Forneron, Gabriel Lombardi
-      </p> */}
       <p className='text-center text-xs'>
         Sitio web desarrollado por Lucas Piputto, Ramiro Reinaldo, Gino
         Somigliana.

@@ -24,8 +24,8 @@ const LINKS: LinkI[] = [
     color: 'orange'
   },
   {
-    name: 'Orígen Histórico',
-    url: '/origen',
+    name: 'Mapa',
+    url: '/mapa',
     color: 'yellow'
   },
   {
