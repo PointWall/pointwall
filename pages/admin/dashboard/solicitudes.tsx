@@ -11,7 +11,7 @@ interface PostProps {
 function PostModal ({ post, setPostModal }: PostProps & { setPostModal: Function }): JSX.Element {
   return (
     <div className='fixed w-screen h-screen bg-black bg-opacity-60 top-0 left-0'>
-      <div className='animate-[slideUp_.3s_ease-out] w-full h-full'>
+      <div className='animate-[slideUp_.5s_ease] w-full h-full'>
         <div className='fixed w-3/5 top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 p-4 bg-white shadow-lg border rounded-lg'>
           <button onClick={() => setPostModal(null)} className='absolute top-0 right-0 m-4 px-2 border border-gray-300 rounded-md text-gray-500 hover:shadow-lg active:scale-95 transition-shadow'>
             x
@@ -59,7 +59,7 @@ function PostModal ({ post, setPostModal }: PostProps & { setPostModal: Function
               Modificar
             </button>
             <button className='p-2 text-red-500 border border-red-500 rounded-md hover:shadow-[0px_0px_0px_4px] transition-shadow'>
-              Desaprobada
+              Desaprobar
             </button>
           </div>
         </div>
@@ -133,12 +133,16 @@ export default function Page (): JSX.Element {
       skip: postsSkip.toString(),
       limit: POSTS_LIMIT.toString()
     }).toString())
+    console.log('RESPONSE', response)
+    if (!response.ok) {
+      setErrorMessage(response.statusText)
+      setIsloading(false)
+      return
+    }
     const data = await response.json()
     if (data.error !== undefined) {
       setErrorMessage(data.error)
     } else {
-      console.log(data.posts)
-      console.log({ postsSkip })
       setPosts((prevPosts) => [...prevPosts, ...data.posts])
       setPostsSkip(postsSkip + 4)
     }
@@ -199,7 +203,7 @@ export default function Page (): JSX.Element {
                   <p>De momento no hay solicitudes de colaboración...</p>
                   )}
       </div>
-      <button onClick={handleLoadMoreClick} className='w-fit block mx-auto p-2 text-white bg-slate-800 rounded-md hover:brightness-90 transition-all'>Cargar más</button>
+      <button onClick={handleLoadMoreClick} disabled={errorMessage !== null} className='w-fit block mx-auto p-2 text-white bg-slate-800 rounded-md hover:brightness-90 transition-all disabled:cursor-not-allowed disabled:hover:brightness-100 disabled:bg-slate-200'>Cargar más</button>
     </AdminLayout>
   )
 }
