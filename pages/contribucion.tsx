@@ -5,6 +5,7 @@ import { useState, FormEvent, ChangeEvent } from 'react'
 import Head from 'next/head'
 import Layout from '@/components/Layout'
 import { Title, Wrapper } from '@/components/utils'
+import NotLogged from '@/components/NotLogged'
 
 type inputValue = 'title' | 'description' | 'location' | 'tags'
 
@@ -147,7 +148,7 @@ export default function Page(): JSX.Element {
   // function handleInputChange (ev: ChangeEvent & { target: HTMLInputElement }): void {
 
   // }
-
+  
   return (
     <>
       <Head>
@@ -158,7 +159,7 @@ export default function Page(): JSX.Element {
           <Title>Formulario de contribución</Title>
         </section>
         <section className='my-16 mb-8 accent-slate-700'>
-          <Wrapper>
+         { pointwallSession?.user != null ? <Wrapper>
             <form
               onSubmit={(ev) => {
                 handleSubmit(ev)
@@ -304,7 +305,7 @@ export default function Page(): JSX.Element {
               </button>
             </form>
           </Wrapper>
-        </section>
+        : <NotLogged />}</section>
       </Layout>
     </>
   )
