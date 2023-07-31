@@ -89,7 +89,7 @@ function PostCard ({ post, setPostModal }: PostProps & { setPostModal: Function 
           {post.author.firstName} {post.author.lastName}
         </p>
       </div>
-      <button onClick={() => setPostModal(post)} className='w-full py-1 bg-slate-800 text-white hover:text-slate-200 transition-all'>
+      <button onClick={() => setPostModal(post)} className='w-full py-1 bg-slate-800 text-white hover:bg-slate-700 transition-all'>
         Ver
       </button>
     </div>
