@@ -8,7 +8,7 @@ export default function FocusedPost ({
   post: Post
 }): JSX.Element {
   return (
-    <div className='max-w-xs container bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl'>
+    <div className='max-w-xs container bg-white rounded-xl shadow-lg'>
       <div>
         {
           post?.tags?.map((tag) => (
@@ -23,8 +23,8 @@ export default function FocusedPost ({
         >
           X
         </button>
-        <h1 className='text-2xl mt-2 ml-4 font-bold text-gray-800 cursor-pointer hover:text-gray-900 transition duration-100'>
-          {post.title}
+        <h1 className='text-2xl py-2 ml-4 font-bold text-gray-800 hover:text-gray-900 transition duration-100'>
+          {post.title ?? 'Sin título'}
         </h1>
       </div>
       <img
