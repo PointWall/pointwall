@@ -127,7 +127,7 @@ export default function Page(): JSX.Element {
     if (pointwallSession?.user == null) {
      alert('Debes iniciar sesión para poder enviar el formulario')
       return 
-    } 
+    }
     formData.author = { id: pointwallSession?.user?.id}
     formData.images = await saveImages(images)
 
@@ -184,6 +184,7 @@ export default function Page(): JSX.Element {
                               userType: ev.target.value
                             }))
                           }}
+                          checked={formData.userType === userType.value}
                         />
                         <label htmlFor={userType.id}>
                           {userType.labelText}
@@ -208,6 +209,7 @@ export default function Page(): JSX.Element {
                             artType: ev.target.value
                           }))
                         }}
+                        checked={formData.artType === "Mural"}
                       />
                       <label htmlFor='mural'>Mural</label>
                     </div>
@@ -225,6 +227,7 @@ export default function Page(): JSX.Element {
                             artType: ev.target.value
                           }))
                         }}
+                        checked={formData.artType === "Graffiti"}
                       />
                       <label htmlFor='graffiti'>Graffiti</label>
                     </div>
@@ -234,6 +237,15 @@ export default function Page(): JSX.Element {
                         type='radio'
                         name='artType'
                         value='Otro'
+                        onChange={function (
+                          ev: ChangeEvent & { target: HTMLInputElement }
+                        ) {
+                          setFormData((prevData) => ({
+                            ...prevData,
+                            artType: ""
+                          }))
+                        }}
+                        checked = {!["Graffiti", "Mural"].includes(formData.artType)}
                       />
                       <label htmlFor='other'>Otro: </label>
                       <input
@@ -249,6 +261,7 @@ export default function Page(): JSX.Element {
                             }
                           })
                         }}
+                        value={!["Graffiti", "Mural"].includes(formData.artType) ? formData.artType : ""}
                         className='w-full max-w-xs border-b-2 bg-slate-50 px-[.5em] outline-none focus:border-slate-400 focus:bg-slate-100'
                       />
                     </div>
@@ -262,11 +275,12 @@ export default function Page(): JSX.Element {
                       onChange={function (ev) {
                         const newData = formData
                         newData[input.value] = ev.target.value
-                        setFormData(newData)
+                        setFormData(p => ({...p, ...newData}))
                       }}
                       /* value={formData[input.value]} */
                       placeholder={`ej: ${input.placeholder}`}
-                    />
+                      value={formData[input.value]}
+                      />
                   </InputSection>
                 ))}
                 <InputSection title='¿Tenés fotos que querés que incluyamos en la página?'>
