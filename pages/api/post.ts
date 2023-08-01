@@ -3,11 +3,14 @@ import  authOptions from './auth/[...nextauth]'
 import { getServerSession } from "next-auth/next"
 
 export default async function handler(req: any, res: any) {
+  /*
   const session = await getServerSession(req, res, authOptions)
   console.log({ session })
   if(!session) return res.status(401).json({ error: 'Not Authorized'  })
+  */
 
   if (req.method == 'POST') {
+    console.log("a!")
     //if(!session) return res.status(401).json({ error: 'Not Authorized'  })
     const {
       title,
