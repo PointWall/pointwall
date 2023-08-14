@@ -14,7 +14,7 @@ interface LinkI {
 
 const LINKS: LinkI[] = [
   {
-    name: 'Home',
+    name: 'Inicio',
     url: '/',
     color: 'red'
   },
@@ -63,17 +63,19 @@ export default function Header (): JSX.Element {
 
   return (
     <header>
-      <div className='relative z-20 flex items-center gap-4 bg-white p-4'>
-        <h1 className='select-none text-2xl font-light md:text-8xl'>
-          <Link href='/'>PointWall</Link>
+      <div className='container mx-auto'>
+      <div className='relative z-20 flex items-center gap-4 p-4' style={{backgroundColor:'#2a9d8f'}}>
+        <h1 className='select-none text-white font-back text-3xl' style={{fontWeight:'900',fontFamily:'Poppins'}}> 
+          <Link href='/'>PointWall<b className='text-xl'>.com.ar</b></Link>
         </h1>
         <LoginButton />
         <span onClick={handleHambMenuClick} className='md:hidden'>
           <HambMenu isOpen={isMenuVisible} />
         </span>
       </div>
-      <nav>
-        <ul className='css-desktop-header flex w-full justify-around bg-black text-white'>
+
+      <nav className='justify-items-center '>
+        <ul className='css-desktop-header justify-center text-center flex px-2 text-white' style={{fontFamily:'Poppins',fontWeight:'500',backgroundColor:'#2a9d8f'}}>
           {LINKS.map((link) => (
             <li
               key={link.name}
@@ -101,6 +103,7 @@ export default function Header (): JSX.Element {
           ))}
         </ul>
       </nav>
+      </div>
     </header>
   )
 }

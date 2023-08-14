@@ -50,8 +50,8 @@ export default function Component (): JSX.Element {
         height={30}
         className='md:hidden'
       />
-      <span className='hidden rounded-md bg-black p-2 text-white transition hover:underline md:block'>
-        Iniciar sesión
+      <span className='hidden rounded-md p-3 text-white transition hover:none md:block' style={{fontFamily:'Poppins',fontWeight:'900',backgroundColor:'#f4a261'}}>
+        Ingresar
       </span>
     </button>
   )
