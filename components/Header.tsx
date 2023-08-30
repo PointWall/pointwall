@@ -2,9 +2,10 @@ import { useState } from 'react'
 // components
 import Link from 'next/link'
 import LoginButton from './LoginButton'
+import HambMenu from './HambMenu'
+import Image from 'next/image'
 // types
 import { Color, ColorVariant } from '@/lib/types'
-import HambMenu from './HambMenu'
 
 interface LinkI {
   name: string
@@ -64,22 +65,23 @@ export default function Header (): JSX.Element {
   return (
     <header>
       <div className='relative z-20 flex items-center gap-4 bg-white p-4'>
-        <h1 className='select-none text-2xl font-light md:text-8xl'>
-          <Link href='/'>PointWall</Link>
-        </h1>
+        <Link href='/' className='flex gap-2 items-center'>
+          <Image src='/images/PointWall.png' alt='logo' width={50} height={50} className='inline-block' />
+          <h1 className='inline-block font-light text-3xl'>PointWall</h1>
+        </Link>
         <LoginButton />
         <span onClick={handleHambMenuClick} className='md:hidden'>
           <HambMenu isOpen={isMenuVisible} />
         </span>
       </div>
       <nav>
-        <ul className='css-desktop-header flex w-full justify-around bg-black text-white'>
+        <ul className='css-desktop-header flex w-full justify-around text-black py-2 shadow-[inset_0px_0px_5px_-2px_rgba(0,0,0,0.3)]'>
           {LINKS.map((link) => (
             <li
               key={link.name}
               className={`css-nav-link text-xl ${
                 colorVariants[link.color]
-              } transition`}
+              } transition after:rounded-md`}
             >
               <Link href={link.url} className='css-nav-link__text'>
                 {link.name}
