@@ -22,6 +22,16 @@ module.exports = {
         logoGreen: 'rgb(var(--color-logo-green) / <alpha-value>)',
         logoBlue: 'rgb(var(--color-logo-blue) / <alpha-value>)',
         logoPink: 'rgb(var(--color-logo-pink) / <alpha-value>)'
+      },
+      keyframes: {
+        slideRight: {
+          '0%': { transform: 'translateX(-5%)', opacity: '.25' },
+          '100%': { transform: 'translateX(0)', opacity: '1' }
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(5%)', opacity: '.25' },
+          '100%': { transform: 'translateY(0)', opacity: '1' }
+        }
       }
     }
   },
