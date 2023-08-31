@@ -13,13 +13,14 @@ const SELECTION_COLORS = [
   'selection:bg-logoYellow',
   'selection:bg-logoGreen',
   'selection:bg-logoBlue',
-  'selection:bg-logoPink'
+  'selection:bg-logoPink',
+  'selection:bg-logoOrange'
 ]
 
 export default function App ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX.Element {
   return (
     <SessionProvider session={session}>
-      <div className={`${montserrat.variable} font-sans ${SELECTION_COLORS[Math.floor(Math.random() * (SELECTION_COLORS.length - 0 + 1) + 0)]} selection:text-black`}>
+      <div className={`${montserrat.variable} font-sans ${SELECTION_COLORS[Math.floor(Math.random() * SELECTION_COLORS.length)]} selection:text-black`}>
         <Component {...pageProps} />
       </div>
     </SessionProvider>
