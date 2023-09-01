@@ -27,22 +27,17 @@ const LINKS: LinkI[] = [
   {
     name: 'Mapa',
     url: '/mapa',
-    color: 'yellow'
+    color: 'green'
   },
   {
-    name: 'Proyecto',
-    url: '/proyecto',
-    color: 'green'
+    name: 'Artículos',
+    url: '/articulos',
+    color: 'yellow'
   },
   {
     name: 'Contribución',
     url: '/contribucion',
     color: 'blue'
-  },
-  {
-    name: 'Nosotros',
-    url: '/nosotros',
-    color: 'pink'
   }
 ]
 
@@ -65,9 +60,11 @@ export default function Header (): JSX.Element {
   return (
     <header>
       <div className='relative z-20 flex items-center gap-4 bg-white p-4'>
-        <Link href='/' className='flex gap-2 items-center'>
-          <Image src='/images/PointWall.png' alt='logo' width={50} height={50} className='inline-block' />
-          <h1 className='inline-block font-light text-3xl'>PointWall</h1>
+        <Link href='/' className='flex gap-2 items-center group'>
+          <Image src='/images/PointWall.png' alt='logo' width={50} height={50} className='inline-block w-10 h-10 md:w-auto md:h-auto' />
+          <div className='overflow-hidden'>
+            <h1 className='inline-block font-light text-xl md:text-3xl md:group-hover:animate-[rollUp_.5s_ease-in-out]'>PointWall</h1>
+          </div>
         </Link>
         <LoginButton />
         <span onClick={handleHambMenuClick} className='md:hidden'>
@@ -75,7 +72,7 @@ export default function Header (): JSX.Element {
         </span>
       </div>
       <nav>
-        <ul className='css-desktop-header flex w-full justify-around text-black py-2 shadow-[inset_0px_0px_5px_-2px_rgba(0,0,0,0.3)]'>
+        <ul className='css-desktop-header flex w-full justify-evenly text-black py-2 shadow-[inset_0px_0px_5px_-2px_rgba(0,0,0,0.3)]'>
           {LINKS.map((link) => (
             <li
               key={link.name}

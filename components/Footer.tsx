@@ -6,12 +6,16 @@ import { Color, ColorVariant } from '@/lib/types'
 
 const LINKS = [
   {
-    name: 'Orígen Histórico',
-    url: '/origen'
+    name: 'Proyecto',
+    url: '/proyecto'
   },
   {
     name: 'Donaciones',
     url: '/donaciones'
+  },
+  {
+    name: 'Nosotros',
+    url: '/nosotros'
   },
   {
     name: 'Contacto',
