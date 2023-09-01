@@ -71,6 +71,12 @@ const team: Team[] = [
     name: 'Colaboradores',
     members: [
       {
+        img: null,
+        name: 'Rita',
+        description:
+          'Docente, encargada del acompañamiento pedagógico.'
+      },
+      {
         img: '/images/foto_mateo.jpg',
         name: 'Mateo',
         description:
@@ -91,18 +97,6 @@ const team: Team[] = [
         name: 'Alejo',
         description:
           'Estudiante técnico y programador, colaboró en la organización del desarollo.'
-      },
-      {
-        img: null,
-        name: 'Nicolás Pérez',
-        description:
-          'Técnico, desarollador web, programador, colaboró siendo mentor de ideas.'
-      },
-      {
-        img: null,
-        name: 'Mateo Ricci',
-        description:
-          'Técnico, desarollador web, analista funcional, colaboró enseñando a subir una página web y ubicarla en la red.'
       }
     ]
   }

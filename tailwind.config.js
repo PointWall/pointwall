@@ -24,12 +24,24 @@ module.exports = {
         logoPink: 'rgb(var(--color-logo-pink) / <alpha-value>)'
       },
       keyframes: {
+        slideRight: {
+          '0%': { transform: 'translateX(-5%)', opacity: '.25' },
+          '100%': { transform: 'translateX(0)', opacity: '1' }
+        },
         slideUp: {
           '0%': { transform: 'translateY(5%)', opacity: '.25' },
+          '100%': { transform: 'translateY(0)', opacity: '1' }
+        },
+        rollUp: {
+          '0%': { transform: 'translateY(0)', opacity: '1' },
+          '49%': { transform: 'translateY(-125%)', opacity: '0' },
+          '51%': { transform: 'translateY(125%)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' }
         }
       }
     }
   },
-  plugins: []
+  plugins: [
+    require('tailwindcss-animated')
+  ]
 }

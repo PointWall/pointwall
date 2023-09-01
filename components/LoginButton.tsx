@@ -1,10 +1,8 @@
 import { useSession, signIn, signOut } from 'next-auth/react'
-// import { PointwallSession } from '@/types/pointwallSession'
 import Image from 'next/image'
 
 export default function Component (): JSX.Element {
   const { data: session } = useSession()
-  const pointwallSession = session
 
   function handleLogin (): void {
     signIn('google').catch(console.error)
@@ -19,13 +17,13 @@ export default function Component (): JSX.Element {
       <section className='ml-auto flex items-center gap-2 text-lg'>
         <div className='relative aspect-square w-8 overflow-hidden rounded-full'>
           <Image
-            src={pointwallSession?.user?.image ?? '/images/PointWall.png'}
+            src={session?.user?.image ?? '/images/PointWall.png'}
             alt='Imagen de perfil'
             fill
           />
         </div>
         <p className='hidden text-sm md:block'>
-          {pointwallSession?.user?.email}
+          {session?.user?.email}
         </p>
         <button
           onClick={handleLogout}
@@ -49,7 +47,7 @@ export default function Component (): JSX.Element {
         height={30}
         className='md:hidden'
       />
-      <span className='hidden rounded-md bg-black p-2 text-white transition hover:underline md:block'>
+      <span className='hidden rounded-md opacity-75 bg-gradient-to-br from-logoBlue to-logoPink hover:to-logoRed hover:opacity-100 shadow-inner hover:shadow-md text-white p-2 transition-all active:to-logoOrange md:block'>
         Iniciar sesión
       </span>
     </button>

@@ -5,13 +5,16 @@ import { useState, FormEvent, ChangeEvent } from 'react'
 import Head from 'next/head'
 import Layout from '@/components/Layout'
 import { Title, Wrapper } from '@/components/utils'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faQuestion } from '@fortawesome/free-solid-svg-icons'
+// import NotLogged from '@/components/NotLogged'
 
 type inputValue = 'title' | 'description' | 'location' | 'tags'
 
 interface InputOp {
   value: inputValue
   text: string
-  suggestion?: string
+  helpText?: string
   placeholder: string
 }
 
@@ -61,23 +64,25 @@ const ART_TYPE_OPTIONS = [
 const TEXT_INPUTS: InputOp[] = [
   {
     value: 'location',
-    text: '¿Dónde queda? Agregá la longitud y la latitud (Ej: 12.123123, 11.15123)',
+    text: '¿Dónde queda?',
+    helpText: 'Agregá la información más precisa que tengas de la ubicación. Puede ser dirección, calle que corta, o hasta longitud y latitud. También podés agregar un link de google maps referenciando la ubicación.',
     placeholder: '12.123123, 11.15123'
   },
   {
     value: 'title',
-    text: '¿Qué título le pondrías a la ubicación?',
-    suggestion: '(¡Cuanto más claro sea más posibilidades existen de que la colaboración sea publicada!)',
+    text: '¿Qué nombre le pondrías a la ubicación?',
+    helpText: 'Cuanto más claro sea más posibilidades existen de que la colaboración sea publicada',
     placeholder: 'Mural Benito'
   },
   {
     value: 'description',
-    text: '¿Querés agregarle algun comentario/descripción? ',
+    text: '¿Querés agregarle algún comentario/descripción? ',
     placeholder: 'Obra renovada, de gran importancia barrial...'
   },
   {
     value: 'tags',
-    text: '¿Le agregarías alguna etiqueta descriptiva (artista, lugar, estilo, etc...)?',
+    text: '¿Le agregarías alguna etiqueta descriptiva?',
+    helpText: 'Las etiquetas pueden estar relacionadas a: contenido, lugar, estilo, etc...',
     placeholder: 'Fútbol, Arte moderno, Homenaje...'
   }
 ]
@@ -85,13 +90,13 @@ const TEXT_INPUTS: InputOp[] = [
 interface InputSectionProps {
   children: JSX.Element | JSX.Element[]
   title: string
-  suggestion?: string
+  helpText?: string
 }
 
-async function saveImages (fileInput: FileList | undefined): Promise<string[]> {
+async function saveImages (fileInput: FileList | undefined): Promise<any[]> {
   if (fileInput == null) return []
 
-  const savedImages: string[] = []
+  const savedImages: String[] = []
   const files = Array.from(fileInput)
 
   const formData = new FormData()
@@ -117,21 +122,19 @@ async function saveImages (fileInput: FileList | undefined): Promise<string[]> {
   return savedImages
 }
 
-function InputSection ({ children, title, suggestion }: InputSectionProps): JSX.Element {
-  const [suggestionVisible, setSuggestionVisible] = useState(false)
+function InputSection ({ children, title, helpText }: InputSectionProps): JSX.Element {
   return (
     <div className='border-b-2 border-slate-700 pb-4 last:border-b-0 md:border-b-0 md:border-l-4 md:pb-0 md:pl-4'>
       <h3 className='mb-2 text-xl'>
-        {title} {suggestion !== undefined &&
-          <button
-            onClick={() => setSuggestionVisible(prev => !prev)}
-            className='text-gray-500'
-            type='button'
-          >
-            ({suggestionVisible ? '-' : '+'})
-          </button>}
+        {title}
+        {
+        helpText !== undefined &&
+          <span className='relative ml-2 text-gray-400 rounded-full border w-5 h-5 inline-flex items-center justify-center hover:bg-gray-100 group'>
+            <FontAwesomeIcon icon={faQuestion} className='block text-xs' />
+            <span className='absolute w-56 left-full ml-2 hidden group-hover:block text-xs bg-white border text-gray-800 rounded p-2 shadow-lg animate-[slideRight_0.3s_ease] z-10'>{helpText}</span>
+          </span>
+        }
       </h3>
-      {(suggestion !== undefined && suggestionVisible) && <p className='text-xs mb-2 text-gray-500'>{suggestion}</p>}
       {children}
     </div>
   )
@@ -145,47 +148,28 @@ export default function Page (): JSX.Element {
   // Input de tipo de arte
   const [isOtherChecked, setIsOtherChecked] = useState(false)
 
-  function handleArtTypeChange (
-    ev: ChangeEvent & { target: HTMLInputElement }
-  ): any {
-    setFormData((prevData) => {
-      return {
-        ...prevData,
-        artType: ev.target.value
-      }
-    })
-  }
-
   async function postContribution (): Promise<void> {
     if (pointwallSession?.user == null) {
       alert('Debes iniciar sesión para poder enviar el formulario')
       return
     }
-
+    formData.author = { id: pointwallSession?.user?.id }
     formData.images = await saveImages(images)
     formData.authorId = pointwallSession?.user?.id
 
-    console.log(formData)
-
-    // await fetch('http://localhost:3000/api/post', {
-    //   method: 'POST',
-    //   body: JSON.stringify(formData),
-    //   headers: {
-    //     'content-type': 'application/json'
-    //   }
-    // }).catch((error) => console.error(error))
-
-    // setFormData(FORM_INITIAL_STATE)
+    await fetch('/api/post', {
+      method: 'POST',
+      body: JSON.stringify({ ...formData }),
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).catch((e) => console.log(e))
   }
 
-  async function handleSubmit (ev: FormEvent): Promise<void> {
+  function handleSubmit (ev: FormEvent): void {
     ev.preventDefault()
-    await postContribution().catch((error) => console.error(error)).then(_ => setFormData(FORM_INITIAL_STATE))
+    postContribution().then(_ => setFormData(FORM_INITIAL_STATE)).catch((error) => console.error(error))
   }
-
-  // function handleInputChange (ev: ChangeEvent & { target: HTMLInputElement }): void {
-
-  // }
 
   return (
     <>
@@ -197,13 +181,10 @@ export default function Page (): JSX.Element {
           <Title>Formulario de contribución</Title>
         </section>
         <section className='my-16 mb-8 accent-slate-700'>
+          {/* {pointwallSession?.user != null
+            ?  */}
           <Wrapper>
-            <form
-              onSubmit={(ev) => {
-                handleSubmit(ev).catch(console.error)
-                return false
-              }}
-            >
+            <form onSubmit={handleSubmit}>
               <div className='flex flex-col gap-6'>
                 <InputSection title='¿Qué tipo de usuario sos?'>
                   <div className='ml-4'>
@@ -222,6 +203,7 @@ export default function Page (): JSX.Element {
                               userType: ev.target.value
                             }))
                           }}
+                          checked={formData.userType === userType.value}
                         />
                         <label htmlFor={userType.id}>
                           {userType.labelText}
@@ -232,48 +214,91 @@ export default function Page (): JSX.Element {
                 </InputSection>
                 <InputSection title='¿Qué tipo de manifestación artística querés que relevemos para nuestra página?'>
                   <div className='ml-2'>
-                    {ART_TYPE_OPTIONS.map((opt) => (
-                      <div key={opt.id} className='flex gap-2'>
-                        <input
-                          id={opt.id}
-                          type='radio'
-                          name='artType'
-                          value={opt.value}
-                          onChange={(ev) => { setIsOtherChecked(false); handleArtTypeChange(ev) }}
-                        />
-                        <label htmlFor={opt.id}>{opt.labelText}</label>
-                      </div>
-                    ))}
+                    <div className='flex gap-2'>
+                      <input
+                        id='mural'
+                        type='radio'
+                        name='artType'
+                        value='Mural'
+                        onChange={function (
+                          ev: ChangeEvent & { target: HTMLInputElement }
+                        ) {
+                          setFormData((prevData) => ({
+                            ...prevData,
+                            artType: ev.target.value
+                          }))
+                        }}
+                        checked={formData.artType === 'Mural'}
+                      />
+                      <label htmlFor='mural'>Mural</label>
+                    </div>
+                    <div className='flex gap-2'>
+                      <input
+                        id='graffiti'
+                        type='radio'
+                        name='artType'
+                        value='Graffiti'
+                        onChange={function (
+                          ev: ChangeEvent & { target: HTMLInputElement }
+                        ) {
+                          setFormData((prevData) => ({
+                            ...prevData,
+                            artType: ev.target.value
+                          }))
+                        }}
+                        checked={formData.artType === 'Graffiti'}
+                      />
+                      <label htmlFor='graffiti'>Graffiti</label>
+                    </div>
                     <div className='flex gap-2'>
                       <input
                         id='other'
                         type='radio'
                         name='artType'
                         value='Otro'
-                        checked={isOtherChecked}
+                        onChange={function (
+                          ev: ChangeEvent & { target: HTMLInputElement }
+                        ) {
+                          setFormData((prevData) => ({
+                            ...prevData,
+                            artType: ''
+                          }))
+                        }}
+                        checked={!['Graffiti', 'Mural'].includes(formData.artType)}
                       />
                       <label htmlFor='other'>Otro: </label>
                       <input
                         type='text'
                         name='otherArtType'
-                        onChange={(ev) => { setIsOtherChecked(true); handleArtTypeChange(ev) }}
+                        onChange={function (
+                          ev: ChangeEvent & { target: HTMLInputElement }
+                        ) {
+                          setFormData((prevData) => {
+                            return {
+                              ...prevData,
+                              artType: ev.target.value
+                            }
+                          })
+                        }}
+                        value={!['Graffiti', 'Mural'].includes(formData.artType) ? formData.artType : ''}
                         className='w-full max-w-xs border-b-2 bg-slate-50 px-[.5em] outline-none focus:border-slate-400 focus:bg-slate-100'
                       />
                     </div>
                   </div>
                 </InputSection>
                 {TEXT_INPUTS.map((input) => (
-                  <InputSection key={input.value} title={input.text} suggestion={input.suggestion}>
+                  <InputSection key={input.value} title={input.text} helpText={input.helpText}>
                     <input
                       type='text'
                       className='w-full max-w-lg border-b-2 bg-slate-50 px-[.5em] py-[.25em] outline-none focus:border-slate-400 focus:bg-slate-100'
                       onChange={function (ev) {
                         const newData = formData
                         newData[input.value] = ev.target.value
-                        setFormData(newData)
+                        setFormData(p => ({ ...p, ...newData }))
                       }}
                       /* value={formData[input.value]} */
                       placeholder={`ej: ${input.placeholder}`}
+                      value={formData[input.value]}
                     />
                   </InputSection>
                 ))}
@@ -312,6 +337,7 @@ export default function Page (): JSX.Element {
               </button>
             </form>
           </Wrapper>
+          {/* : <NotLogged />} */}
         </section>
       </Layout>
     </>

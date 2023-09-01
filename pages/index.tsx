@@ -1,20 +1,22 @@
+import { useInView } from 'react-intersection-observer'
 // components
 import Head from 'next/head'
 import Layout from '@/components/Layout'
 import { Title, Wrapper } from '@/components/utils'
 import Link from 'next/link'
-import React from 'react'
-// import Map from '../components/Map'
 import Image from 'next/image'
 
 export default function Home (): JSX.Element {
+  const { ref, inView } = useInView({ triggerOnce: true })
+  const { ref: formRef, inView: formInView } = useInView({ triggerOnce: true })
+
   return (
     <>
       <Head>
         <title>PointWall</title>
       </Head>
       <Layout color='red'>
-        <section className='text-center'>
+        <section className={`text-center ${inView ? 'animate-fade-down' : ''}`} ref={ref}>
           <Wrapper>
             <Title>¿Qué es PointWall?</Title>
             <p className='mx-auto my-[1.25em] max-w-prose md:text-2xl'>
@@ -34,13 +36,13 @@ export default function Home (): JSX.Element {
             <span className='absolute left-1/2 top-1/2 z-[10] hidden -translate-x-1/2 -translate-y-1/2 text-2xl text-white transition group-hover:block'>
               Ir al mapa
             </span>
-            <span className='relative w-full h-60 block transition group-hover:brightness-50'>
+            <span className='relative w-full h-60 md:h-96 block transition group-hover:brightness-50'>
               <Image src='/images/screenshot-mapa-2.png' alt='screenshot mapa' fill className='object-cover' />
               {/* <Map /> */}
             </span>
           </Link>
         </section>
-        <section className='my-16 text-center'>
+        <section className={`my-16 text-center ${formInView ? 'animate-fade-right' : ''}`} ref={formRef}>
           <h2 className='text-xl font-semibold md:text-4xl'>
             Formulario colaborativo
           </h2>

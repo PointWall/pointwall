@@ -1,14 +1,15 @@
 import { prisma } from '@/lib/db'
-import authOptions from './auth/[...nextauth]'
-import { getServerSession } from 'next-auth/next'
 
-export default async function handler (req: any, res: any): Promise<void> {
+export default async function handler (req: any, res: any): Promise<any> {
+  /*
   const session = await getServerSession(req, res, authOptions)
   console.log({ session })
-  // if (session === null) return res.status(401).json({ error: 'Not Authorized' })
+  if(!session) return res.status(401).json({ error: 'Not Authorized'  })
+  */
 
   if (req.method === 'POST') {
-    if (session == null) return res.status(401).json({ error: 'Not Authorized' })
+    console.log('a!')
+    // if(!session) return res.status(401).json({ error: 'Not Authorized'  })
     const {
       title,
       description,
