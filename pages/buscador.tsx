@@ -1,21 +1,24 @@
 import { FormEvent, useState, useEffect } from 'react'
+import { data } from '@/lib/fakeData'
+import { useInView } from 'react-intersection-observer'
 // components
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '@/components/Layout'
 import { Title, Wrapper } from '@/components/utils'
-import { data } from '@/lib/fakeData'
 // import GoogleMapReact from 'google-map-react'
 // import GoogleMap from 'google-maps-react-markers'
 // import Marker from '@/components/map/Marker'
 
 export default function Page (): JSX.Element {
+  const { ref, inView } = useInView({ triggerOnce: true })
+  const [inputState, setInputState] = useState('')
+
   function handleFormSubmit (ev: FormEvent): void {
     ev.preventDefault()
   }
   // const [tagsSearched, setTagsSearched] = useState(['futbol', 'asdas'])
   // const [fetchedPost, setFetchedPost] = useState([])
-  const [inputState, setInputState] = useState('')
 
   useEffect(() => {
     //   const fetchPost = async () => {
@@ -32,7 +35,7 @@ export default function Page (): JSX.Element {
       </Head>
       <Layout color='orange'>
         <Wrapper>
-          <section className='text-center'>
+          <section className={`text-center ${inView ? 'animate-fade-down' : ''}`} ref={ref}>
             <Title>¡Encontrá!</Title>
             <p className='mx-auto my-[1.25em] max-w-prose md:text-2xl'>
               ¡Buscá el arte de tus artistas o temas favoritos! Podés buscarlo
@@ -44,7 +47,7 @@ export default function Page (): JSX.Element {
           <section>
             <form
               onSubmit={handleFormSubmit}
-              className='css-searcher relative mx-auto my-8 flex w-fit flex-wrap justify-center'
+              className='css-searcher relative mx-auto my-8 flex w-fit flex-wrap justify-center rounded-md border overflow-hidden'
             >
               <input
                 onChange={(e) => {
@@ -53,7 +56,7 @@ export default function Page (): JSX.Element {
                 value={inputState}
                 type='text'
                 placeholder='Buscar...'
-                className='bg-slate-50 p-2 outline-none focus:bg-slate-100 md:text-xl'
+                className='bg-slate-50 p-2 outline-none md:text-xl'
               />
               <button
                 type='submit'
@@ -67,27 +70,30 @@ export default function Page (): JSX.Element {
           <section className='my-16 text-center'>
             <h2 className='my-4 text-xl font-semibold md:text-4xl'>
               Resultados{' '}
-              <span className='text-xs text-gray-500 md:text-sm'>(Futbol)</span>
+              {/* <span className='text-xs text-gray-500 md:text-sm'>(Futbol)</span> */}
             </h2>
-            <div className='flex flex-wrap justify-center gap-5'>
-              {data.slice(1, 5).map((post, i) => (
+            <div className='flex flex-wrap gap-4 justify-center'>
+              {data.slice(1, 10).map((post, i) => (
                 <div
                   key={i}
-                  className='align-center align-items flex h-fit min-w-[200px] flex-col justify-center gap-4 rounded-md border shadow-xl sm:w-1/6 md:w-2/5'
+                  className='h-fit min-w-[175px] rounded-md border shadow-xl max-w-xs group'
                 >
-                  <img
-                    src={post.images}
-                    alt='imagen'
-                    className='w-full rounded-t-md'
-                  />
-                  <div className='flex flex-col gap-2 px-4 pb-4'>
-                    <h2 className='text-xl md:text-2xl '>{post.title}</h2>
+                  <div className='relative cursor-pointer'>
+                    <img
+                      src={post.images}
+                      alt='imagen'
+                      className='rounded-t-md group-hover:brightness-50 transition'
+                    />
+                    <span className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition'>Ver más</span>
+                  </div>
+                  <div className='p-2'>
+                    <h2 className='text-lg md:text-xl '>{post.title}</h2>
                     {post.tags === undefined
                       ? (
-                        <p className='text-xs text-gray-700'>Sin etiqueta</p>
+                        <p className='text-xs text-gray-700'>Sin etiquetas</p>
                         )
                       : (
-                        <div className='center text-center text-xs md:text-sm'>
+                        <div className='center text-center text-xs'>
                           <p>Etiquetas: {post.tags}</p>
                         </div>
                         )}
