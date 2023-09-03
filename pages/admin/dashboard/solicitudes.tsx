@@ -8,15 +8,14 @@ interface PostProps {
   post: Post & { author: User, images: PostImage[] }
 }
 
-function PostModalData({ post }: PostProps): JSX.Element {
+function PostModalData ({ post }: PostProps): JSX.Element {
   const [editMode, setEditMode] = useState(false)
 
   return (
     <div>
-      {editMode 
-        ? <input className='text-4xl mb-4 font-semibold border rounded' defaultValue={post.title}/> 
-        : <h2 className='text-4xl mb-4 font-semibold'>{post.title}</h2>
-      }
+      {editMode
+        ? <input className='text-4xl mb-4 font-semibold border rounded' defaultValue={post.title} />
+        : <h2 className='text-4xl mb-4 font-semibold'>{post.title}</h2>}
       <div className='flex gap-2'>
         {post.images.length > 0 ? post.images.map((image) => (<Image key={image.url} src={image.url} alt='Imagen subida' width={100} height={100} />)) : <div className='w-[100px] h-[100px] bg-gray-300 after:content-["Sin_imagen"]' />}
       </div>
@@ -24,16 +23,14 @@ function PostModalData({ post }: PostProps): JSX.Element {
         <p className='text-sm'>Descripción</p>
         {editMode
           ? <textarea className='border rounded' defaultValue={post.description ?? 'Sin descripción'} />
-          : <p className='text-lg'>{post.description ?? 'Sin descripción'}</p>
-        }
+          : <p className='text-lg'>{post.description ?? 'Sin descripción'}</p>}
       </div>
       <div className='flex gap-8 my-4'>
         <div>
           <p className='text-sm'>Tipo de arte</p>
           {editMode
-            ? <input className='text-xl border rounded' defaultValue={post.artType.length > 0 ? post.artType : '-'}/>
-            : <p className='text-lg'>{post.description ?? 'Sin descripción'}</p>
-          }
+            ? <input className='text-xl border rounded' defaultValue={post.artType.length > 0 ? post.artType : '-'} />
+            : <p className='text-lg'>{post.description ?? 'Sin descripción'}</p>}
         </div>
         <div>
           <p className='text-sm'>Tipo de usuario</p>
@@ -61,15 +58,15 @@ function PostModalData({ post }: PostProps): JSX.Element {
         <button className='p-2 text-blue-500 border border-blue-500 rounded-md hover:shadow-[0px_0px_0px_4px] transition-shadow'>
           {editMode ? 'Confirmar cambios' : 'Aprobar'}
         </button>
-        {!editMode && 
+        {!editMode &&
           <button className='p-2 text-yellow-500 border border-yellow-500 rounded-md hover:shadow-[0px_0px_0px_4px] transition-shadow' onClick={() => setEditMode(true)}>
             Modificar
           </button>}
-        <button 
+        <button
           className='p-2 text-red-500 border border-red-500 rounded-md hover:shadow-[0px_0px_0px_4px] transition-shadow'
           onClick={() => {
             if (editMode && confirm('¿Seguro desea cancelar los cambios realizados?')) return setEditMode(false)
-          }}  
+          }}
         >
           {editMode ? 'Cancelar' : 'Desaprobar'}
         </button>
@@ -79,7 +76,6 @@ function PostModalData({ post }: PostProps): JSX.Element {
 }
 
 function PostModal ({ post, setPostModal }: PostProps & { setPostModal: Function }): JSX.Element {
-
   return (
     <div className='fixed w-screen h-screen bg-black bg-opacity-60 top-0 left-0'>
       <div className='animate-[slideUp_.5s_ease] w-full h-full'>
@@ -87,7 +83,7 @@ function PostModal ({ post, setPostModal }: PostProps & { setPostModal: Function
           <button onClick={() => setPostModal(null)} className='absolute top-0 right-0 m-4 px-2 border border-gray-300 rounded-md text-gray-500 hover:shadow-lg active:scale-95 transition-shadow'>
             x
           </button>
-          <PostModalData post={post} />         
+          <PostModalData post={post} />
         </div>
       </div>
     </div>

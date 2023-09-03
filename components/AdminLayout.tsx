@@ -1,21 +1,28 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { faHome, faMapPin, faEnvelope, faNewspaper } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const DASHBOARD_SECTIONS = [
   {
     name: 'Inicio',
     path: '/',
-    icon: '/icons/panel-home.svg'
+    icon: faHome
   },
   {
     name: 'Solicitudes',
     path: '/solicitudes',
-    icon: '/icons/panel-email.svg'
+    icon: faEnvelope
   },
   {
     name: 'Ubicaciones',
     path: '/ubicaciones',
-    icon: '/icons/panel-location.svg'
+    icon: faMapPin
+  },
+  {
+    name: 'Artículos',
+    path: '/articulos',
+    icon: faNewspaper
   }
 ]
 
@@ -46,15 +53,10 @@ export default function AdminLayout (props: AdminLayoutProps): JSX.Element {
                   <Link
                     href={`/admin/dashboard${section.path}`}
                     replace={false}
-                    className='flex w-fit gap-2 text-lg hover:underline'
+                    className='flex items-center w-fit gap-2 text-lg hover:underline'
                   >
-                    <Image
-                      src={section.icon}
-                      alt={section.icon}
-                      width={25}
-                      height={25}
-                    />
-                    {section.name}
+                    <FontAwesomeIcon icon={section.icon} className='w-8' />
+                    <span>{section.name}</span>
                   </Link>
                 </li>
               ))}
