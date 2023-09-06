@@ -21,7 +21,6 @@ interface InputOp {
 const FORM_INITIAL_STATE = {
   title: '',
   description: '',
-  userType: '',
   artType: '',
   location: '',
   getInContact: false,
@@ -31,24 +30,6 @@ const FORM_INITIAL_STATE = {
   },
   tags: ''
 }
-
-const USER_TYPE_OPTIONS = [
-  {
-    value: 'Autor',
-    id: 'author',
-    labelText: 'Autor'
-  },
-  {
-    value: 'Centro cultural',
-    id: 'center',
-    labelText: 'Centro cultural'
-  },
-  {
-    value: 'Vecino',
-    id: 'neighbour',
-    labelText: 'Vecino/a o miembro de la comunidad'
-  }
-]
 
 const TEXT_INPUTS: InputOp[] = [
   {
@@ -139,26 +120,30 @@ export default function Page (): JSX.Element {
   const [formData, setFormData] = useState(FORM_INITIAL_STATE)
   // const [isOtherChecked, setIsOtherChecked] = useState(false)
 
-  async function postContribution (): Promise<void> {
-    if (pointwallSession?.user == null) {
-      alert('Debes iniciar sesión para poder enviar el formulario')
-      return
-    }
-    formData.author = { id: pointwallSession?.user?.id }
-    formData.images = await saveImages(images)
+  async function postContribution (data: any): Promise<void> {
+    console.log(data)
 
-    await fetch('/api/post', {
-      method: 'POST',
-      body: JSON.stringify({ ...formData }),
-      headers: {
-        'content-type': 'application/json'
-      }
-    }).catch((e) => console.log(e))
+    // if (pointwallSession?.user == null) {
+    //   alert('Debes iniciar sesión para poder enviar el formulario')
+    //   return
+    // }
+    // formData.author = { id: pointwallSession?.user?.id }
+    // formData.images = await saveImages(images)
+
+    // await fetch('/api/post', {
+    //   method: 'POST',
+    //   body: JSON.stringify({ ...formData }),
+    //   headers: {
+    //     'content-type': 'application/json'
+    //   }
+    // }).catch((e) => console.log(e))
   }
 
   function handleSubmit (ev: FormEvent): void {
     ev.preventDefault()
-    postContribution().then(_ => setFormData(FORM_INITIAL_STATE)).catch((error) => console.error(error))
+    // @ts-expect-error
+    const formD = Object.fromEntries(new FormData(ev.target))
+    postContribution(formD).then(_ => setFormData(FORM_INITIAL_STATE)).catch((error) => console.error(error))
   }
 
   return (
@@ -176,32 +161,6 @@ export default function Page (): JSX.Element {
           <Wrapper>
             <form onSubmit={handleSubmit}>
               <div className='flex flex-col gap-6'>
-                <InputSection title='¿Qué tipo de usuario sos?'>
-                  <div className='ml-4'>
-                    {USER_TYPE_OPTIONS.map((userType) => (
-                      <div key={userType.id} className='flex gap-2'>
-                        <input
-                          id={userType.id}
-                          type='radio'
-                          name='userType'
-                          value={userType.value}
-                          onChange={function (
-                            ev: ChangeEvent & { target: HTMLInputElement }
-                          ) {
-                            setFormData((prevData) => ({
-                              ...prevData,
-                              userType: ev.target.value
-                            }))
-                          }}
-                          checked={formData.userType === userType.value}
-                        />
-                        <label htmlFor={userType.id}>
-                          {userType.labelText}
-                        </label>
-                      </div>
-                    ))}
-                  </div>
-                </InputSection>
                 <InputSection title='¿Qué tipo de manifestación artística querés que relevemos para nuestra página?'>
                   <div className='ml-2'>
                     <div className='flex gap-2'>
@@ -210,15 +169,15 @@ export default function Page (): JSX.Element {
                         type='radio'
                         name='artType'
                         value='Mural'
-                        onChange={function (
-                          ev: ChangeEvent & { target: HTMLInputElement }
-                        ) {
-                          setFormData((prevData) => ({
-                            ...prevData,
-                            artType: ev.target.value
-                          }))
-                        }}
-                        checked={formData.artType === 'Mural'}
+                        // onChange={function (
+                        //   ev: ChangeEvent & { target: HTMLInputElement }
+                        // ) {
+                        //   setFormData((prevData) => ({
+                        //     ...prevData,
+                        //     artType: ev.target.value
+                        //   }))
+                        // }}
+                        // checked={formData.artType === 'Mural'}
                       />
                       <label htmlFor='mural'>Mural</label>
                     </div>
@@ -228,14 +187,14 @@ export default function Page (): JSX.Element {
                         type='radio'
                         name='artType'
                         value='Graffiti'
-                        onChange={function (
-                          ev: ChangeEvent & { target: HTMLInputElement }
-                        ) {
-                          setFormData((prevData) => ({
-                            ...prevData,
-                            artType: ev.target.value
-                          }))
-                        }}
+                        // onChange={function (
+                        //   ev: ChangeEvent & { target: HTMLInputElement }
+                        // ) {
+                        //   setFormData((prevData) => ({
+                        //     ...prevData,
+                        //     artType: ev.target.value
+                        //   }))
+                        // }}
                         checked={formData.artType === 'Graffiti'}
                       />
                       <label htmlFor='graffiti'>Graffiti</label>
@@ -246,30 +205,30 @@ export default function Page (): JSX.Element {
                         type='radio'
                         name='artType'
                         value='Otro'
-                        onChange={function (
-                          ev: ChangeEvent & { target: HTMLInputElement }
-                        ) {
-                          setFormData((prevData) => ({
-                            ...prevData,
-                            artType: ''
-                          }))
-                        }}
+                        // onChange={function (
+                        //   ev: ChangeEvent & { target: HTMLInputElement }
+                        // ) {
+                        //   setFormData((prevData) => ({
+                        //     ...prevData,
+                        //     artType: ''
+                        //   }))
+                        // }}
                         checked={!['Graffiti', 'Mural'].includes(formData.artType)}
                       />
                       <label htmlFor='other'>Otro: </label>
                       <input
                         type='text'
                         name='otherArtType'
-                        onChange={function (
-                          ev: ChangeEvent & { target: HTMLInputElement }
-                        ) {
-                          setFormData((prevData) => {
-                            return {
-                              ...prevData,
-                              artType: ev.target.value
-                            }
-                          })
-                        }}
+                        // onChange={function (
+                        //   ev: ChangeEvent & { target: HTMLInputElement }
+                        // ) {
+                        //   setFormData((prevData) => {
+                        //     return {
+                        //       ...prevData,
+                        //       artType: ev.target.value
+                        //     }
+                        //   })
+                        // }}
                         value={!['Graffiti', 'Mural'].includes(formData.artType) ? formData.artType : ''}
                         className='w-full max-w-xs border-b-2 bg-slate-50 px-[.5em] outline-none focus:border-slate-400 focus:bg-slate-100'
                       />
@@ -280,25 +239,18 @@ export default function Page (): JSX.Element {
                   <InputSection key={input.value} title={input.text} helpText={input.helpText}>
                     <input
                       type='text'
+                      name={input.value}
                       className='w-full max-w-lg border-b-2 bg-slate-50 px-[.5em] py-[.25em] outline-none focus:border-slate-400 focus:bg-slate-100'
-                      onChange={function (ev) {
-                        const newData = formData
-                        newData[input.value] = ev.target.value
-                        setFormData(p => ({ ...p, ...newData }))
-                      }}
-                      /* value={formData[input.value]} */
                       placeholder={`ej: ${input.placeholder}`}
-                      value={formData[input.value]}
                     />
                   </InputSection>
                 ))}
                 <InputSection title='¿Tenés fotos que querés que incluyamos en la página?'>
                   <input
-                    onChange={(e) =>
-                      setImages(e.currentTarget.files ?? new FileList())}
                     type='file'
                     className='my-2 w-full'
                     multiple
+                    accept='image/*'
                   />
                 </InputSection>
                 <InputSection title='¿Te interesaría que el equipo de PointWall guarde tu mail para ponerse en contacto con vos?'>
@@ -306,12 +258,6 @@ export default function Page (): JSX.Element {
                     <input
                       id='contactCheckbox'
                       type='checkbox'
-                      onChange={function (ev) {
-                        setFormData((prevData) => ({
-                          ...prevData,
-                          getInContact: ev.target.checked
-                        }))
-                      }}
                     />
                     <label htmlFor='contactCheckbox'>
                       Sí, me interesa que se pongan en contacto conmigo
