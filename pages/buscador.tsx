@@ -6,12 +6,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '@/components/Layout'
 import { Title, Wrapper } from '@/components/utils'
-// import GoogleMapReact from 'google-map-react'
-// import GoogleMap from 'google-maps-react-markers'
-// import Marker from '@/components/map/Marker'
 
 export default function Page (): JSX.Element {
   const { ref, inView } = useInView({ triggerOnce: true })
+  // const [posts, setPosts] = useState([])
   const [inputState, setInputState] = useState('')
 
   function handleFormSubmit (ev: FormEvent): void {
@@ -21,11 +19,12 @@ export default function Page (): JSX.Element {
   // const [fetchedPost, setFetchedPost] = useState([])
 
   useEffect(() => {
-    //   const fetchPost = async () => {
-    //      const res = await fetch(`http://localhost:3000/api/posts/${tagsSearched.join("%")}`)
-    //      console.log(await res.json())
-    //    }
-    //    fetchPost()
+    console.log('Fetch posts')
+    // async function fetchPost (): Promise<any> {
+    //   const res = await fetch('https://pointwall-api.vercel.app/api/posts')
+    //   console.log(await res.json())
+    // }
+    // fetchPost().catch(console.log)
   }, [])
 
   return (

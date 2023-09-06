@@ -23,13 +23,13 @@ const team: Team[] = [
         img: '/images/foto_diego.jpeg',
         name: 'Diego',
         description:
-          'Estudiante técnico, poliglota, artista, encargado de organizar el proyecto.'
+          'Estudiante técnico, artista, encargado de organizar el proyecto.'
       },
       {
         img: '/images/foto_gaston.png',
         name: 'Gastón',
         description:
-          'Estudiante técnico, desarollador web, encargado de asignar los trabajos.'
+          'Estudiante técnico, encargado de asignar los trabajos.'
       }
     ]
   },
@@ -85,18 +85,18 @@ const team: Team[] = [
       {
         img: '/images/foto_gabriel.jfif',
         name: 'Gabriel',
-        description: 'Estudiante técnico y programador, colaboró en el diseño.'
+        description: 'Estudiante técnico, colaboró en la organización del proyecto.'
       },
       {
         img: '/images/foto_teo.jfif',
         name: 'Teo',
-        description: 'Estudiante técnico y programador, colaboró en el diseño.'
+        description: 'Estudiante técnico, colaboró en la organización del proyecto.'
       },
       {
         img: '/images/foto_alejo.jfif',
         name: 'Alejo',
         description:
-          'Estudiante técnico y programador, colaboró en la organización del desarollo.'
+          'Estudiante técnico, colaboró en la organización del proyecto.'
       }
     ]
   }

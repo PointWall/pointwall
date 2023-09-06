@@ -22,12 +22,12 @@ const LINKS = [
     url: '/contacto'
   },
   {
-    name: 'Terminos y Condiciones',
-    url: '/terms'
+    name: 'Términos y Condiciones',
+    url: '/terminos-y-condiciones'
   },
   {
-    name: 'Politicas de Privacidad',
-    url: '/privacy-policy'
+    name: 'Políticas de Privacidad',
+    url: '/politicas-de-privacidad'
   }
 ]
 
