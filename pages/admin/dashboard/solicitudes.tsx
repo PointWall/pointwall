@@ -96,19 +96,19 @@ function PostCard ({ post, setPostModal }: PostProps & { setPostModal: Function 
       <div className='px-4 pt-4'>
         <h3 className='text-lg font-medium'>{post.title}</h3>
         <div className='relative w-full mx-auto my-2 aspect-[4/3]'>
-          <Image src={post.images.length > 0 ? post.images[0].url : '/images/PointWall.png'} alt='Imagen prinicpal' fill className='object-contain' />
+          {/* <Image src={post.images.length > 0 ? post.images[0].url : '/images/PointWall.png'} alt='Imagen prinicpal' fill className='object-contain' /> */}
         </div>
-        <p className='text-sm mt-1'>{post.artType.length > 0 ? post.artType : 'Tipo no especificado'}</p>
-        <p className='text-sm mt-1'>Imágenes: {post.images.length}</p>
+        {/* <p className='text-sm mt-1'>{post.artType.length > 0 ? post.artType : 'Tipo no especificado'}</p> */}
+        {/* <p className='text-sm mt-1'>Imágenes: {post.images.length}</p> */}
         <p className='flex items-center gap-2 text-xs my-2'>
-          <Image
+          {/* <Image
             src={post.author.image ?? '/images/PointWall.png'}
             alt='Imagen de perfil'
             width={30}
             height={30}
             className='rounded-full'
-          />
-          {post.author.firstName} {post.author.lastName}
+          /> */}
+          {/* {post.author.firstName} {post.author.lastName} */}
         </p>
       </div>
       <button onClick={() => setPostModal(post)} className='w-full py-1 bg-slate-800 text-white hover:bg-slate-700 transition-all'>
@@ -139,19 +139,20 @@ function PostCardSkeleton (): JSX.Element {
 export default function Page (): JSX.Element {
   const POSTS_LIMIT = 4
   const [postsSkip, setPostsSkip] = useState(0)
-  const [posts, setPosts] = useState<Array<
-  Post & {
-    author: User
-    images: PostImage[]
-  }
-  >>([])
+  // const [posts, setPosts] = useState<Array<
+  // Post & {
+  //   author: User
+  //   images: PostImage[]
+  // }
+  // >>([])
+  const [posts, setPosts] = useState<any[]>([])
   const [isLoading, setIsloading] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [postModal, setPostModal] = useState(null)
 
   async function fetchPosts (): Promise<void> {
     setIsloading(true)
-    const response = await fetch('/api/post?' + new URLSearchParams({
+    const response = await fetch('https://pointwall-api.vercel.app/api/posts?' + new URLSearchParams({
       skip: postsSkip.toString(),
       limit: POSTS_LIMIT.toString()
     }).toString())
@@ -162,10 +163,11 @@ export default function Page (): JSX.Element {
       return
     }
     const data = await response.json()
+    console.log('daqt', data)
     if (data.error !== undefined) {
       setErrorMessage(data.error)
     } else {
-      setPosts((prevPosts) => [...prevPosts, ...data.posts])
+      setPosts((prevPosts) => [...prevPosts, ...data])
       setPostsSkip(postsSkip + 4)
     }
     setIsloading(false)
@@ -180,7 +182,6 @@ export default function Page (): JSX.Element {
       console.error(error)
       setErrorMessage(error.message)
     })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
