@@ -94,7 +94,7 @@ function PostCard ({ post, setPostModal }: PostProps & { setPostModal: Function 
   return (
     <div className='w-60 h-full rounded-md border shadow-md overflow-hidden'>
       <div className='px-4 pt-4'>
-        <h3 className='text-lg font-medium'>{post.title}</h3>
+        <h3 className='text-lg font-medium'>{post.title} id: {post.id}</h3>
         <div className='relative w-full mx-auto my-2 aspect-[4/3]'>
           {/* <Image src={post.images.length > 0 ? post.images[0].url : '/images/PointWall.png'} alt='Imagen prinicpal' fill className='object-contain' /> */}
         </div>
@@ -152,10 +152,12 @@ export default function Page (): JSX.Element {
 
   async function fetchPosts (): Promise<void> {
     setIsloading(true)
-    const response = await fetch('https://pointwall-api.vercel.app/api/posts?' + new URLSearchParams({
+    const query = 'https://pointwall-api.vercel.app/api/posts?' + new URLSearchParams({
       skip: postsSkip.toString(),
-      limit: POSTS_LIMIT.toString()
-    }).toString())
+      take: POSTS_LIMIT.toString()
+    }).toString()
+    console.log('query', query)
+    const response = await fetch(query)
     console.log('RESPONSE', response)
     if (!response.ok) {
       setErrorMessage(response.statusText)
