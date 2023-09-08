@@ -45,15 +45,15 @@ export default function AdminLayout (props: AdminLayoutProps): JSX.Element {
             />
             <p className='text-xl font-semibold tracking-wide'>Administrador</p>
           </div>
-          <div className='p-4'>
-            <h2 className='mb-2 text-xl font-normal'>Menú</h2>
-            <ul className='space-y-2'>
+          <div>
+            <h2 className='p-4 text-xl font-normal'>Menú</h2>
+            <ul>
               {DASHBOARD_SECTIONS.map((section) => (
                 <li key={section.name}>
                   <Link
                     href={`/admin/dashboard${section.path}`}
                     replace={false}
-                    className='flex items-center w-fit gap-2 text-lg hover:underline'
+                    className='flex items-center w-full py-2 px-4 gap-1 text-lg hover:bg-slate-900'
                   >
                     <FontAwesomeIcon icon={section.icon} className='w-8' />
                     <span>{section.name}</span>
