@@ -23,16 +23,28 @@ export default function Page (): JSX.Element {
       </Link>
       <h1 className='my-4'>Nuevo Artículo</h1>
       <form>
-        <label className='block my-4'>
-          <span>Título</span>
-          <input type='text' name='title' className='block p-2 border border-slate-300 rounded' />
-        </label>
-        <label className='block my-4'>
-          <span>Contenido</span>
+        <div className='my-4'>
+          <label htmlFor='title' className='text-xl'>Título</label>
+          <input type='text' name='title' id='title' className='block w-1/3 p-2 border border-slate-300 rounded' />
+        </div>
+        <div className='my-4'>
+          <label htmlFor='description' className='text-xl'>Descripción</label>
+          <textarea name='description' id='description' className='block w-1/3 p-2 border border-slate-300 rounded' />
+        </div>
+        <div className='my-4'>
+          <label htmlFor='image' className='text-xl'>Imagen</label>
+          <input type='file' accept='image/*' id='image' name='image' className='block p-2 border border-slate-300 rounded' />
+        </div>
+        <div className='my-4'>
+          <span className='text-xl'>Contenido</span>
           <div className='md:w-2/3'>
             {ReactQuill !== undefined ? <ReactQuill theme='snow' value={value} onChange={setValue} /> : <p>Cargando editor...</p>}
           </div>
-        </label>
+        </div>
+        <div className='my-4'>
+          <label htmlFor='active' className='text-xl'>Activo</label>
+          <input type='checkbox' name='active' id='active' className='block w-5 h-5 accent-slate-700' />
+        </div>
         <button onClick={handleClick} className='w-fit block p-3 mt-2 border space-x-2 border-slate-300 shadow hover:shadow-md rounded-md transition-all active:bg-slate-100'>
           Crear
         </button>
