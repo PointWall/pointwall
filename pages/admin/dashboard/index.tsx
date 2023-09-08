@@ -1,22 +1,15 @@
 import AdminLayout from '@/components/AdminLayout'
-import { prisma } from '@/lib/db'
 import type { InferGetStaticPropsType, GetStaticPropsResult } from 'next'
 
 export async function getStaticProps (): Promise<GetStaticPropsResult<any>> {
-  const usersCount = await prisma.user.count({ where: { isAdmin: false } })
-  const pointsCount = await prisma.post.count({ where: { accepted: true } })
-  const postsCount = await prisma.post.count({ where: { accepted: false } })
-  const tagsCount = await prisma.tag.count()
-  const imagesCount = await prisma.image.count()
-
   return {
     props: {
       data: {
-        usersCount,
-        postsCount,
-        pointsCount,
-        tagsCount,
-        imagesCount
+        usersCount: 10,
+        postsCount: 10,
+        pointsCount: 10,
+        tagsCount: 10,
+        imagesCount: 10
       }
     }
   }
