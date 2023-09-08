@@ -1,12 +1,13 @@
-import { PointwallSession } from '@/types/pointwallSession'
-import { useSession } from 'next-auth/react'
-import { useState, FormEvent, ChangeEvent } from 'react'
+// import { PointwallSession } from '@/types/pointwallSession'
+// import { useSession } from 'next-auth/react'
+import { useState, FormEvent } from 'react'
 // components
 import Head from 'next/head'
 import Layout from '@/components/Layout'
 import { Title, Wrapper } from '@/components/utils'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuestion } from '@fortawesome/free-solid-svg-icons'
+import LocationSearcher from '@/components/map/LocationSearcher'
 // import NotLogged from '@/components/NotLogged'
 
 type inputValue = 'title' | 'description' | 'location' | 'tags'
@@ -29,47 +30,7 @@ const FORM_INITIAL_STATE = {
   tags: ''
 }
 
-<<<<<<< HEAD
-const USER_TYPE_OPTIONS = [
-  {
-    value: 'Autor',
-    id: 'author',
-    labelText: 'Autor'
-  },
-  {
-    value: 'Centro cultural',
-    id: 'center',
-    labelText: 'Centro cultural'
-  },
-  {
-    value: 'Vecino',
-    id: 'neighbour',
-    labelText: 'Vecino/a o miembro de la comunidad'
-  }
-]
-
-const ART_TYPE_OPTIONS = [
-  {
-    value: 'Mural',
-    id: 'mural',
-    labelText: 'Mural'
-  },
-  {
-    value: 'Graffiti',
-    id: 'graffiti',
-    labelText: 'Graffiti'
-  }
-]
-
-=======
->>>>>>> cce86a3835abf4fc5a39659e1911f5d91fd543ec
 const TEXT_INPUTS: InputOp[] = [
-  {
-    value: 'location',
-    text: '¿Dónde queda?',
-    helpText: 'Agregá la información más precisa que tengas de la ubicación. Puede ser dirección, calle que corta, o hasta longitud y latitud. También podés agregar un link de google maps referenciando la ubicación.',
-    placeholder: '12.123123, 11.15123'
-  },
   {
     value: 'title',
     text: '¿Qué nombre le pondrías a la ubicación?',
@@ -80,13 +41,13 @@ const TEXT_INPUTS: InputOp[] = [
     value: 'description',
     text: '¿Querés agregarle algún comentario/descripción? ',
     placeholder: 'Obra renovada, de gran importancia barrial...'
-  },
-  {
-    value: 'tags',
-    text: '¿Le agregarías alguna etiqueta descriptiva?',
-    helpText: 'Las etiquetas pueden estar relacionadas a: contenido, lugar, estilo, etc...',
-    placeholder: 'Fútbol, Arte moderno, Homenaje...'
   }
+  // {
+  //   value: 'tags',
+  //   text: '¿Le agregarías alguna etiqueta descriptiva?',
+  //   helpText: 'Las etiquetas pueden estar relacionadas a: contenido, lugar, estilo, etc...',
+  //   placeholder: 'Fútbol, Arte moderno, Homenaje...'
+  // }
 ]
 
 interface InputSectionProps {
@@ -143,26 +104,14 @@ function InputSection ({ children, title, helpText }: InputSectionProps): JSX.El
 }
 
 export default function Page (): JSX.Element {
-  const { data: session } = useSession()
-  const pointwallSession = session as PointwallSession
-  const [images, setImages] = useState<FileList>()
+  // const { data: session } = useSession()
+  // const pointwallSession = session as PointwallSession
   const [formData, setFormData] = useState(FORM_INITIAL_STATE)
   // Input de tipo de arte
-  const [isOtherChecked, setIsOtherChecked] = useState(false)
+  // const [isOtherChecked, setIsOtherChecked] = useState(false)
 
-<<<<<<< HEAD
-  async function postContribution (): Promise<void> {
-    if (pointwallSession?.user == null) {
-      alert('Debes iniciar sesión para poder enviar el formulario')
-      return
-    }
-    formData.author = { id: pointwallSession?.user?.id }
-    formData.images = await saveImages(images)
-    formData.authorId = pointwallSession?.user?.id
-=======
   async function postContribution (data: any): Promise<void> {
     console.log(data)
->>>>>>> cce86a3835abf4fc5a39659e1911f5d91fd543ec
 
     // if (pointwallSession?.user == null) {
     //   alert('Debes iniciar sesión para poder enviar el formulario')
@@ -286,6 +235,10 @@ export default function Page (): JSX.Element {
                     />
                   </InputSection>
                 ))}
+                <InputSection title='Ubicación'>
+                  {/* <LocationSearcher  /> */}
+                  <input type='text' placeholder='location' />
+                </InputSection>
                 <InputSection title='¿Tenés fotos que querés que incluyamos en la página?'>
                   <input
                     type='file'

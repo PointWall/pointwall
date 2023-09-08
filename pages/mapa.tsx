@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { Post, data } from '@/lib/fakeData'
-import AutoComplete from '@/components/map/AutoComplete'
+import LocationSearcher from '@/components/map/LocationSearcher'
 import FocusedPost from '@/components/map/FocusedPost'
 import GoogleMap from 'google-maps-react-markers'
 import Marker from '@/components/map/Marker'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faSearch } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
@@ -16,7 +16,7 @@ export default function Page (): JSX.Element {
     mapInstance: google.maps.Map<Element> & {
       zoom: number
     } | null
-    mapApi: any
+    mapApi: typeof google.maps | null
   }>({
     mapReady: false,
     mapInstance: null,
@@ -56,9 +56,9 @@ export default function Page (): JSX.Element {
         ? data.filter((item) => {
           return (
             item.lat > sw.lat() &&
-              item.lat < ne.lat() &&
-              item.lng > sw.lng() &&
-              item.lng < ne.lng()
+            item.lat < ne.lat() &&
+            item.lng > sw.lng() &&
+            item.lng < ne.lng()
           )
         })
         : data
@@ -85,29 +85,20 @@ export default function Page (): JSX.Element {
                 <span>Volver</span>
               </Link>
               <div className='absolute z-10 top-4 left-4 flex transform flex-wrap items-center gap-2 rounded-xl bg-white p-4 shadow-lg transition duration-500 hover:scale-[102%] hover:shadow-xl md:gap-4'>
-                <div className='flex w-full items-center rounded-lg bg-gray-100 p-2 text-sm md:w-fit md:p-3 md:text-base'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    className='h-6 w-6 opacity-30'
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    stroke='currentColor'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth={2}
-                      d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
-                    />
-                  </svg>
-                  <AutoComplete
-                    map={mapState.mapInstance}
-                    mapApi={mapState.mapApi}
-                  />
+                <div className='flex w-full items-center rounded-lg bg-gray-100 text-sm md:w-fit md:text-base'>
+                  {mapState.mapInstance != null && mapState.mapApi != null && (
+                    <LocationSearcher
+                      map={mapState.mapInstance}
+                      mapsApi={mapState.mapApi}
+                      className='bg-gray-100 ml-2 outline-none p-2'
+                    />)}
+                  <button className='py-2 px-3 bg-slate-200 rounded-r-md hover:bg-slate-300 active:bg-slate-400'>
+                    <FontAwesomeIcon icon={faSearch} className='text-slate-600' />
+                  </button>
                 </div>
-                <div className='duration-3000 w-full cursor-pointer rounded-lg bg-red-600 px-5 py-3 text-center text-sm font-semibold text-white transition hover:shadow-lg md:w-fit md:text-base'>
+                {/* <div className='duration-3000 w-full cursor-pointer rounded-lg bg-red-600 px-5 py-3 text-center text-sm font-semibold text-white transition hover:shadow-lg md:w-fit md:text-base'>
                   <span>Buscar</span>
-                </div>
+                </div> */}
               </div>
               {focusedPost != null && (
                 <div className='absolute z-10 top-28 left-4 hover:scale-[102%] hover:shadow-2xl transition-all duration-500'>
