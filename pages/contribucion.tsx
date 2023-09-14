@@ -7,6 +7,7 @@ import Layout from '@/components/Layout'
 import { Title, Wrapper } from '@/components/utils'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuestion } from '@fortawesome/free-solid-svg-icons'
+import { TextInput, ImageInput, TextareaInput } from '@/components/formComponents'
 // import NotLogged from '@/components/NotLogged'
 
 type inputValue = 'title' | 'description' | 'location' | 'tags'
@@ -22,20 +23,6 @@ interface InputOp {
   text: string
   helpText?: string
   placeholder: string
-}
-
-interface InputTextProps {
-  name: string
-  label?: string
-  placeholder?: string
-  required?: boolean
-}
-
-interface InputImageProps {
-  name: string
-  label?: string
-  required?: boolean
-  multiple?: boolean
 }
 
 const TEXT_INPUTS: InputOp[] = [
@@ -58,33 +45,6 @@ const TEXT_INPUTS: InputOp[] = [
     placeholder: 'Fútbol, Arte moderno, Homenaje...'
   }
 ]
-
-function TextInput (props: InputTextProps): JSX.Element {
-  return (
-    <div>
-      {props.label !== undefined && <label htmlFor={props.name} className='w-fit block font-light text-sm mb-1'>{props.label}</label>}
-      <input type='text' id={props.name} name={props.name} placeholder={props.placeholder} className='w-full max-w-lg border-b-2 bg-slate-50 px-[.5em] py-[.25em] outline-none focus:border-slate-400 focus:bg-slate-100' />
-    </div>
-  )
-}
-
-function TextareaInput (props: InputTextProps): JSX.Element {
-  return (
-    <div>
-      {props.label !== undefined && <label htmlFor={props.name} className='w-fit block font-light text-sm mb-1'>{props.label}</label>}
-      <textarea id={props.name} name={props.name} placeholder={props.placeholder} className='w-full max-w-lg border-b-2 bg-slate-50 px-[.5em] py-[.25em] outline-none min-h-[120px] max-h-[280px] focus:border-slate-400 focus:bg-slate-100' />
-    </div>
-  )
-}
-
-function ImageInput (props: InputImageProps): JSX.Element {
-  return (
-    <div>
-      {props.label !== undefined && <label htmlFor={props.name} className='w-fit block font-light text-sm mb-1'>{props.label}</label>}
-      <input type='file' accept='image/*' required={props.required} multiple={props.multiple} />
-    </div>
-  )
-}
 
 function InputSection ({ children, title, helpText }: InputSectionProps): JSX.Element {
   return (
