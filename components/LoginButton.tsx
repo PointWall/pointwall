@@ -37,7 +37,7 @@ export default function Component (): JSX.Element {
 
   return (
     <button
-      className='ml-auto text-sm md:self-start md:text-lg'
+      className='ml-auto text-sm md:text-lg'
       onClick={handleLogin}
     >
       <Image
@@ -47,8 +47,8 @@ export default function Component (): JSX.Element {
         height={30}
         className='md:hidden'
       />
-      <span className='hidden rounded-md opacity-75 bg-gradient-to-br from-logoBlue to-logoPink hover:to-logoRed hover:opacity-100 shadow-inner hover:shadow-md text-white p-2 transition-all active:to-logoOrange md:block'>
-        Iniciar sesión
+      <span className='hidden rounded-md bg-logoOrange hover:to-logoRed hover:bg-white hover:text-logoOrange hover:shadow-[0px_0px_0px_4px] text-white p-2 transition-all box-content md:block'>
+        Ingresar
       </span>
     </button>
   )
