@@ -1,6 +1,7 @@
 import NextAuth, { DefaultSession } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import { prisma } from '@/lib/db'
+// import { redirect } from 'next/navigation'
 
 export const authOptions = {
   providers: [
@@ -18,37 +19,25 @@ export const authOptions = {
   ],
   secret: process.env.NEXT_PUBLIC_SECRET ?? 'B19823B971B2397DBY123789DB8B80B',
   callbacks: {
-    session: async ({
-      session
-    }: {
-      session: DefaultSession
-
-    }) => {
-      if ((session?.user) != null) {
-        // Check if exist, if not create user
-        console.log({ session })
-        let user = await prisma.user.findUnique({
+    session: async ({ session }: { session: DefaultSession }) => {
+      console.log('Session at begining', session)
+      if (session?.user !== null) {
+        const user = await prisma.user.findUnique({
           where: {
             email: session?.user?.email ?? ''
           }
         })
-        console.log({ user })
         if (user === null) {
-          user = await prisma.user.create({
-            data: {
-              firstName: session?.user?.name?.split(' ')[0] ?? '',
-              lastName: session?.user?.name?.split(' ')[1] ?? '',
-              posts: {},
-              email: session?.user?.email ?? '',
-              isAdmin: false,
-              image: session?.user?.image ?? ''
-            }
-          })
-          console.log('User Created!')
+          // @ts-expect-error
+          session.user.registered = false // temporary, to handle redirection with LoginButton
+          console.log('----- USER SHOULD BE REDIRECTED -----')
+          return session
+          // redirect('/registro')
         }
-        session.user = user
+        // @ts-expect-error
+        session.user.registered = true // temporary, to handle redirection with LoginButton
+        console.log(`${session.user?.name ?? 'User'} is already registered`)
       }
-      console.log({ session })
       return session
     }
   }
