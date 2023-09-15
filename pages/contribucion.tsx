@@ -155,15 +155,15 @@ export default function Page (): JSX.Element {
                   </div>
                 </InputSection>
                 <InputSection title='¿Querés agregarle algún comentario/descripción?'>
-                  <TextareaInput name='description' placeholder='Obra de arte recientemente renovada, de gran importancia barrial...' />
+                  <TextareaInput name='description' placeholder='Obra de arte recientemente renovada, de gran importancia barrial...' className='w-full max-w-lg border-b-2 bg-slate-50 px-[.5em] py-[.25em] outline-none min-h-[120px] max-h-[280px] focus:border-slate-400 focus:bg-slate-100' />
                 </InputSection>
                 {TEXT_INPUTS.map((input) => (
                   <InputSection key={input.value} title={input.text} helpText={input.helpText}>
-                    <TextInput name={input.value} placeholder={input.placeholder} />
+                    <TextInput name={input.value} placeholder={input.placeholder} className='w-full max-w-lg border-b-2 bg-slate-50 px-[.5em] py-[.25em] outline-none focus:border-slate-400 focus:bg-slate-100' />
                   </InputSection>
                 ))}
                 <InputSection title='¿Tenés fotos que querés que incluyamos en la página?'>
-                  <ImageInput name='images' multiple />
+                  <ImageInput name='images' multiple className='w-fit block font-light text-sm mb-1' />
                 </InputSection>
                 <InputSection title='¿Te interesaría que el equipo de PointWall guarde tu mail para ponerse en contacto con vos?'>
                   <div className='my-2 ml-4 flex gap-1 align-middle'>
