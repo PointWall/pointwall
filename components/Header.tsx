@@ -67,6 +67,9 @@ export default function Header (): JSX.Element {
           </div>
         </Link>
         <LoginButton />
+        <Link href='/registro' className='hidden rounded-md bg-logoOrange hover:bg-white hover:text-logoOrange hover:shadow-[0px_0px_0px_2px] text-white p-2 transition-all md:block active:bg-orange-50'>
+          Registrarse
+        </Link>
         <span onClick={handleHambMenuClick} className='md:hidden'>
           <HambMenu isOpen={isMenuVisible} />
         </span>

@@ -47,7 +47,7 @@ export default function Component (): JSX.Element {
         height={30}
         className='md:hidden'
       />
-      <span className='hidden rounded-md bg-logoOrange hover:to-logoRed hover:bg-white hover:text-logoOrange hover:shadow-[0px_0px_0px_4px] text-white p-2 transition-all box-content md:block'>
+      <span className='hidden rounded-md hover:bg-gray-50 p-2 transition-all md:block active:bg-gray-100'>
         Ingresar
       </span>
     </button>
