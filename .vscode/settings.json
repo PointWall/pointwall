@@ -1,4 +1,7 @@
 {
   "standard.autoFixOnSave": true,
-  "standard.engine": "ts-standard"
+  "standard.engine": "ts-standard",
+  "editor.defaultFormatter": "standard.vscode-standard",
+  "editor.formatOnSave": true,
+  "standard.enable": true
 }

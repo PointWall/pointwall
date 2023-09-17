@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { faHome, faMapPin, faEnvelope, faNewspaper } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Toaster } from 'react-hot-toast'
 
 const DASHBOARD_SECTIONS = [
   {
@@ -68,6 +69,7 @@ export default function AdminLayout (props: AdminLayoutProps): JSX.Element {
         <header className='h-[82px] border-b flex items-center'>
           <h1 className='ml-8 text-4xl font-medium'>{props.title}</h1>
         </header>
+        <Toaster />
         <div className='p-8'>{props.children}</div>
       </section>
     </div>

@@ -19,6 +19,10 @@ interface InputImageProps extends InputProps {
   onChange?: ChangeEventHandler<HTMLInputElement>
 }
 
+interface InputCheckboxProps extends InputProps {
+  defaultChecked?: boolean
+}
+
 interface InputRadioOptions {
   defaultChecked?: boolean
   value: string
@@ -32,7 +36,7 @@ export function TextInput (props: InputTextProps): JSX.Element {
   return (
     <div>
       {props.label !== undefined && <label htmlFor={props.name} className='w-fit block font-light text-sm mb-1'>{props.label}</label>}
-      <input type='text' id={props.name} name={props.name} placeholder={props.placeholder} defaultValue={props.defaultValue} className={props.className} />
+      <input type='text' id={props.name} name={props.name} placeholder={props.placeholder} defaultValue={props.defaultValue} required={props.required} className={props.className} />
     </div>
   )
 }
@@ -44,7 +48,7 @@ export function PasswordInput (props: InputTextProps): JSX.Element {
     <div>
       {props.label !== undefined && <label htmlFor={props.name} className='w-fit block font-light text-sm mb-1'>{props.label}</label>}
       <span className='relative block w-full max-w-lg'>
-        <input type={textVisible ? 'text' : 'password'} id={props.name} name={props.name} placeholder={props.placeholder} className={props.className} />
+        <input type={textVisible ? 'text' : 'password'} id={props.name} name={props.name} placeholder={props.placeholder} required={props.required} className={props.className} />
         <button onClick={() => setTextVisible(prev => !prev)} className='absolute outline-none right-2 top-1/2 -translate-y-1/2'>
           <FontAwesomeIcon icon={textVisible ? faEyeSlash : faEye} />
         </button>
@@ -71,11 +75,11 @@ export function ImageInput (props: InputImageProps): JSX.Element {
   )
 }
 
-export function CheckboxInput (props: InputProps): JSX.Element {
+export function CheckboxInput (props: InputCheckboxProps): JSX.Element {
   return (
     <div>
       {props.label !== undefined && <label htmlFor={props.name} className={props.className}>{props.label}</label>}
-      <input id={props.name} type='checkbox' name={props.name} required={props.required} />
+      <input id={props.name} type='checkbox' name={props.name} required={props.required} defaultChecked={props.defaultChecked} />
     </div>
   )
 }

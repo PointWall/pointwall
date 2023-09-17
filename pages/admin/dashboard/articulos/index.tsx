@@ -1,30 +1,10 @@
+import { useEffect, useState } from 'react'
 import { faPlus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import AdminLayout from '@/components/AdminLayout'
 import Link from 'next/link'
 
-const TEST_DATA = [
-  {
-    id: 1,
-    title: 'Primer artículo de prueba',
-    description: 'Descripción para el primer artículo de PointWall',
-    image: null,
-    tags: ['Mural', 'Arte moderno'],
-    createdAt: '07/09/2023',
-    updatedAt: '07/09/2023'
-  },
-  {
-    id: 2,
-    title: 'Primer artículo de prueba',
-    description: 'Descripción para el primer artículo de PointWall',
-    image: null,
-    tags: ['Mural', 'Arte moderno'],
-    createdAt: '07/09/2023',
-    updatedAt: '07/09/2023'
-  }
-]
-
-function ArticlesTable (): JSX.Element {
+function ArticlesTable ({ articles }: { articles?: any }): JSX.Element {
   return (
     <table className='mt-4 border-separate border-spacing-0'>
       <thead>
@@ -40,18 +20,20 @@ function ArticlesTable (): JSX.Element {
         </tr>
       </thead>
       <tbody>
-        {TEST_DATA.map((row) => (
+        {articles.map((row: any) => (
           <tr key={row.id} className='group h-12 cursor-default hover:bg-slate-100'>
-            <td className='border border-slate-300 border-t-0 p-2 font-medium text-sm group-last:rounded-bl-md'>{row.id}</td>
+            <td className='border border-slate-300 border-t-0 p-2 font-medium text-sm group-last:rounded-bl-md text-center'>{row.id}</td>
             <td className='border border-slate-300 border-t-0 border-l-0 p-2 font-medium text-sm'>{row.title}</td>
             <td className='border border-slate-300 border-t-0 border-l-0 p-2 font-medium text-sm max-w-xs line-clamp-1 h-12 leading-8'>{row.description}</td>
             <td className='border border-slate-300 border-t-0 border-l-0 p-2 font-medium text-sm'>{row.image}</td>
             <td className='border border-slate-300 border-t-0 border-l-0 p-2 font-medium text-sm'>{row.tags.join(', ')}</td>
-            <td className='border border-slate-300 border-t-0 border-l-0 p-2 font-medium text-sm'>{row.createdAt}</td>
-            <td className='border border-slate-300 border-t-0 border-l-0 p-2 font-medium text-sm'>{row.updatedAt}</td>
-            <td className='border border-slate-300 border-t-0 border-l-0 p-2 font-medium text-sm text-center space-x-2 group-last:rounded-br-md'>
-              <FontAwesomeIcon icon={faEdit} className='bg-slate-300 p-1.5 rounded hover:bg-slate-400' />
-              <FontAwesomeIcon icon={faTrash} className='bg-slate-300 p-1.5 rounded hover:bg-slate-400' />
+            <td className='border border-slate-300 border-t-0 border-l-0 p-2 font-medium text-sm'>{new Date(row.createdAt).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: '2-digit' })}</td>
+            <td className='border border-slate-300 border-t-0 border-l-0 p-2 font-medium text-sm'>{new Date(row.updatedAt).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: '2-digit' })}</td>
+            <td className='border border-slate-300 border-t-0 border-l-0 p-2 font-medium text-sm group-last:rounded-br-md'>
+              <div className='flex justify-center gap-2'>
+                <FontAwesomeIcon icon={faEdit} className='bg-slate-300 p-1.5 rounded hover:bg-slate-400' />
+                <FontAwesomeIcon icon={faTrash} className='bg-slate-300 p-1.5 rounded hover:bg-slate-400' />
+              </div>
             </td>
           </tr>))}
       </tbody>
@@ -60,14 +42,31 @@ function ArticlesTable (): JSX.Element {
 }
 
 export default function Page (): JSX.Element {
+  const [articles, setArticles] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState<null | string>(null)
+
+  useEffect(() => {
+    async function fetchArticles (): Promise<any> {
+      const res = await fetch('https://pointwall-api.vercel.app/api/articles')
+      const { data, error } = await res.json()
+      setIsLoading(false)
+      if (error !== undefined) return setErrorMessage(error)
+      setArticles(data)
+    }
+    setIsLoading(true)
+    fetchArticles().catch(console.error)
+  }, [])
+
   return (
     <AdminLayout title='Artículos'>
       <h1>Acá se muestran los artículos creados y la opción de crear nuevos</h1>
+      {errorMessage !== undefined ? <p>{errorMessage}</p> : <></>}
       <Link href='/admin/dashboard/articulos/crear' className='w-fit block p-3 mt-2 border space-x-2 border-slate-300 shadow hover:shadow-md rounded-md transition-all active:bg-slate-100'>
         <FontAwesomeIcon icon={faPlus} className='text-slate-600' />
         <span>Crear</span>
       </Link>
-      <ArticlesTable />
+      {isLoading ? <div className='flex justify-center my-4'><span className='block w-12 h-12 border-[3px] border-blue-500 rounded-full border-t-transparent animate-spin' /></div> : <ArticlesTable articles={articles} />}
     </AdminLayout>
   )
 }

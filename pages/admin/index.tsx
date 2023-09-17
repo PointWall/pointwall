@@ -1,3 +1,4 @@
+import { PasswordInput, TextInput } from '@/components/formComponents'
 import Image from 'next/image'
 import { FormEvent } from 'react'
 
@@ -17,21 +18,11 @@ export default function Page (): JSX.Element {
         <form onSubmit={handleLogin} className=''>
           <div className='mb-2 flex flex-col'>
             <label htmlFor='username'>Nombre de usuario</label>
-            <input
-              type='text'
-              id='username'
-              name='username'
-              className='rounded-md border border-slate-300 p-1 px-2 focus:border-slate-700 focus:bg-slate-100'
-            />
+            <TextInput name='username' required className='rounded-md border border-slate-300 p-1 px-2 focus:border-slate-700 focus:bg-slate-100' />
           </div>
           <div className='flex flex-col'>
             <label htmlFor='password'>Contraseña</label>
-            <input
-              type='password'
-              id='passowrd'
-              name='passowrd'
-              className='rounded-md border border-slate-300 p-1 px-2 focus:border-slate-700 focus:bg-slate-100'
-            />
+            <PasswordInput name='password' required className='rounded-md border border-slate-300 p-1 px-2 focus:border-slate-700 focus:bg-slate-100' />
           </div>
           <button
             type='submit'
