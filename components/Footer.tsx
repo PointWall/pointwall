@@ -56,7 +56,6 @@ export default function Footer ({
             height={75}
             className='rounded-full border-x border-y border-black p-2'
           />
-          <p className='w-max'>PointWall © 2023</p>
         </div>
         <div className='my-4 flex w-full justify-center'>
           <ul className='flex w-full flex-col items-center justify-evenly gap-4 md:flex-row md:flex-wrap md:items-center md:gap-8'>
@@ -69,8 +68,7 @@ export default function Footer ({
         </div>
       </div>
       <p className='text-center text-xs'>
-        Sitio web desarrollado por Lucas Piputto, Ramiro Reinaldo, Gino
-        Somigliana.
+        PointWall © {new Date().getFullYear()} - Todos los derechos reservados
       </p>
     </footer>
   )
