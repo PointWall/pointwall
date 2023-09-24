@@ -14,14 +14,10 @@ export default function InfoWindow ({ post }: { post: Post }): JSX.Element {
 
   return (
     <div style={infoWindowStyle}>
-      <div className='text-lg'>{}</div>
-      <div style={{ fontSize: 16 }}>{post.title}</div>
-      <div style={{ fontSize: 14 }}>
-        {(post.author != null) &&
-          <span style={{ color: 'grey' }}>{`${post.author?.firstName} ${post.author?.lastName}`}</span>}
-      </div>
+      <div className='text-sm'>{post.title?.length === 0 ? 'Sin título' : post.title}</div>
+      <div className='text-xs text-gray-500'>@{post.author?.username}</div>
       <div className=''>
-        <img src={post.images} style={{ maxWidth: 500, maxHeight: 200 }} />
+        <img src={post.images[0].url} style={{ maxWidth: 500, maxHeight: 200 }} />
       </div>
     </div>
   )

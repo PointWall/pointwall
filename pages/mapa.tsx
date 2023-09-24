@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Post, data } from '@/lib/fakeData'
+import { useEffect, useState } from 'react'
+import { Post } from '@/lib/fakeData'
 import AutoComplete from '@/components/map/AutoComplete'
 import FocusedPost from '@/components/map/FocusedPost'
 import GoogleMap from 'google-maps-react-markers'
@@ -22,8 +22,18 @@ export default function Page (): JSX.Element {
     mapInstance: null,
     mapApi: null
   })
-  const [markers, setMarkers] = useState<Post[]>(data)
+  const [posts, setPosts] = useState<any[]>([])
+  const [markers, setMarkers] = useState<Post[]>([])
   const [focusedPost, setFocusedPost] = useState<Post | null>(null)
+
+  useEffect(() => {
+    fetch('https://pointwall-api.vercel.app/api/posts?includeImages=true&includeAuthor=true&includeLocation=true')
+      .then((res) => res.json())
+      .then((data) => {
+        console.log({ postSample: data[0]})
+        setPosts(data)
+      })
+  }, [])
 
   function onGoogleApiLoaded ({
     map,
@@ -49,20 +59,22 @@ export default function Page (): JSX.Element {
     if (map == null) return
     const bounds = map.bounds
     if (bounds == null) return
+    if (posts.length === 0) return
     const ne = bounds.getNorthEast() // LatLng of the north-east corner
     const sw = bounds.getSouthWest() // LatLng of the south-west corder
     setMarkers(
       map.zoom > 3
-        ? data.filter((item) => {
+        ? posts.filter((item) => {
           return (
-            item.lat > sw.lat() &&
-              item.lat < ne.lat() &&
-              item.lng > sw.lng() &&
-              item.lng < ne.lng()
+            Number(item.location.latitude) > sw.lat() &&
+            Number(item.location.latitude) < ne.lat() &&
+            Number(item.location.longitude) > sw.lng() &&
+            Number(item.location.longitude) < ne.lng()
           )
         })
-        : data
+        : posts
     )
+    console.log({sample:markers[0]})
   }
 
   return (
@@ -84,7 +96,7 @@ export default function Page (): JSX.Element {
                 <FontAwesomeIcon icon={faArrowLeft} />
                 <span>Volver</span>
               </Link>
-              <div className='absolute z-10 top-4 left-4 flex transform flex-wrap items-center gap-2 rounded-xl bg-white p-4 shadow-lg transition duration-500 hover:scale-[102%] hover:shadow-xl md:gap-4'>
+              {/* <div className='absolute z-10 top-4 left-4 flex transform flex-wrap items-center gap-2 rounded-xl bg-white p-4 shadow-lg transition duration-500 hover:scale-[102%] hover:shadow-xl md:gap-4'>
                 <div className='flex w-full items-center rounded-lg bg-gray-100 p-2 text-sm md:w-fit md:p-3 md:text-base'>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
@@ -108,9 +120,9 @@ export default function Page (): JSX.Element {
                 <div className='duration-3000 w-full cursor-pointer rounded-lg bg-red-600 px-5 py-3 text-center text-sm font-semibold text-white transition hover:shadow-lg md:w-fit md:text-base'>
                   <span>Buscar</span>
                 </div>
-              </div>
+              </div> */}
               {focusedPost != null && (
-                <div className='absolute z-10 top-28 left-4 hover:scale-[102%] hover:shadow-2xl transition-all duration-500'>
+                <div className='absolute z-10 top-4 left-4 hover:scale-[102%] hover:shadow-2xl transition-all duration-500'>
                   <FocusedPost
                     close={() => setFocusedPost(null)}
                     post={focusedPost}
@@ -155,8 +167,8 @@ export default function Page (): JSX.Element {
             return (
               <Marker
                 size={mapState?.mapInstance?.zoom !== undefined ? mapState?.mapInstance?.zoom >= 15 ? 'sm' : 'md' : 'md'}
-                lat={post.lat}
-                lng={post.lng}
+                lat={Number(post.location.latitude)}
+                lng={Number(post.location.longitude)}
                 key={index}
                 post={post}
                 onClick={() => onMarkerClick(post)}

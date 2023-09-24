@@ -1,12 +1,12 @@
 import { Post } from '@/lib/fakeData'
+import Image from 'next/image'
 
-export default function FocusedPost ({
-  close,
-  post
-}: {
+interface FocusedPostProps {
   close: () => void
   post: Post
-}): JSX.Element {
+}
+
+export default function FocusedPost ({ close, post }: FocusedPostProps): JSX.Element {
   return (
     <div className='max-w-xs container bg-white rounded-xl shadow-lg'>
       <div>
@@ -27,40 +27,25 @@ export default function FocusedPost ({
           {post.title ?? 'Sin título'}
         </h1>
       </div>
-      <img
+      <Image
         className='w-full cursor-pointer'
-        src={post.images}
+        src={post.images[0].url}
         alt='post_image'
+        width={400}
+        height={500}
       />
       <div className='flex p-4 justify-between'>
         <div className='flex items-center space-x-2'>
-          <img
+           <Image 
             className='w-10 rounded-full'
-            src='https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg'
-            alt='sara'
-          />
+            src={post.author.avatar || 'images/avatar-default.webp'}
+            alt={post.author.username}
+            height={40}
+            width={40}
+           />
           <h2 className='text-gray-800 text-sm cursor-pointer'>
             {post.author?.email}
           </h2>
-        </div>
-        <div className='flex space-x-2'>
-          <div className='flex space-x-1 items-center'>
-            <span>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                className='h-7 w-7 text-red-500 hover:text-red-400 transition duration-100 cursor-pointer'
-                viewBox='0 0 20 20'
-                fill='currentColor'
-              >
-                <path
-                  fillRule='evenodd'
-                  d='M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z'
-                  clipRule='evenodd'
-                />
-              </svg>
-            </span>
-            <span>20</span>
-          </div>
         </div>
       </div>
     </div>
