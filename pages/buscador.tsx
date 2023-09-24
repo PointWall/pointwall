@@ -1,5 +1,4 @@
 import { FormEvent, useState, useEffect } from 'react'
-import { data } from '@/lib/fakeData'
 import { useInView } from 'react-intersection-observer'
 // components
 import Head from 'next/head'
@@ -34,19 +33,28 @@ export default function Page (): JSX.Element {
       </Head>
       <Layout color='orange'>
         <Wrapper>
-          <section className={`text-center ${inView ? 'animate-fade-down' : ''}`} ref={ref}>
+          <section
+            className={`text-center ${inView ? 'animate-fade-down' : ''}`}
+            ref={ref}
+          >
             <Title>¡Encontrá!</Title>
             <p className='mx-auto my-[1.25em] max-w-prose md:text-2xl'>
               ¡Buscá el arte de tus artistas o temas favoritos! Podés buscarlo
               con etiquetas o por lugar. Si sos un artista que busca pubicar su
-              arte, te invitamos a que a que lo hagas a través del <Link href='/contribucion' className='text-red-300 hover:underline'>formulario de contriubción</Link>
+              arte, te invitamos a que a que lo hagas a través del{' '}
+              <Link
+                href='/contribucion'
+                className='text-red-300 hover:underline'
+              >
+                formulario de contriubción
+              </Link>
               .
             </p>
           </section>
           <section>
             <form
               onSubmit={handleFormSubmit}
-              className='css-searcher relative mx-auto my-8 flex w-fit flex-wrap justify-center rounded-md border overflow-hidden'
+              className='css-searcher relative mx-auto my-8 flex w-fit flex-wrap justify-center overflow-hidden rounded-md border'
             >
               <input
                 onChange={(e) => {
@@ -71,35 +79,7 @@ export default function Page (): JSX.Element {
               Resultados{' '}
               {/* <span className='text-xs text-gray-500 md:text-sm'>(Futbol)</span> */}
             </h2>
-            <div className='flex flex-wrap gap-4 justify-center'>
-              {data.slice(1, 10).map((post, i) => (
-                <div
-                  key={i}
-                  className='h-fit min-w-[175px] rounded-md border shadow-xl max-w-xs group'
-                >
-                  <div className='relative cursor-pointer'>
-                    <img
-                      src={post.images}
-                      alt='imagen'
-                      className='rounded-t-md group-hover:brightness-50 transition'
-                    />
-                    <span className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition'>Ver más</span>
-                  </div>
-                  <div className='p-2'>
-                    <h2 className='text-lg md:text-xl '>{post.title}</h2>
-                    {post.tags === undefined
-                      ? (
-                        <p className='text-xs text-gray-700'>Sin etiquetas</p>
-                        )
-                      : (
-                        <div className='center text-center text-xs'>
-                          <p>Etiquetas: {post.tags}</p>
-                        </div>
-                        )}
-                  </div>
-                </div>
-              ))}
-            </div>
+            <div className='flex flex-wrap justify-center gap-4' />
           </section>
         </Wrapper>
       </Layout>
