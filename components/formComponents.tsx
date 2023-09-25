@@ -49,7 +49,7 @@ export function PasswordInput (props: InputTextProps): JSX.Element {
       {props.label !== undefined && <label htmlFor={props.name} className='w-fit block font-light text-sm mb-1'>{props.label}</label>}
       <span className='relative block w-full max-w-lg'>
         <input type={textVisible ? 'text' : 'password'} id={props.name} name={props.name} placeholder={props.placeholder} required={props.required} className={props.className} />
-        <button onClick={() => setTextVisible(prev => !prev)} className='absolute outline-none right-2 top-1/2 -translate-y-1/2'>
+        <button type='button' onClick={() => setTextVisible(prev => !prev)} className='absolute outline-none right-2 top-1/2 -translate-y-1/2'>
           <FontAwesomeIcon icon={textVisible ? faEyeSlash : faEye} />
         </button>
       </span>
