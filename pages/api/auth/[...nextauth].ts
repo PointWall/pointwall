@@ -1,7 +1,5 @@
-import NextAuth, { DefaultSession } from 'next-auth'
-import GoogleProvider from 'next-auth/providers/google'
-import { prisma } from '@/lib/db'
-// import { redirect } from 'next/navigation'
+import NextAuth, { Account } from 'next-auth'
+import GoogleProvider, { GoogleProfile } from 'next-auth/providers/google'
 
 export const authOptions = {
   providers: [
@@ -19,26 +17,47 @@ export const authOptions = {
   ],
   secret: process.env.NEXT_PUBLIC_SECRET ?? 'B19823B971B2397DBY123789DB8B80B',
   callbacks: {
-    session: async ({ session }: { session: DefaultSession }) => {
-      console.log('Session at begining', session)
-      if (session?.user !== null) {
-        const user = await prisma.user.findUnique({
-          where: {
-            email: session?.user?.email ?? ''
-          }
-        })
-        if (user === null) {
-          // @ts-expect-error
-          session.user.registered = false // temporary, to handle redirection with LoginButton
-          console.log('----- USER SHOULD BE REDIRECTED -----')
-          return session
-          // redirect('/registro')
+    // async session ({ session, token, user }: any) {
+    //   console.log({ session, token, user })
+    //   // Send properties to the client, like an access_token and user id from a provider.
+    //   session.accessToken = token.accessToken
+    //   session.user.id = token.id
+
+    //   return session
+    // },
+    // async jwt ({ token, account, profile }: { token: JWT, account: Account, profile: Profile }) {
+    //   // Persist the OAuth access_token and or the user id to the token right after signin
+    //   console.log('TOKEN', token)
+    //   console.log('ACOUNT', account)
+    //   console.log('PRIFLE', profile)
+    //   if (account.id_token === undefined || account.token_type === undefined) return {}
+    //   token.accessToken = account.access_token
+    //   token.idToken = account.id_token
+    //   const res = await fetch('https://api.pointwall.com.ar/api/user', {
+    //     method: 'POST',
+    //     headers: {
+    //       Authorization: `${account.token_type} ${account.id_token}`
+    //     }
+    //   })
+    //   const user = await res.json()
+    //   console.log('USER DE BD', user)
+    //   return token
+    // },
+    async signIn ({ account, profile }: { account: Account, profile: GoogleProfile }) {
+      console.log('CUENTA', account)
+      console.log('PERFIL', profile)
+
+      if (account.provider !== 'google') return false
+      if (account.id_token === undefined || account.token_type === undefined) return false
+      const res = await fetch('https://api.pointwall.com.ar/api/user', {
+        method: 'POST',
+        headers: {
+          Authorization: `${account.token_type} ${account.id_token}`
         }
-        // @ts-expect-error
-        session.user.registered = true // temporary, to handle redirection with LoginButton
-        console.log(`${session.user?.name ?? 'User'} is already registered`)
-      }
-      return session
+      })
+      const user = await res.json()
+      console.log('USER DE BD', user)
+      return true
     }
   }
 }

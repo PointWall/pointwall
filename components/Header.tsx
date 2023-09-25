@@ -1,4 +1,5 @@
 import { useState } from 'react'
+// import { useSession } from 'next-auth/react'
 // components
 import Link from 'next/link'
 import LoginButton from './LoginButton'
@@ -44,6 +45,8 @@ const LINKS: LinkI[] = [
 export default function Header (): JSX.Element {
   const [isMenuVisible, setIsMenuVisible] = useState(false)
 
+  // const { data: session } = useSession()
+
   const colorVariants: ColorVariant = {
     red: 'hover:text-logoRed after:bg-logoRed',
     orange: 'hover:text-logoOrange after:bg-logoOrange',
@@ -67,9 +70,10 @@ export default function Header (): JSX.Element {
           </div>
         </Link>
         <LoginButton />
-        <Link href='/registro' className='hidden rounded-md bg-logoOrange hover:bg-white hover:text-logoOrange hover:shadow-[0px_0px_0px_2px] text-white p-2 transition-all md:block active:bg-orange-50'>
-          Registrarse
-        </Link>
+        {/* {session === null &&
+          <Link href='/registro' className='hidden rounded-md bg-logoOrange hover:bg-white hover:text-logoOrange hover:shadow-[0px_0px_0px_2px] text-white p-2 transition-all md:block active:bg-orange-50'>
+            Registrarse
+          </Link>} */}
         <span onClick={handleHambMenuClick} className='md:hidden'>
           <HambMenu isOpen={isMenuVisible} />
         </span>
