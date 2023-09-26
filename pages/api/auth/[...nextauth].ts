@@ -62,4 +62,5 @@ export const authOptions = {
   }
 }
 
+// @ts-expect-error
 export default NextAuth(authOptions)
