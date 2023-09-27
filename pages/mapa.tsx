@@ -100,7 +100,7 @@ export default function Page (): JSX.Element {
                 <FontAwesomeIcon icon={faArrowLeft} />
                 <span>Volver</span>
               </Link>
-              {isPostsLoading ? <div className='absolute left-0 right-0 mx-auto w-fit mt-4 z-20 border p-4 bg-white rounded-md animate-fade-down flex items-center gap-2 animate-duration-300'><span className='inline-block w-5 h-5 border-2 rounded-full border-t-transparent animate-spin' /><span>Cargando posts</span></div> : <></>}
+              {isPostsLoading ? <div className='absolute left-0 right-0 mx-auto w-fit mt-4 z-20 border p-4 bg-white rounded-md animate-fade-down flex items-center gap-2 animate-duration-300'><span className='inline-block w-5 h-5 border-2 rounded-full border-t-transparent animate-spin' /><span>Cargando datos</span></div> : <></>}
               {/* <div className='absolute z-10 top-4 left-4 flex transform flex-wrap items-center gap-2 rounded-xl bg-white p-4 shadow-lg transition duration-500 hover:scale-[102%] hover:shadow-xl md:gap-4'>
                 <div className='flex w-full items-center rounded-lg bg-gray-100 p-2 text-sm md:w-fit md:p-3 md:text-base'>
                   <svg

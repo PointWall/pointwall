@@ -16,10 +16,10 @@ function PostModal ({ post, setPostModal }: { post: Post, setPostModal: Function
 
   return (
     <div className='fixed block w-screen h-screen z-50 top-0 left-0 bg-black bg-opacity-50'>
-      <div className='absolute w-full max-w-3xl inset-0 m-auto h-fit rounded-md overflow-hidden bg-white animate-fade-up'>
+      <div className='absolute w-[90%] max-w-3xl inset-0 m-auto h-fit rounded-md overflow-hidden bg-white animate-fade-up'>
         <h3 className='text-xl py-4 px-2 md:px-10 text-center'>{post.title.length > 0 ? post.title : 'Sin título'}</h3>
         <div className='bg-gradient-to-r from-white via-gray-300 to-white'>
-          <div className='relative w-2/3 aspect-[4/3] mx-auto rounded-md overflow-hidden'>
+          <div className='relative w-2/3 min-w-[220px] aspect-[4/3] mx-auto rounded-md overflow-hidden'>
             <Image
               src={post.images[0].url}
               alt={post.images[0].url}
@@ -32,12 +32,12 @@ function PostModal ({ post, setPostModal }: { post: Post, setPostModal: Function
           </div>
         </div>
         <div className='m-4 md:mx-8'>
-          <h4 className='text-sm text-gray-500'>Descripción</h4>
-          <p>{post.content ?? ''}</p>
+          <h4 className='text-xs md:text-sm text-gray-500'>Descripción</h4>
+          <p className='text-sm md:text-base'>{post.content ?? ''}</p>
         </div>
-        <div className='m4 md:mx-8'>
-          <h4 className='text-sm text-gray-500'>Colaboración de</h4>
-          <p className='flex gap-2 items-center mt-1'>
+        <div className='m-4 md:mx-8'>
+          <h4 className='text-xs md:text-sm text-gray-500'>Colaboración de</h4>
+          <p className='flex gap-2 items-center mt-1 text-sm md:text-base'>
             <span className='w-8 h-8 inline-flex items-center justify-center'>
               <Image src={post.author.avatar ?? '/images/avatar-default.webp'} alt={post.author.username} width={30} height={30} className='border rounded-full overflow-hidden' />
             </span>
@@ -45,19 +45,19 @@ function PostModal ({ post, setPostModal }: { post: Post, setPostModal: Function
           </p>
         </div>
         <div className='m-4 md:mx-8 space-y-2'>
-          <p className='flex gap-2 items-center'>
+          <p className='flex gap-2 items-center text-sm md:text-base'>
             <span className='w-8 h-8 inline-flex items-center justify-center'>
               <FontAwesomeIcon icon={faCalendarAlt} className='w-5 h-5 text-gray-600' />
             </span>
             <span>{new Date(post.createdAt).toLocaleDateString('es-AR')}</span>
           </p>
-          <p className='flex gap-2 items-center'>
+          <p className='flex gap-2 items-center text-sm md:text-base'>
             <span className='w-8 h-8 inline-flex items-center justify-center'>
               <FontAwesomeIcon icon={faFlag} className='w-5 h-5 text-gray-600' />
             </span>
             <span>{post.location.country}</span>
           </p>
-          <p className='flex gap-2 items-center'>
+          <p className='flex gap-2 items-center text-sm md:text-base'>
             <span className='w-8 h-8 inline-flex items-center justify-center'>
               <FontAwesomeIcon icon={faMapMarkerAlt} className='w-5 h-5 text-gray-600' />
             </span>
