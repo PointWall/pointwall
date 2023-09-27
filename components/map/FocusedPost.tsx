@@ -1,4 +1,4 @@
-import { Post } from '@/lib/fakeData'
+import { Post } from '@/types/models'
 import Image from 'next/image'
 
 interface FocusedPostProps {
@@ -36,12 +36,12 @@ export default function FocusedPost ({ close, post }: FocusedPostProps): JSX.Ele
       />
       <div className='flex p-4 justify-between'>
         <div className='flex items-center space-x-2'>
-           <Image 
-            className='w-10 rounded-full'
-            src={post.author.avatar || 'images/avatar-default.webp'}
-            alt={post.author.username}
-            height={40}
-            width={40}
+          <Image
+             className='w-10 rounded-full'
+             src={post.author.avatar || 'images/avatar-default.webp'}
+             alt={post.author.username}
+             height={40}
+             width={40}
            />
           <h2 className='text-gray-800 text-sm cursor-pointer'>
             {post.author?.email}

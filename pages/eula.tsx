@@ -40,7 +40,7 @@ const CONTENT: IContent[] = [
           'Allow any third party to use the Software on behalf of or for the benefit of any third party',
           'Use the Software in any way which breaches any applicable local, national or international law',
           'use the Software for any purpose that PointWall considers is a breach of this EULA agreement'
-        ],
+        ]
       }
     ]
   },
@@ -72,20 +72,20 @@ const CONTENT: IContent[] = [
     paragraphs: [
       'PointWall shall at all times retain ownership of the Software as originally downloaded by you and all subsequent downloads of the Software by you. The Software (and the copyright, and other intellectual property rights of whatever nature in the Software, including any modifications made thereto) are and shall remain the property of PointWall.',
       'PointWall reserves the right to grant licences to use the Software to third parties.'
-    ],
+    ]
   },
   {
     title: 'Termination',
     paragraphs: [
       'This EULA agreement is effective from the date you first use the Software and shall continue until terminated. You may terminate it at any time upon written notice to PointWall.',
       'It will also terminate immediately if you fail to comply with any term of this EULA agreement. Upon such termination, the licenses granted by this EULA agreement will immediately terminate and you agree to stop all access and use of the Software. The provisions that by their nature continue and survive will survive any termination of this EULA agreement.'
-    ],
+    ]
   },
   {
     title: 'Governing Law',
     paragraphs: [
       'This EULA agreement, and any dispute arising out of or in connection with this EULA agreement, shall be governed by and construed in accordance with the laws of ar.'
-    ],
+    ]
   }
 ]
 

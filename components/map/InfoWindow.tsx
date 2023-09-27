@@ -1,4 +1,4 @@
-import { Post } from '@/lib/fakeData'
+import { Post } from '@/types/models'
 
 export default function InfoWindow ({ post }: { post: Post }): JSX.Element {
   const infoWindowStyle = {

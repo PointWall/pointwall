@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
-import { Post } from '@/lib/fakeData'
-import AutoComplete from '@/components/map/AutoComplete'
+import { Post } from '@/types/models'
+import { API_URL } from '@/lib/constants'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+// import AutoComplete from '@/components/map/AutoComplete'
 import FocusedPost from '@/components/map/FocusedPost'
 import GoogleMap from 'google-maps-react-markers'
 import Marker from '@/components/map/Marker'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Page (): JSX.Element {
   const [mapState, setMapState] = useState<{
@@ -23,16 +24,19 @@ export default function Page (): JSX.Element {
     mapApi: null
   })
   const [posts, setPosts] = useState<any[]>([])
+  const [isPostsLoading, setIsPostsLoading] = useState(false)
   const [markers, setMarkers] = useState<Post[]>([])
   const [focusedPost, setFocusedPost] = useState<Post | null>(null)
 
   useEffect(() => {
-    fetch('https://pointwall-api.vercel.app/api/posts?includeImages=true&includeAuthor=true&includeLocation=true')
-      .then((res) => res.json())
-      .then((data) => {
-        console.log({ postSample: data[0]})
-        setPosts(data)
-      })
+    async function fetchPosts (): Promise<void> {
+      const res = await fetch(`${API_URL}/posts?includeImages=true&includeAuthor=true&includeLocation=true`)
+      const posts = await res.json()
+      setIsPostsLoading(false)
+      setPosts(posts)
+    }
+    setIsPostsLoading(true)
+    fetchPosts().catch(console.error)
   }, [])
 
   function onGoogleApiLoaded ({
@@ -74,7 +78,7 @@ export default function Page (): JSX.Element {
         })
         : posts
     )
-    console.log({sample:markers[0]})
+    // console.log({ sample: markers[0] })
   }
 
   return (
@@ -96,6 +100,7 @@ export default function Page (): JSX.Element {
                 <FontAwesomeIcon icon={faArrowLeft} />
                 <span>Volver</span>
               </Link>
+              {isPostsLoading ? <div className='absolute left-0 right-0 mx-auto w-fit mt-4 z-20 border p-4 bg-white rounded-md animate-fade-down flex items-center gap-2 animate-duration-300'><span className='inline-block w-5 h-5 border-2 rounded-full border-t-transparent animate-spin' /><span>Cargando posts</span></div> : <></>}
               {/* <div className='absolute z-10 top-4 left-4 flex transform flex-wrap items-center gap-2 rounded-xl bg-white p-4 shadow-lg transition duration-500 hover:scale-[102%] hover:shadow-xl md:gap-4'>
                 <div className='flex w-full items-center rounded-lg bg-gray-100 p-2 text-sm md:w-fit md:p-3 md:text-base'>
                   <svg

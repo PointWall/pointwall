@@ -21,7 +21,7 @@ const LINKS: LinkI[] = [
     color: 'red'
   },
   {
-    name: 'Buscador',
+    name: 'Explorar',
     url: '/buscador',
     color: 'orange'
   },

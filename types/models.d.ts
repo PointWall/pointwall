@@ -1,6 +1,10 @@
 export interface Post {
   id: number
-  title?: string
+  title: string
+  type: string
+  content?: string
+  createdAt: string
+  updatedAt: string
   tags?: string[]
   author: {
     id: number
@@ -14,7 +18,7 @@ export interface Post {
     avatar?: string
     bio?: string
   }
-  images: {
+  images: Array<{
     id: number
     url: string
     format: string
@@ -25,7 +29,7 @@ export interface Post {
     postId: number
     createdAt: string
     updatedAt: string
-  }[]
+  }>
   location: {
     id: number
     latitude: number

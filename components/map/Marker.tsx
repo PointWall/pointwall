@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import InfoWindow from './InfoWindow'
-import { Post } from '@/lib/fakeData'
+import { Post } from '@/types/models'
 
 export default function Marker ({ size = 'md', onClick, post }: { onClick: () => any, post: Post, lat: number, lng: number, size?: 'sm' | 'md' | 'lg' }): JSX.Element {
   const [hover, setHover] = useState(false)
