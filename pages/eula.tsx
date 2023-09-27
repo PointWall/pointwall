@@ -17,75 +17,113 @@ interface IContent {
 const CONTENT: IContent[] = [
   {
     paragraphs: [
-      'This End-User License Agreement ("EULA") is a legal agreement between you and PointWall. Our EULA was created by EULA Template for PointWall.',
-      'This EULA agreement governs your acquisition and use of our PointWall software ("Software") directly from PointWall or indirectly through a PointWall authorized reseller or distributor (a "Reseller").',
-      'Please read this EULA agreement carefully before completing the installation process and using the PointWall software. It provides a license to use the PointWall software and contains warranty information and liability disclaimers.',
-      'If you register for a free trial of the PointWall software, this EULA agreement will also govern that trial. By clicking "accept" or installing and/or using the PointWall software, you are confirming your acceptance of the Software and agreeing to become bound by the terms of this EULA agreement.',
-      'If you are entering into this EULA agreement on behalf of a company or other legal entity, you represent that you have the authority to bind such entity and its affiliates to these terms and conditions. If you do not have such authority or if you do not agree with the terms and conditions of this EULA agreement, do not install or use the Software, and you must not accept this EULA agreement.',
-      'This EULA agreement shall apply only to the Software supplied by PointWall herewith regardless of whether other software is referred to or described herein. The terms also apply to any PointWall updates, supplements, Internet-based services, and support services for the Software, unless other terms accompany those items on delivery. If so, those terms apply.'
+      'ACUERDO DE LICENCIA DE USUARIO FINAL (EULA) DE POINTWALL',
+      'Fecha de vigencia: 20 de Agosto de 2023',
+      'Este Acuerdo de Licencia de Usuario Final ("EULA") es un contrato legal entre usted, en adelante el "Usuario", y PointWall, el desarrollador de la aplicación móvil PointWall ("Nosotros" o el "Desarrollador"). Lea atentamente este EULA antes de utilizar la aplicación PointWall. Al acceder o utilizar la aplicación, usted acepta y se compromete a cumplir con los términos y condiciones establecidos en este acuerdo.'
     ]
   },
   {
-    title: 'License Grant',
-    paragraphs: [
-      'PointWall hereby grants you a personal, non-transferable, non-exclusive licence to use the PointWall software on your devices in accordance with the terms of this EULA agreement.',
-      'You are permitted to load the PointWall software (for example a PC, laptop, mobile or tablet) under your control. You are responsible for ensuring your device meets the minimum requirements of the PointWall software.'
-    ],
+    title: 'Aceptación de Términos y Condiciones',
+    paragraphs: ['Al utilizar la aplicación PointWall, el Usuario reconoce haber leído, entendido y aceptado los términos y condiciones de este EULA. Si no está de acuerdo con estos términos, no debe utilizar la aplicación.']
+  }, {
+    title: 'Propósito y Misión de PointWall',
+
+    paragraphs: ['PointWall es una plataforma cuyo objetivo principal es ser una galería de arte urbano líder que proporciona una plataforma para que artistas independientes exhiban su trabajo. Nuestra misión es promover y difundir murales, graffiti y arte urbano en ubicaciones específicas, permitiendo que cualquier persona comparta su pasión por este arte.']
+  },
+  {
+    title: 'Contenido Objetable y Conducta Abusiva',
+    paragraphs: [],
     lists: [
       {
-        title: 'You are not permitted to:',
         items: [
-          'Edit, alter, modify, adapt, translate or otherwise change the whole or any part of the Software nor permit the whole or any part of the Software to be combined with or become incorporated in any other software, nor decompile, disassemble or reverse engineer the Software or attempt to do any such things',
-          'Reproduce, copy, distribute, resell or otherwise use the Software for any commercial purpose',
-          'Allow any third party to use the Software on behalf of or for the benefit of any third party',
-          'Use the Software in any way which breaches any applicable local, national or international law',
-          'use the Software for any purpose that PointWall considers is a breach of this EULA agreement'
+          'El Usuario reconoce y acepta que PointWall no tolera contenido objetable ni usuarios que se comporten de manera abusiva en la plataforma.',
+          'El Desarrollador se reserva el derecho de determinar qué constituye contenido objetable o una conducta abusiva y tomará medidas apropiadas para abordar estos problemas.']
+      }
+    ]
+  },
+
+  {
+    title: 'Inadmisión de Contenido Inapropiado',
+    paragraphs: ['PointWall es una plataforma dedicada al arte urbano y la cultura de la calle. Cualquier contenido que sea considerado inapropiado, ofensivo, difamatorio, ilegal o que viole los derechos de propiedad intelectual no será admitido en la plataforma.']
+  },
+  {
+    title: 'Mecanismos de Reporte y Bloqueo',
+    paragraphs: [],
+    lists: [
+      {
+        items: [
+          'Los Usuarios tienen la opción de reportar contenido inapropiado a través de la plataforma.',
+          'Los Usuarios pueden bloquear a otros usuarios que consideren abusivos.'
+        ]
+      }
+    ]
+  },
+
+  {
+    title: 'Acción sobre Reportes de Contenido Inapropiado',
+    paragraphs: [],
+    lists: [
+      {
+        items: [
+          'El Desarrollador se compromete a actuar sobre los reportes de contenido inapropiado en un plazo de 24 horas a partir de la recepción del reporte.',
+          'Las acciones pueden incluir la eliminación del contenido inapropiado y la expulsión del usuario que lo proporcionó.'
         ]
       }
     ]
   },
   {
-    title: 'Account Deletion',
+    title: 'Uso de la Aplicación',
+    paragraphs: ['El Usuario se compromete a utilizar la aplicación PointWall de manera ética y de acuerdo con todas las leyes y regulaciones aplicables.']
+  },
+  {
+    title: 'Privacidad y Datos Personales',
+    paragraphs: ['La recopilación y el uso de datos personales están sujetos a nuestra Política de Privacidad, que se encuentra disponible en la aplicación y en nuestro sitio web.']
+  }, {
+    title: 'Modificaciones y Actualizaciones',
     paragraphs: [
-      'PointWall reserves the right to delete or suspend your user account, in part or in whole, if we have reason to believe that you have uploaded or posted content that we consider to be inappropriate or in violation of our content guidelines. This includes, but is not limited to, content that is offensive, infringes on the rights of others, or violates applicable laws and regulations.'
+
+      'El Desarrollador se reserva el derecho de modificar este EULA en cualquier momento. El Usuario será notificado de dichos cambios y deberá aceptar los términos revisados para seguir utilizando la aplicación.'
+    ]
+  }, {
+    title: 'Terminación de la Cuenta por Contenido Inapropiado',
+    paragraphs: ['El Desarrollador se reserva el derecho de suspender o terminar la cuenta de cualquier Usuario que viole este EULA al subir contenido inapropiado o participar en conducta inadecuada en la plataforma.']
+  },
+  {
+    title: 'License Grant (Concesión de Licencia)',
+    paragraphs: [
+
+      'PointWall otorga al Usuario una licencia personal, no transferible y no exclusiva para utilizar el software de PointWall en sus dispositivos de acuerdo con los términos de este acuerdo de EULA.'
     ]
   },
   {
-    title: 'Content Guidelines',
-    paragraphs: [
-      'You agree that you will not upload, post, or share any content within the App that:'
-    ],
-    lists: [
-      {
-        items: [
-          'Is unlawful, harmful, threatening, abusive, harassing, defamatory, vulgar, obscene, or otherwise objectionable.',
-          'Infringes on any intellectual property rights of others, including copyrights, trademarks, or patents.',
-          'Violates any applicable laws, regulations, or third-party rights.',
-          'Contains viruses, malware, or any other harmful code.',
-          'Promotes or engages in any form of illegal or unethical activity.'
-        ]
-      }
-    ]
+    title: 'Account Deletion (Eliminación de Cuenta)',
+    paragraphs: ['PointWall se reserva el derecho de eliminar o suspender su cuenta de usuario, en su totalidad o en parte, si tenemos motivos para creer que ha cargado o publicado contenido que consideramos inapropiado o en violación de nuestras pautas de contenido. Esto incluye, pero no se limita a, contenido que sea ofensivo, infrinja los derechos de otros o viole las leyes y regulaciones aplicables.']
   },
   {
-    title: 'Intellectual Property and Ownership',
-    paragraphs: [
-      'PointWall shall at all times retain ownership of the Software as originally downloaded by you and all subsequent downloads of the Software by you. The Software (and the copyright, and other intellectual property rights of whatever nature in the Software, including any modifications made thereto) are and shall remain the property of PointWall.',
-      'PointWall reserves the right to grant licences to use the Software to third parties.'
-    ]
+    title: 'Content Guidelines (Directrices de Contenido)',
+    paragraphs: [],
+    lists: [{
+      title: 'Usted acepta que no cargará, publicará ni compartirá ningún contenido dentro de la aplicación que:',
+      items: [
+        'Sea ilegal, perjudicial, amenazante, abusivo, acosador, difamatorio, vulgar, obsceno o de otro modo objetable.',
+        'Infrinja los derechos de propiedad intelectual de otros, incluyendo derechos de autor, marcas registradas o patentes.',
+        'Vulnere cualquier ley, regulación aplicable o derechos de terceros.',
+        'Contenga virus, malware u otro código dañino.',
+        'Promueva o participe en cualquier forma de actividad ilegal o antiética.'
+      ]
+    }]
   },
   {
-    title: 'Termination',
+    title: 'Propiedad Intelectual y Propiedad',
     paragraphs: [
-      'This EULA agreement is effective from the date you first use the Software and shall continue until terminated. You may terminate it at any time upon written notice to PointWall.',
-      'It will also terminate immediately if you fail to comply with any term of this EULA agreement. Upon such termination, the licenses granted by this EULA agreement will immediately terminate and you agree to stop all access and use of the Software. The provisions that by their nature continue and survive will survive any termination of this EULA agreement.'
+      'PointWall retiene en todo momento la propiedad del software tal como se descargó originalmente por usted y todas las descargas posteriores del software por parte suya. El software (y los derechos de autor y otros derechos de propiedad intelectual de cualquier naturaleza en el software, incluidas las modificaciones realizadas al mismo) son y seguirán siendo propiedad de PointWall.',
+      'PointWall se reserva el derecho de otorgar licencias para usar el software a terceros.'
     ]
   },
+
   {
-    title: 'Governing Law',
-    paragraphs: [
-      'This EULA agreement, and any dispute arising out of or in connection with this EULA agreement, shall be governed by and construed in accordance with the laws of ar.'
-    ]
+    title: 'Terminación',
+    paragraphs: ['Este acuerdo de EULA es efectivo a partir de la fecha en que usted utilice por primera vez el software y continuará vigente hasta su terminación. Puede terminarlo']
   }
 ]
 
@@ -96,48 +134,50 @@ export default function Page (): JSX.Element {
         <title>EULA</title>
       </Head>
       <Layout color='yellow'>
-        <section className='max-w-prose mx-auto my-8'>
+        <section className='mx-auto my-8 max-w-prose'>
           <h1 className='text-4xl'>
             END-USER LICENSE AGREEMENT (&quot;EULA&quot;)
           </h1>
 
           {CONTENT.map((section, i) => (
             <div key={i} className='my-8'>
-              {section.title !== undefined ? <h3 className='text-3xl mb-4'>{section.title}</h3> : null}
+              {section.title !== undefined
+                ? (
+                  <h3 className='mb-4 text-3xl'>{section.title}</h3>
+                  )
+                : null}
               {section.paragraphs.map((p, i) => (
                 <p key={i} className='my-2'>
                   {p}
                 </p>
-              )
-              )}
+              ))}
               {section.lists !== undefined
                 ? (
                   <div>
                     {section.lists.map((list) => (
                       <div key={list.title} className='my-4'>
                         <p>{list.title}</p>
-                        <ul className='my-2 list-decimal pl-6 space-y-2'>
+                        <ul className='my-2 list-decimal space-y-2 pl-6'>
                           {list.items.map((item, i) => (
                             <li key={i}>{item}</li>
                           ))}
                         </ul>
-                        {list.footer !== undefined && <div>{list.footer.map((text, i) => <p key={i} className='my-2'>{text}</p>)}</div>}
-                      </div>))}
+                        {list.footer !== undefined && (
+                          <div>
+                            {list.footer.map((text, i) => (
+                              <p key={i} className='my-2'>
+                                {text}
+                              </p>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
                   </div>
                   )
                 : null}
             </div>
           ))}
-
-          <p>
-            El presente Acuerdo entrará en vigor en la fecha del mismo. Nuestra Licencia de Acuerdo con el Usurio Final fue creada con la ayuda de
-            {' '}
-            <Link target='_blank' href='https://www.eulatemplate.com/' rel='noreferrer' className='text-blue-700 underline'>
-              Eula Template Generator
-            </Link>
-            .
-          </p>
-
         </section>
       </Layout>
     </>
