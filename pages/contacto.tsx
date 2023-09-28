@@ -15,15 +15,19 @@ interface FormData {
 export default function Page (): JSX.Element {
   const { data: session } = useSession()
   const pointwallSession = session as PointwallSession
-
+  const [isLoading, setIsLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  const [message, setMessage] = useState('')
   const [formData, setFormData] = useState<FormData>({
     name: '',
     topic: '',
     message: ''
   })
 
-  function handleSubmit (ev: FormEvent): void {
+  function handleSubmit (ev: FormEvent & { target: any }): void {
     ev.preventDefault()
+    setIsLoading(true)
+    const formData = Object.fromEntries(new FormData(ev.target))
 
     if (pointwallSession === null) {
       alert('Debe iniciar sesión para poder enviar el formulario de contacto')
@@ -33,7 +37,21 @@ export default function Page (): JSX.Element {
       return
     }
 
-    alert('Mensaje enviado exitosamente')
+    // @ts-expect-error
+    formData.email = session?.user?.email
+
+    fetch('https://api.pointwall.com.ar/api/contact', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(async (res) => await res.json())
+      .then(() => {
+        setIsLoading(false)
+        setMessage('Mensaje enviado exitosamente')
+      })
+      .catch((error) => setErrorMessage(error.message))
   }
 
   return (
@@ -42,6 +60,7 @@ export default function Page (): JSX.Element {
         <title>Contacto</title>
       </Head>
       <Layout>
+        {message.length > 0 ? <div className='fixed w-fit top-5 mx-auto left-0 right-0 p-4 border rounded-md bg-white shadow-md z-50 animate-fade-down animate-duration-200'>{message}<button className='ml-2 rounded-md bg-slate-200 hover:bg-slate-300 px-2 py-0.5' onClick={() => setMessage('')}>X</button></div> : <></>}
         <Wrapper>
           <section className='text-center'>
             <Title>Contacto</Title>
@@ -54,6 +73,7 @@ export default function Page (): JSX.Element {
               <div className=' relative rounded-md border border-gray-400 focus-within:-z-20 focus-within:border-gray-800 focus-within:shadow-sm'>
                 <input
                   type='text'
+                  name='name'
                   onChange={(ev) =>
                     setFormData((prev) => ({ ...prev, name: ev.target.value }))}
                   required
@@ -72,6 +92,7 @@ export default function Page (): JSX.Element {
               <div className='relative rounded-md border border-gray-400 focus-within:-z-20 focus-within:border-gray-800 focus-within:shadow-sm'>
                 <input
                   type='text'
+                  name='subject'
                   onChange={(ev) =>
                     setFormData((prev) => ({ ...prev, topic: ev.target.value }))}
                   className='peer w-full rounded-md bg-transparent px-3 py-2 outline-none'
@@ -88,6 +109,7 @@ export default function Page (): JSX.Element {
               </div>
               <div className='relative rounded-md border border-gray-400 focus-within:-z-20 focus-within:border-gray-800 focus-within:shadow-sm'>
                 <textarea
+                  name='content'
                   onChange={(ev) =>
                     setFormData((prev) => ({
                       ...prev,
@@ -106,8 +128,9 @@ export default function Page (): JSX.Element {
                   Mensaje*
                 </label>
               </div>
-              <button className='rounded-md bg-slate-800 px-4 py-2 text-white md:w-fit'>
-                Enviar
+              {errorMessage.length > 0 ? <p className='text-red-600 text-sm'>{errorMessage}</p> : <></>}
+              <button className='rounded-md bg-slate-800 px-4 py-2 text-white md:w-fit flex items-center gap-2'>
+                {isLoading ? <div className='inline-block w-4 h-4 border-2 border-white rounded-full border-b-transparent animate-spin' /> : <></>}<span>{isLoading ? 'Enviando' : 'Enviar'}</span>
               </button>
             </form>
           </section>
