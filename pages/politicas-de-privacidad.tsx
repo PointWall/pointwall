@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Layout from '@/components/Layout'
-import Link from 'next/link'
 
 interface IContent {
   title?: string
@@ -97,40 +96,34 @@ export default function Page (): JSX.Element {
         <title>Política de Privacidad</title>
       </Head>
       <Layout color='yellow'>
-        <section className='max-w-prose mx-auto my-8'>
-          <h1 className='text-4xl'>Política de Privacidad PointWall</h1>
-          {CONTENT.map((section, i) => (
-            <div key={i} className='my-8'>
-              {section.title !== undefined ? <h3 className='text-3xl mb-4'>{section.title}</h3> : null}
-              {section.paragraphs.map((p, i) => (
-                <p key={i}>
-                  {p}
-                </p>
-              )
-              )}
-              {section.list !== undefined ? <ul className='mt-2 pl-6 space-y-2 list-decimal'>{section.list.map((item, i) => (<li key={i} className=''>{item}</li>))}</ul> : null}
-            </div>
-          ))}
+        <div className='mx-4'>
+          <section className='max-w-prose mx-auto my-8'>
+            <h1 className='text-2xl md:text-4xl'>Política de Privacidad PointWall</h1>
+            {CONTENT.map((section, i) => (
+              <div key={i} className='my-8'>
+                {section.title !== undefined ? <h3 className='text-xl md:text-3xl mb-4'>{section.title}</h3> : null}
+                {section.paragraphs.map((p, i) => (
+                  <p key={i} className='text-sm md:text-base'>
+                    {p}
+                  </p>
+                )
+                )}
+                {section.list !== undefined ? <ul className='mt-2 pl-6 space-y-2 list-decimal'>{section.list.map((item, i) => (<li key={i} className='text-sm md:text-base'>{item}</li>))}</ul> : null}
+              </div>
+            ))}
 
-          <h3 className='text-3xl mb-4'>Cambios en la Política de Privacidad</h3>
-          <p>
-            Es posible que actualicemos nuestra Política de Privacidad de vez en cuando. Por ello, le aconsejamos que revise periódicamente esta página para comprobar si se han producido cambios. Le notificaremos cualquier cambio publicando la nueva Política de Privacidad en esta página. Estos cambios entrarán en vigor inmediatamente después de su publicación en esta página.
-          </p>
+            <h3 className='text-xl md:text-3xl mb-4'>Cambios en la Política de Privacidad</h3>
+            <p className='text-sm md:text-base'>
+              Es posible que actualicemos nuestra Política de Privacidad de vez en cuando. Por ello, le aconsejamos que revise periódicamente esta página para comprobar si se han producido cambios. Le notificaremos cualquier cambio publicando la nueva Política de Privacidad en esta página. Estos cambios entrarán en vigor inmediatamente después de su publicación en esta página.
+            </p>
 
-          <p>
-            Nuestra Política de Privacidad fue creada con la ayuda de{' '}
-            <Link target='_blank' href='https://www.privacypolicygenerator.info' rel='noreferrer' className='text-blue-700 underline'>
-              Privacy Policy Generator
-            </Link>
-            .
-          </p>
-
-          <br />
-          <h3 className='text-3xl mb-4'>Contáctenos</h3>
-          <p>
-            Si tiene alguna pregunta o sugerencia respecto a la Política de privacidad, no dude en contactarnos.
-          </p>
-        </section>
+            <br />
+            <h3 className='text-xl md:text-3xl mb-4'>Contáctenos</h3>
+            <p className='text-sm md:text-base'>
+              Si tiene alguna pregunta o sugerencia respecto a la Política de privacidad, no dude en contactarnos.
+            </p>
+          </section>
+        </div>
       </Layout>
     </>
   )

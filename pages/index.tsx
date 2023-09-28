@@ -25,6 +25,16 @@ export default function Home (): JSX.Element {
               tiempo y los artistas que intervinieron. Cualquier persona desde
               cualquier parte del mundo puede subir sus fotos...
             </p>
+            <div className='flex justify-center gap-4 my-8'>
+              <div className='relative w-32 md:w-52 aspect-[3/1]'>
+                <Link href='https://play.google.com/store/search?q=PointWall&c=apps&hl=es_AR&gl=US' target='_blank' rel='noreferrer'>
+                  <Image src='/images/playstore.jpg' alt='Descargar en playstore' fill className='' />
+                </Link>
+              </div>
+              {/* <div className='relative w-52 aspect-[3/1]'>
+                <Image src='/images/applestore.png' alt='Descargar en appstore' fill />
+              </div> */}
+            </div>
             <p className='mb-8 text-xl md:text-4xl'>
               ¿Estás listo para colaborar con
               un <span className='border-b-4 border-logoPink'>mural</span> o <span className='border-b-4 border-logoBlue'>graffiti</span> de tu barrio?

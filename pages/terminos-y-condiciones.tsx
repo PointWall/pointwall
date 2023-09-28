@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Layout from '@/components/Layout'
-import Link from 'next/link'
 
 interface IList {
   title?: string
@@ -153,49 +152,41 @@ export default function Page (): JSX.Element {
         <title>Términos y Condiciones</title>
       </Head>
       <Layout color='yellow'>
-        <section className='max-w-prose mx-auto my-8'>
-          <h1 className='text-4xl'>
-            Términos y Condiciones
-          </h1>
+        <div className='mx-4'>
+          <section className='max-w-prose mx-auto my-8'>
+            <h1 className='text-2xl md:text-4xl'>
+              Términos y Condiciones
+            </h1>
 
-          {CONTENT.map((section, i) => (
-            <div key={i} className='my-8'>
-              {section.title !== undefined ? <h3 className='text-3xl mb-4'>{section.title}</h3> : null}
-              {section.paragraphs.map((p, i) => (
-                <p key={i} className='my-2'>
-                  {p}
-                </p>
-              )
-              )}
-              {section.lists !== undefined
-                ? (
-                  <div>
-                    {section.lists.map((list) => (
-                      <div key={list.title} className='my-4'>
-                        <p>{list.title}</p>
-                        <ul className='my-2 list-decimal pl-6 space-y-2'>
-                          {list.items.map((item, i) => (
-                            <li key={i}>{item}</li>
-                          ))}
-                        </ul>
-                        {list.footer !== undefined && <div>{list.footer.map((text, i) => <p key={i} className='my-2'>{text}</p>)}</div>}
-                      </div>))}
-                  </div>
-                  )
-                : null}
-            </div>
-          ))}
-
-          <p>
-            El presente Acuerdo entrará en vigor en la fecha del mismo. Nuestros Términos y Condiciones se han creado con la ayuda de
-            {' '}
-            <Link target='_blank' href='https://www.termsandconditionsgenerator.com/' rel='noreferrer' className='text-blue-700 underline'>
-              Free Terms and Conditions Generator
-            </Link>
-            .
-          </p>
-
-        </section>
+            {CONTENT.map((section, i) => (
+              <div key={i} className='my-8'>
+                {section.title !== undefined ? <h3 className='text-xl md:text-3xl mb-4'>{section.title}</h3> : null}
+                {section.paragraphs.map((p, i) => (
+                  <p key={i} className='my-2 text-sm md:text-base'>
+                    {p}
+                  </p>
+                )
+                )}
+                {section.lists !== undefined
+                  ? (
+                    <div>
+                      {section.lists.map((list) => (
+                        <div key={list.title} className='my-4'>
+                          <p className='text-sm md:text-base'>{list.title}</p>
+                          <ul className='my-2 list-decimal pl-6 space-y-2 text-sm md:text-base'>
+                            {list.items.map((item, i) => (
+                              <li key={i}>{item}</li>
+                            ))}
+                          </ul>
+                          {list.footer !== undefined && <div>{list.footer.map((text, i) => <p key={i} className='my-2 text-sm md:text-base'>{text}</p>)}</div>}
+                        </div>))}
+                    </div>
+                    )
+                  : null}
+              </div>
+            ))}
+          </section>
+        </div>
       </Layout>
     </>
   )

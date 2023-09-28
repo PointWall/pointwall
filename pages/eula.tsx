@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Layout from '@/components/Layout'
-import Link from 'next/link'
 
 interface IList {
   title?: string
@@ -123,7 +122,7 @@ const CONTENT: IContent[] = [
 
   {
     title: 'Terminación',
-    paragraphs: ['Este acuerdo de EULA es efectivo a partir de la fecha en que usted utilice por primera vez el software y continuará vigente hasta su terminación. Puede terminarlo']
+    paragraphs: ['Este acuerdo de EULA es efectivo a partir de la fecha en que usted utilice por primera vez el software y continuará vigente hasta su terminación.']
   }
 ]
 
@@ -134,51 +133,53 @@ export default function Page (): JSX.Element {
         <title>EULA</title>
       </Head>
       <Layout color='yellow'>
-        <section className='mx-auto my-8 max-w-prose'>
-          <h1 className='text-4xl'>
-            END-USER LICENSE AGREEMENT (&quot;EULA&quot;)
-          </h1>
+        <div className='mx-4'>
+          <section className='mx-auto my-8 max-w-prose'>
+            <h1 className='md:text-4xl text-2xl'>
+              END-USER LICENSE AGREEMENT (&quot;EULA&quot;)
+            </h1>
 
-          {CONTENT.map((section, i) => (
-            <div key={i} className='my-8'>
-              {section.title !== undefined
-                ? (
-                  <h3 className='mb-4 text-3xl'>{section.title}</h3>
-                  )
-                : null}
-              {section.paragraphs.map((p, i) => (
-                <p key={i} className='my-2'>
-                  {p}
-                </p>
-              ))}
-              {section.lists !== undefined
-                ? (
-                  <div>
-                    {section.lists.map((list) => (
-                      <div key={list.title} className='my-4'>
-                        <p>{list.title}</p>
-                        <ul className='my-2 list-decimal space-y-2 pl-6'>
-                          {list.items.map((item, i) => (
-                            <li key={i}>{item}</li>
-                          ))}
-                        </ul>
-                        {list.footer !== undefined && (
-                          <div>
-                            {list.footer.map((text, i) => (
-                              <p key={i} className='my-2'>
-                                {text}
-                              </p>
+            {CONTENT.map((section, i) => (
+              <div key={i} className='my-8'>
+                {section.title !== undefined
+                  ? (
+                    <h3 className='mb-4 text-xl md:text-3xl'>{section.title}</h3>
+                    )
+                  : null}
+                {section.paragraphs.map((p, i) => (
+                  <p key={i} className='my-2 md:text-base text-sm'>
+                    {p}
+                  </p>
+                ))}
+                {section.lists !== undefined
+                  ? (
+                    <div>
+                      {section.lists.map((list) => (
+                        <div key={list.title} className='my-4'>
+                          <p className='text-sm md:text-base'>{list.title}</p>
+                          <ul className='my-2 list-decimal space-y-2 pl-6'>
+                            {list.items.map((item, i) => (
+                              <li key={i} className='text-sm md:text-base'>{item}</li>
                             ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                  )
-                : null}
-            </div>
-          ))}
-        </section>
+                          </ul>
+                          {list.footer !== undefined && (
+                            <div>
+                              {list.footer.map((text, i) => (
+                                <p key={i} className='my-2 text-sm md:text-base'>
+                                  {text}
+                                </p>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                    )
+                  : null}
+              </div>
+            ))}
+          </section>
+        </div>
       </Layout>
     </>
   )
