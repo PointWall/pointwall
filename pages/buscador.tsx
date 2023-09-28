@@ -187,7 +187,7 @@ export default function Page (): JSX.Element {
                 href='/contribucion'
                 className='text-red-300 hover:underline'
               >
-                formulario de contriubción
+                formulario de contribución
               </Link>
               .
             </p>
