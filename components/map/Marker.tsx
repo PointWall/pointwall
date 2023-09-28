@@ -4,7 +4,8 @@ import { Post } from '@/types/models'
 
 export default function Marker ({ size = 'md', onClick, post }: { onClick: () => any, post: Post, lat: number, lng: number, size?: 'sm' | 'md' | 'lg' }): JSX.Element {
   const [hover, setHover] = useState(false)
-  const K_SIZE = size === 'lg' ? 40 : size === 'md' ? 30 : size === 'sm' ? 20 : 40
+  // const K_SIZE = size === 'lg' ? 40 : size === 'md' ? 30 : size === 'sm' ? 20 : 40
+  const K_SIZE = size === 'lg' ? 20 : size === 'md' ? 30 : size === 'sm' ? 40 : 20
   // const K_SIZE = 40 / zoom
   const greatPlaceStyle = {
     position: 'absolute',
@@ -20,8 +21,8 @@ export default function Marker ({ size = 'md', onClick, post }: { onClick: () =>
     fontSize: 16,
     fontWeight: 'bold',
     padding: 4,
-    cursor: 'pointer',
-    zIndex: -1
+    cursor: 'pointer'
+    // zIndex: -1
   }
 
   const greatPlaceStyleHover = {
@@ -32,8 +33,8 @@ export default function Marker ({ size = 'md', onClick, post }: { onClick: () =>
   const style = hover ? greatPlaceStyleHover : greatPlaceStyle
   return (
     <div onClick={onClick} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+      <div style={style as any} className='z-10' />
       {hover && post != null && <InfoWindow post={post} />}
-      <div style={style as any} />
     </div>
   )
 }

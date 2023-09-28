@@ -72,9 +72,12 @@ function PostModal ({ post, setPostModal }: { post: Post, setPostModal: Function
 
 function PostCard ({ post, setPostModal }: { post: Post, setPostModal: Function }): JSX.Element {
   return (
-    <div className='w-full max-w-xs h-fit border rounded-md hover:shadow-lg hover:scale-[102%] transition-all duration-300'>
-      <div className='p-2 text-center'>
+    <div className='w-full max-w-xs h-fit border rounded-md overflow-hidden hover:shadow-lg hover:scale-[102%] transition-all duration-300'>
+      {/* <div className='p-2 text-center'>
         <h3>{post.title.length > 0 ? post.title : 'Sin título'}</h3>
+      </div> */}
+      <div className='p-2 text-center'>
+        <h3 className='line-clamp-1'>{post.title.length > 0 ? post.title : post.content ?? 'Sin título'}</h3>
       </div>
       <div className='relative cursor-pointer group'>
         <span onClick={() => setPostModal(post)} className='absolute w-full h-full opacity-0 text-white bg-black bg-opacity-50 top-0 left-0 group-hover:opacity-100 flex items-center justify-center transition-all'>
@@ -102,6 +105,14 @@ function PostCard ({ post, setPostModal }: { post: Post, setPostModal: Function 
   )
 }
 
+function PostsColumn ({ posts, setPostModal }: { posts: Post[], setPostModal: Function }): JSX.Element {
+  return (
+    <div className='flex flex-col gap-4'>
+      {posts.map((post) => <PostCard key={post.id} post={post} setPostModal={setPostModal} />)}
+    </div>
+  )
+}
+
 function PostCardSkeleton (): JSX.Element {
   return (
     <div className='w-full max-w-xs h-fit border rounded-md animate-pulse'>
@@ -123,6 +134,7 @@ export default function Page (): JSX.Element {
   const { ref, inView } = useInView({ triggerOnce: true })
   const [skip, setSkip] = useState(0)
   const [posts, setPosts] = useState<Post[]>([])
+  const [postsColumns, setPostsColumns] = useState<Post[][]>([])
   const [postModal, setPostModal] = useState<Post | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   // const [inputState, setInputState] = useState('')
@@ -135,6 +147,7 @@ export default function Page (): JSX.Element {
       setIsLoading(false)
       console.log(posts)
       setPosts(posts)
+      setPostsColumns([posts.slice(0, 5), posts.slice(5, 10), posts.slice(10, 15)])
       setSkip(v => v + 15)
     }
     setIsLoading(true)
@@ -145,9 +158,10 @@ export default function Page (): JSX.Element {
     async function fetchPost (): Promise<any> {
       const res = await fetch(`${API_URL}/posts?includeImages=true&includeAuthor=true&includeLocation=true&take=15`)
       setIsLoading(false)
-      const posts = await res.json()
+      const posts: Post[] = await res.json()
       console.log(posts)
       setPosts(posts)
+      setPostsColumns([posts.slice(0, 5), posts.slice(5, 10), posts.slice(10, 15)])
       setSkip(v => v + 15)
     }
     setIsLoading(true)
@@ -209,7 +223,11 @@ export default function Page (): JSX.Element {
               {isLoading
                 ? new Array(15).fill(1).map((_, i) => <PostCardSkeleton key={i} />)
                 : posts.length > 0
-                  ? posts.map((post) => <PostCard key={post.id} post={post} setPostModal={setPostModal} />)
+                  ? (
+                    <div className='flex gap-4'>
+                      {postsColumns.map((column, i) => <PostsColumn key={i} posts={column} setPostModal={setPostModal} />)}
+                    </div>
+                    )
                   : <p>No se encontraron publicaciones que coincidan con los criterios de búsqueda</p>}
             </div>
           </section>
