@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Component (): JSX.Element {
   const { data: session } = useSession()
-
+  console.log({ session })
   function handleLogin (): void {
     signIn('google').catch(console.error)
   }
@@ -13,6 +13,8 @@ export default function Component (): JSX.Element {
   }
 
   if (session != null) {
+    console.log('la sesion', session)
+
     return (
       <section className='ml-auto flex items-center gap-2 text-lg'>
         <div className='relative aspect-square w-8 overflow-hidden rounded-full'>

@@ -45,8 +45,6 @@ const LINKS: LinkI[] = [
 export default function Header (): JSX.Element {
   const [isMenuVisible, setIsMenuVisible] = useState(false)
 
-  // const { data: session } = useSession()
-
   const colorVariants: ColorVariant = {
     red: 'hover:text-logoRed after:bg-logoRed',
     orange: 'hover:text-logoOrange after:bg-logoOrange',
